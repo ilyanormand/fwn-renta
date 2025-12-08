@@ -1,0 +1,27 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "8c01a7095b3501fedec2ba680592ee60"
+name = "dev-ilya"
+application_url = "https://example.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+include_config_on_deploy = true
+
+[webhooks]
+api_version = "2025-07"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://shopifyfwnautomation.fly.dev/auth/callback",
+  "https://shopifyfwnautomation.fly.dev/auth/shopify/callback",
+  "https://shopifyfwnautomation.fly.dev/api/auth/callback"
+]
+
+[pos]
+embedded = false

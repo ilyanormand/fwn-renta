@@ -1,0 +1,75 @@
+{
+  "vendor": {
+    "name": "Power Body Nutrition Ltd.",
+    "currency": "EUR",
+    "language": "en"
+  },
+  "preprocess": "deduplicate",
+  "header": {
+    "fields": [
+      {
+        "name": "invoice_number",
+        "regex": "Invoice\\s+number:\\s*(\\d+)",
+        "group": 1
+      },
+      {
+        "name": "invoice_date",
+        "regex": "Date\\s+of\\s+sale:\\s*(\\d{4}-\\d{2}-\\d{2})",
+        "group": 1,
+        "type": "date"
+      }
+    ]
+  },
+  "table": {
+    "strategy": "pdfplumber_table",
+    "header_keywords": [
+      "cnt",
+      "name of product",
+      "quantity"
+    ],
+    "columns": [
+      {
+        "name": "description",
+        "index": 2,
+        "type": "string"
+      },
+      {
+        "name": "unit_price",
+        "index": 3,
+        "type": "number"
+      },
+      {
+        "name": "quantity",
+        "index": 4,
+        "type": "number"
+      },
+      {
+        "name": "total",
+        "index": 5,
+        "type": "number"
+      }
+    ]
+  },
+  "footer": {
+    "fields": [
+      {
+        "name": "subtotal",
+        "regex": "Subtotal\\s+Net:\\s*€([\\d,.]+)",
+        "group": 1,
+        "type": "number"
+      },
+      {
+        "name": "total",
+        "regex": "Total\\s+to\\s+Pay:\\s*€([\\d,.]+)",
+        "group": 1,
+        "type": "number"
+      },
+      {
+        "name": "credit",
+        "regex": "Credit:\\s*€([-\\d,.]+)",
+        "group": 1,
+        "type": "number"
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+File: FRA 253427 SARL FITNESS 15.10.pdf
+Items: 61
+Calculated Total from Items: 454234.54
+Extracted Total: 28815.14
+Expected: 28815.14
+❌ MISMATCH (Diff: 425419.40)
+Top 5 duplicate SKUs:
+  IGGLY540: 2
+  IGCOFO3LI: 2
+  IGCO4FR: 2
+  IGW2CHM: 1
+  IGW2PIS: 1
+First 5 items:
+  {'sku': 'IGW2CHM', 'description': 'De Albarán Nº 25-4002 del 08/10/2025: WHEY 80 PROFESIONAL 2 KG. CHOCO MILK BAR(IO GENIX) Caducidad 30/07/2027, Lote 253293 Und. 16 Nº Cod. Imp.: 21061080 - 2,000 Kg / 32,000 Kg WHEY 80 PROFESIONAL 2 KG. PISTACHIO ICE CREAM (IO GENIX) Caducidad 30/07/2027, Lote 253683 Und. 20 Nº Cod. Imp.: 21061080 - 2,000 Kg / 40,000 Kg WHEY 80 PROFESIONAL 2 KG. CHOCOKRAC (IO GENIX) Caducidad 30/09/2027, Lote 255544 Und. 16 Nº Cod. Imp.: 21061080 - 2,000 Kg / 32,000 Kg WHEY SUBLIME 1.5 KG COOKIE DOUGH (IO GENIX) Caducidad 30/09/2027, Lote 255291 Und. 40 Nº Cod. Imp.: 21061080 - 1,500 Kg / 60,000 Kg ISOWHEY SUBLIME 1.5 KG CHOCO MILK CRUNCHY BAR (IO GENIX) Caducidad 30/08/2027, Lote 254965 Und. 40 Nº Cod. Imp.: 21061080 - 1,500 Kg / 60,000 Kg ISOWHEY SUBLIME 1.5 KG. COOKIE DOUGH (IO GENIX) Caducidad 30/09/2027, Lote 255005 Und. 60 Nº Cod. Imp.: 21061080 - 1,500 Kg / 90,000 Kg ISOWHEY SUBLIME 1.5 KG WHITE CHOCO', 'quantity': '16.0', 'unit_price': '34.98', 'total': '559.66'}
+  {'sku': 'IGW2PIS', 'description': '', 'quantity': '20.0', 'unit_price': '34.98', 'total': '699.58'}
+  {'sku': 'IGW2CHKR', 'description': '', 'quantity': '16.0', 'unit_price': '34.98', 'total': '559.66'}
+  {'sku': 'IGWSU15CODO', 'description': '', 'quantity': '40.0', 'unit_price': '27.61', 'total': '1104.21'}
+  {'sku': 'IGIW15CHMCR', 'description': '', 'quantity': '40.0', 'unit_price': '36.82', 'total': '1472.89'}
+----------------------------------------
+File: FRA 253683 SARL FITNESS WORLD 03.11.pdf
+Items: 61
+Calculated Total from Items: 46794.55
+Extracted Total: 18664.24
+Expected: 18664.24
+❌ MISMATCH (Diff: 28130.31)
+Top 5 duplicate SKUs:
+  IGMA1ME: 2
+  IGBC300PE: 2
+  IGGLY540: 2
+  IGPWNS320LR: 2
+  IGCOFO3LI: 2
+First 5 items:
+  {'sku': 'IGW2CH', 'description': 'De Albarán Nº 25-4316 del 30/10/2025: WHEY 80 PROFESIONAL 2 KG. CHOCOLATE (IO GENIX) Caducidad 30/09/2027, Lote 255307 Und. 8 Nº Cod. Imp.: 21061080 - 2,000 Kg / 16,000 Kg WHEY 80 PROFESIONAL 2 KG. CHOCO MILK BAR(IO GENIX) Caducidad 30/07/2027, Lote 253293 Und. 16 Nº Cod. Imp.: 21061080 - 2,000 Kg / 32,000 Kg WHEY 80 PROFESIONAL 2 KG. CHOCOKRAC (IO GENIX) Caducidad 30/09/2027, Lote 255544 Und. 16 Nº Cod. Imp.: 21061080 - 2,000 Kg / 32,000 Kg WHEY SUBLIME 1.5 KG. CHOCO MILK CRUNCHY BAR(IO GENIX) Caducidad 30/09/2027, Lote 255601 Und. 4 Nº Cod. Imp.: 21061080 - 1,500 Kg / 6,000 Kg WHEY SUBLIME 1.5 KG ROCHELLO (IO GENIX) Caducidad 30/09/2027, Lote 255432 Und. 8 Nº Cod. Imp.: 21061080 - 1,500 Kg / 12,000 Kg ISOWHEY SUBLIME 1.5 KG CHOCO MILK CRUNCHY BAR (IO GENIX) Caducidad 30/10/2027, Lote 255999 Und. 20 Nº Cod. Imp.: 21061080 - 1,500 Kg / 30,000 Kg ISOWHEY SUBLIME 1.5 KG. COOKIE DOUGH (IO GENIX) Caducidad 30/09/2027, Lote 255005 Und. 12', 'quantity': '8.0', 'unit_price': '36.82', 'total': '294.52'}
+  {'sku': 'IGW2CHM', 'description': '', 'quantity': '16.0', 'unit_price': '36.82', 'total': '589.05'}
+  {'sku': 'IGW2CHKR', 'description': '', 'quantity': '16.0', 'unit_price': '36.82', 'total': '589.05'}
+  {'sku': 'IGWSU15CHMCR', 'description': '', 'quantity': '4.0', 'unit_price': '29.05', 'total': '116.22'}
+  {'sku': 'IGWSU15RO', 'description': '', 'quantity': '8.0', 'unit_price': '29.05', 'total': '232.44'}
+----------------------------------------

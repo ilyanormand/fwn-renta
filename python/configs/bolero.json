@@ -1,0 +1,75 @@
+{
+    "vendor": {
+        "name": "Bolero",
+        "currency": "EUR",
+        "language": "en"
+    },
+    "header": {
+        "fields": [
+            {
+                "name": "invoice_number",
+                "regex": "Invoice\\s+(?:No\\.?|Number)\\s*:?\\s*(\\w+\\d+)",
+                "group": 1
+            },
+            {
+                "name": "invoice_date",
+                "regex": "(?:Invoice )?Date\\s*:?\\s*(\\d{1,2}[\\/-]\\d{1,2}[\\/-]\\d{2,4})",
+                "group": 1,
+                "type": "date"
+            }
+        ]
+    },
+    "table": {
+        "strategy": "pdfplumber_table",
+        "header_keywords": [
+            "article",
+            "description",
+            "quantity",
+            "price",
+            "amount"
+        ],
+        "columns": [
+            {
+                "name": "description",
+                "index": 0,
+                "type": "string"
+            },
+            {
+                "name": "sku",
+                "index": 1,
+                "type": "string"
+            },
+            {
+                "name": "quantity",
+                "index": 2,
+                "type": "number"
+            },
+            {
+                "name": "unit_price",
+                "index": 4,
+                "type": "number"
+            },
+            {
+                "name": "total",
+                "index": 6,
+                "type": "number"
+            }
+        ]
+    },
+    "footer": {
+        "fields": [
+            {
+                "name": "subtotal",
+                "regex": "Subtotal.*?([\\d.,]+)",
+                "group": 1,
+                "type": "number"
+            },
+            {
+                "name": "total",
+                "regex": "Total.*?([\\d.,]+)",
+                "group": 1,
+                "type": "number"
+            }
+        ]
+    }
+}

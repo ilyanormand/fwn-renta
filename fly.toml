@@ -1,0 +1,33 @@
+# fly.toml app configuration file generated for shopifyfwnautomation on 2025-10-17T17:14:01+02:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'shopifyfwnautomation'
+primary_region = 'fra'
+
+[env]
+  PORT = '3000'
+  SCOPES = 'write_products'
+  SHOPIFY_API_KEY = 'e1635834a813b89b95822784db1ca869'
+  SHOPIFY_APP_URL = 'https://shopifyfwnautomation.fly.dev'
+
+[[mounts]]
+  source = 'data'
+  destination = '/data'
+  auto_extend_size_threshold = 80
+  auto_extend_size_increment = '1GB'
+  auto_extend_size_limit = '10GB'
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '2gb'
+  cpu_kind = 'shared'
+  cpus = 2

@@ -1,0 +1,462 @@
+🚀 Starting TypeScript Integration Test...
+📂 Test Directory: /Users/ilya/Desktop/work/fitness/Renta/ShopifyFWNAutomation/python/test_invoices
+ℹ️  Loaded 125 expected totals.
+
+Vendor: Addict
+🔍 PDF PARSING START - File: /Users/ilya/Desktop/work/fitness/Renta/ShopifyFWNAutomation/python/test_invoices/Addict/Facture No 12065_1745586980578.pdf, Supplier: "Addict"
+DEBUG: usePythonParser=false
+🔍 Supplier: Addict, isOstrovit: false, isOstrovit2: false
+DEBUG SELECT PARSER: normalizedName='addict'
+DEBUG SELECT PARSER: Selected AddictParser
+DEBUG ADDICT LINE: ASN EUROPE FACTURE  N°  12065 TOTAUX
+DEBUG ADDICT LINE: 3 RUE DU GOLF TOTAL HT 14 906,34 €
+DEBUG ADDICT LINE: 33701 MERIGNAC CEDEX FAIT LE : 25/04/25
+DEBUG ADDICT LINE: CODE CLIENT :
+DEBUG ADDICT LINE: 05 56 64 72 12 TOTAL TVA 20,0 % 72,00 €
+DEBUG ADDICT LINE: INFO@ADDICTSPORTNUTRITION.COM SIRET DU SIÈGE :  89775691200019
+DEBUG ADDICT LINE: N° TVA INTRACOMMUNAUTAIRE TOTAL TVA 5,5 % :  800,05 €
+DEBUG ADDICT LINE: RÉF ACHETEUR :
+DEBUG ADDICT LINE: TOTAL TTC 15 778,39 €
+DEBUG ADDICT LINE: N° BON DE COMMANDE :
+DEBUG ADDICT LINE: ADRESSÉ À :
+DEBUG ADDICT LINE: DATE D'ÉCHÉANCE :  25/04/25
+DEBUG ADDICT LINE: MODE DE PAIEMENT :  VIREMENT SUR LE COMPTE IBAN : FR76 3000 4018 7000 0100 3188 102 (BIC : BNPAFRPPXXX) FITNESS WORLD NUTRITION
+DEBUG ADDICT LINE: 9 RUE DES COLONNES
+DEBUG ADDICT LINE: 75002 PARIS
+DEBUG ADDICT LINE: OBJET :
+DEBUG ADDICT LINE: CODE LIBELLÉ Q. PU REMISE PRIX HT % TVA
+✅ Addict Header found at Y=16.5: Code Libellé Q. PU Remise Prix HT % TVA
+DEBUG ADDICT ROW LINE: W2CC ANABOLIC TRIPLE WHEY COMPLEX 2 KG 72.00 32,00 2,00 % 2 257,92 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"W2CC","x":1.712},{"t":"ANABOLIC TRIPLE WHEY COMPLEX 2 KG","x":4.281},{"t":"72.00","x":18.262},{"t":"32,00","x":22.4},{"t":"2,00 %","x":25.231},{"t":"2","x":30.563},{"t":"257,92","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 24 CHO / 8 VAN / 8 SNIK / 24 SALT / 8 CHO.HAZ
+DEBUG ADDICT ROW ITEMS: [{"t":"24 CHO / 8 VAN / 8 SNIK / 24 SALT / 8 CHO.HAZ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: CFM1 ISOPURE CFM 90  1 KG 143.00 22,50 2,00 % 3 153,15 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"CFM1","x":1.712},{"t":"ISOPURE CFM 90  1 KG","x":4.281},{"t":"143.00","x":17.994},{"t":"22,50","x":22.4},{"t":"2,00 %","x":25.231},{"t":"3","x":30.563},{"t":"153,15","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 55 CHO / 44 SNIK / 22 CHO.HAZ / 22 SALT
+DEBUG ADDICT ROW ITEMS: [{"t":"55 CHO / 44 SNIK / 22 CHO.HAZ / 22 SALT ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: CFM2 ISOPURE CFM 90  2 KG 178.00 42,15 2,00 % 7 352,65 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"CFM2","x":1.712},{"t":"ISOPURE CFM 90  2 KG","x":4.281},{"t":"178.00","x":17.994},{"t":"42,15","x":22.4},{"t":"2,00 %","x":25.231},{"t":"7","x":30.563},{"t":"352,65","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 48 CHO / 32 VAN / 4 CC / 24 SNI / 34 CHO.HAZ / 16
+DEBUG ADDICT ROW ITEMS: [{"t":"48 CHO / 32 VAN / 4 CC / 24 SNI / 34 CHO.HAZ / 16 ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: TIRA / 20 SALT
+DEBUG ADDICT ROW ITEMS: [{"t":"TIRA / 20 SALT ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: NATIVE2 100% NATIVE WHEY ZERO LACTOSE 2 KG 48.00 33,00 2,00 % 1 552,32 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"NATIVE2","x":1.712},{"t":"100% NATIVE WHEY ZERO LACTOSE 2 KG","x":4.281},{"t":"48.00","x":18.262},{"t":"33,00","x":22.4},{"t":"2,00 %","x":25.231},{"t":"1","x":30.563},{"t":"552,32","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 12 CHO / 12 VAN / 16 CHO.HAZ / 8 SALT
+DEBUG ADDICT ROW ITEMS: [{"t":"12 CHO / 12 VAN / 16 CHO.HAZ / 8 SALT ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: RAW RAW BOOST 300 GR 5.00 12,00 2,00 % 58,80 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"RAW","x":1.712},{"t":"RAW BOOST 300 GR","x":4.281},{"t":"5.00","x":18.531},{"t":"12,00","x":22.4},{"t":"2,00 %","x":25.231},{"t":"58,80","x":31.231},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 5 CAN
+DEBUG ADDICT ROW ITEMS: [{"t":"5 CAN ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: RIPPEX RIPPEX 8   150 CAPS 5.00 11,00 2,00 % 53,90 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"RIPPEX","x":1.712},{"t":"RIPPEX 8   150 CAPS","x":4.281},{"t":"5.00","x":18.531},{"t":"11,00","x":22.4},{"t":"2,00 %","x":25.231},{"t":"53,90","x":31.231},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: TB THERMO BURN MATRIX 100 CAPS 15.00 8,00 2,00 % 117,60 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"TB","x":1.712},{"t":"THERMO BURN MATRIX 100 CAPS","x":4.281},{"t":"15.00","x":18.262},{"t":"8,00","x":22.669},{"t":"2,00 %","x":25.231},{"t":"117,60","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: GOODIE GOODIES 1.00 0,00 0,00 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"GOODIE","x":1.712},{"t":"GOODIES","x":4.281},{"t":"1.00","x":18.531},{"t":"0,00","x":22.669},{"t":"0,00","x":31.506},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: S
+DEBUG ADDICT ROW ITEMS: [{"t":"S","x":1.712}]
+DEBUG ADDICT ROW FAIL: SKU=S, Qty=null, Unit=null, Total=null
+DEBUG ADDICT ROW LINE: SAMPLES PRODUITS EN COMMANDE
+DEBUG ADDICT ROW ITEMS: [{"t":"SAMPLES PRODUITS EN COMMANDE ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: PORT FRAIS DE PORT 3.00 120,00 360,00 20,00 %
+DEBUG ADDICT ROW ITEMS: [{"t":"PORT","x":1.712},{"t":"FRAIS DE PORT","x":4.281},{"t":"3.00","x":18.531},{"t":"120,00","x":22.131},{"t":"360,00","x":30.962},{"t":"20,00 %","x":33.244}]
+DEBUG ADDICT ROW LINE: 3 PALETTES EUROPE
+DEBUG ADDICT ROW ITEMS: [{"t":"3 PALETTES EUROPE ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: Le règlement se fait sans escompte. En cas de retard de paiement, il sera appliqué une pénalité égale à 3 fois le taux légal. Le règlement se fait sans escompte. En cas de retard de paiement, il sera appliqué une pénalité égale à 3 fois le taux légal.
+DEBUG ADDICT ROW ITEMS: [{"t":"Le règlement se fait sans escompte. En cas de retard de paiement, il sera appliqué une pénalité égale à 3 fois le taux légal.","x":5.056},{"t":"Le règlement se fait sans escompte. En cas de retard de paiement, il sera appliqué une pénalité égale à 3 fois le taux légal.","x":5.056}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: Facture Facture  N°   N°  12065 12065 Page  Page  1 2  /   /  2 2
+DEBUG ADDICT ROW ITEMS: [{"t":"Facture","x":1.7},{"t":"Facture","x":1.7},{"t":" N° ","x":3.369},{"t":" N° ","x":3.369},{"t":"12065","x":4.194},{"t":"12065","x":4.194},{"t":"Page ","x":32.806},{"t":"Page ","x":32.806},{"t":"1","x":34.081},{"t":"2","x":34.081},{"t":" / ","x":34.35},{"t":" / ","x":34.35},{"t":"2","x":34.756},{"t":"2","x":34.756}]
+DEBUG ADDICT ROW FAIL: SKU=Facture, Qty=null, Unit=null, Total=0
+DEBUG ADDICT ROW LINE: ASN EUROPE ASN EUROPE
+DEBUG ADDICT ROW ITEMS: [{"t":"ASN EUROPE","x":16.731},{"t":"ASN EUROPE","x":16.731}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: SARL au capital de 100 SARL au capital de 100 000 euros 000 euros
+DEBUG ADDICT ROW ITEMS: [{"t":"SARL au capital de 100","x":14.644},{"t":"SARL au capital de 100","x":14.644},{"t":"000 euros","x":19.906},{"t":"000 euros","x":19.906}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: 3 RUE DU GOLF 33701 MERIGNAC CEDEX FR 3 RUE DU GOLF 33701 MERIGNAC CEDEX FR
+DEBUG ADDICT ROW ITEMS: [{"t":"3 RUE DU GOLF 33701 MERIGNAC CEDEX FR","x":13},{"t":"3 RUE DU GOLF 33701 MERIGNAC CEDEX FR","x":13}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: Tel :  Tel :  05 56 64 72 12 05 56 64 72 12  -   -  info@addictsportnutrition.com info@addictsportnutrition.com
+DEBUG ADDICT ROW ITEMS: [{"t":"Tel : ","x":12.75},{"t":"Tel : ","x":12.75},{"t":"05 56 64 72 12","x":13.831},{"t":"05 56 64 72 12","x":13.831},{"t":" - ","x":17.075},{"t":" - ","x":17.075},{"t":"info@addictsportnutrition.com","x":17.506},{"t":"info@addictsportnutrition.com","x":17.506}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: SIRET : 79085841900027 - N° TVA : FR83790858419 - APE : 4638B SIRET : 79085841900027 - N° TVA : FR83790858419 - APE : 4638B
+DEBUG ADDICT ROW ITEMS: [{"t":"SIRET : 79085841900027 - N° TVA : FR83790858419 - APE : 4638B","x":10.863},{"t":"SIRET : 79085841900027 - N° TVA : FR83790858419 - APE : 4638B","x":10.863}]
+The invoice name test: Facture No 12065_1745586980578.pdf, total expected: 14906.34, total output: 0.00
+Status: Failed
+🔍 PDF PARSING START - File: /Users/ilya/Desktop/work/fitness/Renta/ShopifyFWNAutomation/python/test_invoices/Addict/Facture No 12191_1750170897462.pdf, Supplier: "Addict"
+DEBUG: usePythonParser=false
+🔍 Supplier: Addict, isOstrovit: false, isOstrovit2: false
+DEBUG SELECT PARSER: normalizedName='addict'
+DEBUG SELECT PARSER: Selected AddictParser
+DEBUG ADDICT LINE: ASN EUROPE FACTURE  N°  12191 TOTAUX
+DEBUG ADDICT LINE: 3 RUE DU GOLF TOTAL HT 12 379,55 €
+DEBUG ADDICT LINE: 33701 MERIGNAC CEDEX FAIT LE : 17/06/25
+DEBUG ADDICT LINE: CODE CLIENT :
+DEBUG ADDICT LINE: 05 56 64 72 12 TOTAL TVA 20,0 % 48,00 €
+DEBUG ADDICT LINE: INFO@ADDICTSPORTNUTRITION.COM SIRET DU SIÈGE :  89775691200019
+DEBUG ADDICT LINE: N° TVA INTRACOMMUNAUTAIRE TOTAL TVA 5,5 % :  667,68 €
+DEBUG ADDICT LINE: RÉF ACHETEUR :
+DEBUG ADDICT LINE: TOTAL TTC 13 095,23 €
+DEBUG ADDICT LINE: N° BON DE COMMANDE :
+DEBUG ADDICT LINE: ADRESSÉ À :
+DEBUG ADDICT LINE: DATE D'ÉCHÉANCE :  17/06/25
+DEBUG ADDICT LINE: MODE DE PAIEMENT :  VIREMENT SUR LE COMPTE IBAN : FR76 3000 4018 7000 0100 3188 102 (BIC : BNPAFRPPXXX) FITNESS WORLD NUTRITION
+DEBUG ADDICT LINE: 9 RUE DES COLONNES
+DEBUG ADDICT LINE: 75002 PARIS
+DEBUG ADDICT LINE: OBJET :
+DEBUG ADDICT LINE: CODE LIBELLÉ Q. PU REMISE PRIX HT % TVA
+✅ Addict Header found at Y=16.5: Code Libellé Q. PU Remise Prix HT % TVA
+DEBUG ADDICT ROW LINE: PUMP PUMP CUTS 360 GR 5.00 13,00 2,00 % 63,70 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"PUMP","x":1.712},{"t":"PUMP CUTS 360 GR","x":4.281},{"t":"5.00","x":18.531},{"t":"13,00","x":22.4},{"t":"2,00 %","x":25.231},{"t":"63,70","x":31.231},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 5 TROP
+DEBUG ADDICT ROW ITEMS: [{"t":"5 TROP ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: W2CC ANABOLIC TRIPLE WHEY COMPLEX 2 KG 16.00 32,00 2,00 % 501,76 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"W2CC","x":1.712},{"t":"ANABOLIC TRIPLE WHEY COMPLEX 2 KG","x":4.281},{"t":"16.00","x":18.262},{"t":"32,00","x":22.4},{"t":"2,00 %","x":25.231},{"t":"501,76","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 8 CHO / 4 CC / 4 SNI
+DEBUG ADDICT ROW ITEMS: [{"t":"8 CHO / 4 CC / 4 SNI ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: CFM1 ISOPURE CFM 90  1 KG 143.00 22,50 2,00 % 3 153,15 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"CFM1","x":1.712},{"t":"ISOPURE CFM 90  1 KG","x":4.281},{"t":"143.00","x":17.994},{"t":"22,50","x":22.4},{"t":"2,00 %","x":25.231},{"t":"3","x":30.563},{"t":"153,15","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 39 CHO / 13 VAN / 13 CC / 39 SNI / 13 TIRA / 26 SALT
+DEBUG ADDICT ROW ITEMS: [{"t":"39 CHO / 13 VAN / 13 CC / 39 SNI / 13 TIRA / 26 SALT","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: CFM2 ISOPURE CFM 90  2 KG 152.00 42,15 2,00 % 6 278,66 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"CFM2","x":1.712},{"t":"ISOPURE CFM 90  2 KG","x":4.281},{"t":"152.00","x":17.994},{"t":"42,15","x":22.4},{"t":"2,00 %","x":25.231},{"t":"6","x":30.563},{"t":"278,66","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 36 CHO / 16 VAN / 8 CC / 36 SNI / 32 CHO.HAZ  / 8
+DEBUG ADDICT ROW ITEMS: [{"t":"36 CHO / 16 VAN / 8 CC / 36 SNI / 32 CHO.HAZ  / 8 ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: SALT / 16 TOFF
+DEBUG ADDICT ROW ITEMS: [{"t":"SALT / 16 TOFF ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: NATIVE2 100% NATIVE WHEY ZERO LACTOSE 2 KG 52.00 33,00 2,00 % 1 681,68 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"NATIVE2","x":1.712},{"t":"100% NATIVE WHEY ZERO LACTOSE 2 KG","x":4.281},{"t":"52.00","x":18.262},{"t":"33,00","x":22.4},{"t":"2,00 %","x":25.231},{"t":"1","x":30.563},{"t":"681,68","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 8 CHO / 12 VAN / 16 SNI / 12 SALT / 4 TOFF
+DEBUG ADDICT ROW ITEMS: [{"t":"8 CHO / 12 VAN / 16 SNI / 12 SALT / 4 TOFF ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: RAW RAW BOOST 300 GR 10.00 12,00 2,00 % 117,60 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"RAW","x":1.712},{"t":"RAW BOOST 300 GR","x":4.281},{"t":"10.00","x":18.262},{"t":"12,00","x":22.4},{"t":"2,00 %","x":25.231},{"t":"117,60","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: CANDY 10 + 1
+DEBUG ADDICT ROW ITEMS: [{"t":"CANDY 10 + 1 ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: RIPPEX RIPPEX 8   150 CAPS 10.00 11,00 2,00 % 107,80 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"RIPPEX","x":1.712},{"t":"RIPPEX 8   150 CAPS","x":4.281},{"t":"10.00","x":18.262},{"t":"11,00","x":22.4},{"t":"2,00 %","x":25.231},{"t":"107,80","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: TB THERMO BURN MATRIX 100 CAPS 30.00 8,00 2,00 % 235,20 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"TB","x":1.712},{"t":"THERMO BURN MATRIX 100 CAPS","x":4.281},{"t":"30.00","x":18.262},{"t":"8,00","x":22.669},{"t":"2,00 %","x":25.231},{"t":"235,20","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: CFM2 ISOPURE CFM 90  2 KG 1.00 0,00 0,00 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"CFM2","x":1.712},{"t":"ISOPURE CFM 90  2 KG","x":4.281},{"t":"1.00","x":18.531},{"t":"0,00","x":22.669},{"t":"0,00","x":31.506},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 1 TIRA MANQUANT SUR DERNIERE COMMANDE
+DEBUG ADDICT ROW ITEMS: [{"t":"1 TIRA MANQUANT SUR DERNIERE COMMANDE ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: GOODIE GOODIES 1.00 0,00 0,00 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"GOODIE","x":1.712},{"t":"GOODIES","x":4.281},{"t":"1.00","x":18.531},{"t":"0,00","x":22.669},{"t":"0,00","x":31.506},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: S
+DEBUG ADDICT ROW ITEMS: [{"t":"S","x":1.712}]
+DEBUG ADDICT ROW FAIL: SKU=S, Qty=null, Unit=null, Total=null
+DEBUG ADDICT ROW LINE: SAMPLES PRODUITS EN COMMANDE
+DEBUG ADDICT ROW ITEMS: [{"t":"SAMPLES PRODUITS EN COMMANDE ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: PORT FRAIS DE PORT 2.00 120,00 240,00 20,00 %
+DEBUG ADDICT ROW ITEMS: [{"t":"PORT","x":1.712},{"t":"FRAIS DE PORT","x":4.281},{"t":"2.00","x":18.531},{"t":"120,00","x":22.131},{"t":"240,00","x":30.962},{"t":"20,00 %","x":33.244}]
+DEBUG ADDICT ROW LINE: 2 PALETTES FULL
+DEBUG ADDICT ROW ITEMS: [{"t":"2 PALETTES FULL ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: Le règlement se fait sans escompte. En cas de retard de paiement, il sera appliqué une pénalité égale à 3 fois le taux légal. Le règlement se fait sans escompte. En cas de retard de paiement, il sera appliqué une pénalité égale à 3 fois le taux légal.
+DEBUG ADDICT ROW ITEMS: [{"t":"Le règlement se fait sans escompte. En cas de retard de paiement, il sera appliqué une pénalité égale à 3 fois le taux légal.","x":5.056},{"t":"Le règlement se fait sans escompte. En cas de retard de paiement, il sera appliqué une pénalité égale à 3 fois le taux légal.","x":5.056}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: Facture Facture  N°   N°  12191 12191 Page  Page  1 2  /   /  2 2
+DEBUG ADDICT ROW ITEMS: [{"t":"Facture","x":1.7},{"t":"Facture","x":1.7},{"t":" N° ","x":3.369},{"t":" N° ","x":3.369},{"t":"12191","x":4.194},{"t":"12191","x":4.194},{"t":"Page ","x":32.806},{"t":"Page ","x":32.806},{"t":"1","x":34.081},{"t":"2","x":34.081},{"t":" / ","x":34.35},{"t":" / ","x":34.35},{"t":"2","x":34.756},{"t":"2","x":34.756}]
+DEBUG ADDICT ROW FAIL: SKU=Facture, Qty=null, Unit=null, Total=0
+DEBUG ADDICT ROW LINE: ASN EUROPE ASN EUROPE
+DEBUG ADDICT ROW ITEMS: [{"t":"ASN EUROPE","x":16.731},{"t":"ASN EUROPE","x":16.731}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: SARL au capital de 100 SARL au capital de 100 000 euros 000 euros
+DEBUG ADDICT ROW ITEMS: [{"t":"SARL au capital de 100","x":14.644},{"t":"SARL au capital de 100","x":14.644},{"t":"000 euros","x":19.906},{"t":"000 euros","x":19.906}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: 3 RUE DU GOLF 33701 MERIGNAC CEDEX FR 3 RUE DU GOLF 33701 MERIGNAC CEDEX FR
+DEBUG ADDICT ROW ITEMS: [{"t":"3 RUE DU GOLF 33701 MERIGNAC CEDEX FR","x":13},{"t":"3 RUE DU GOLF 33701 MERIGNAC CEDEX FR","x":13}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: Tel :  Tel :  05 56 64 72 12 05 56 64 72 12  -   -  info@addictsportnutrition.com info@addictsportnutrition.com
+DEBUG ADDICT ROW ITEMS: [{"t":"Tel : ","x":12.75},{"t":"Tel : ","x":12.75},{"t":"05 56 64 72 12","x":13.831},{"t":"05 56 64 72 12","x":13.831},{"t":" - ","x":17.075},{"t":" - ","x":17.075},{"t":"info@addictsportnutrition.com","x":17.506},{"t":"info@addictsportnutrition.com","x":17.506}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: SIRET : 79085841900027 - N° TVA : FR83790858419 - APE : 4638B SIRET : 79085841900027 - N° TVA : FR83790858419 - APE : 4638B
+DEBUG ADDICT ROW ITEMS: [{"t":"SIRET : 79085841900027 - N° TVA : FR83790858419 - APE : 4638B","x":10.863},{"t":"SIRET : 79085841900027 - N° TVA : FR83790858419 - APE : 4638B","x":10.863}]
+The invoice name test: Facture No 12191_1750170897462.pdf, total expected: 12379.55, total output: 0.00
+Status: Failed
+🔍 PDF PARSING START - File: /Users/ilya/Desktop/work/fitness/Renta/ShopifyFWNAutomation/python/test_invoices/Addict/Facture No 12279_1753446100339.pdf, Supplier: "Addict"
+DEBUG: usePythonParser=false
+🔍 Supplier: Addict, isOstrovit: false, isOstrovit2: false
+DEBUG SELECT PARSER: normalizedName='addict'
+DEBUG SELECT PARSER: Selected AddictParser
+DEBUG ADDICT LINE: DATE D'ÉCHÉANCE :  25/07/25
+DEBUG ADDICT LINE: ASN EUROPE FACTURE  N°  12279
+DEBUG ADDICT LINE: MODE DE PAIEMENT :  VIREMENT SUR LE COMPTE IBAN : FR76 3000 4018 7000 0100 3188 102 (BIC : BNPAFRPPXXX) 3 RUE DU GOLF
+DEBUG ADDICT LINE: 33701 MERIGNAC CEDEX FAIT LE : 25/07/25
+DEBUG ADDICT LINE: CODE CLIENT :
+DEBUG ADDICT LINE: 05 56 64 72 12
+DEBUG ADDICT LINE: INFO@ADDICTSPORTNUTRITION.COM SIRET DU SIÈGE :  89775691200019
+DEBUG ADDICT LINE: N° TVA INTRACOMMUNAUTAIRE :
+DEBUG ADDICT LINE: RÉF ACHETEUR :
+DEBUG ADDICT LINE: N° BON DE COMMANDE :
+DEBUG ADDICT LINE: ADRESSÉ À :
+DEBUG ADDICT LINE: FITNESS WORLD NUTRITION
+DEBUG ADDICT LINE: 9 RUE DES COLONNES
+DEBUG ADDICT LINE: 75002 PARIS
+DEBUG ADDICT LINE: OBJET :
+DEBUG ADDICT LINE: CODE LIBELLÉ Q. PU REMISE PRIX HT % TVA
+✅ Addict Header found at Y=16.5: Code Libellé Q. PU Remise Prix HT % TVA
+DEBUG ADDICT ROW LINE: NATIVE2 100% NATIVE WHEY ZERO LACTOSE 2 KG 36.00 33,00 2,00 % 1 164,24 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"NATIVE2","x":1.712},{"t":"100% NATIVE WHEY ZERO LACTOSE 2 KG","x":4.281},{"t":"36.00","x":18.262},{"t":"33,00","x":22.4},{"t":"2,00 %","x":25.231},{"t":"1","x":30.563},{"t":"164,24","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 6 CHO / 6 CC / 12 CHO.HAZ / 12 SALT
+DEBUG ADDICT ROW ITEMS: [{"t":"6 CHO / 6 CC / 12 CHO.HAZ / 12 SALT ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: W2CC ANABOLIC TRIPLE WHEY COMPLEX 2 KG 6.00 32,00 2,00 % 188,16 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"W2CC","x":1.712},{"t":"ANABOLIC TRIPLE WHEY COMPLEX 2 KG","x":4.281},{"t":"6.00","x":18.531},{"t":"32,00","x":22.4},{"t":"2,00 %","x":25.231},{"t":"188,16","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 6 TOFF
+DEBUG ADDICT ROW ITEMS: [{"t":" 6 TOFF ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: CFM2 ISOPURE CFM 90  2 KG 90.00 42,15 2,00 % 3 717,63 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"CFM2","x":1.712},{"t":"ISOPURE CFM 90  2 KG","x":4.281},{"t":"90.00","x":18.262},{"t":"42,15","x":22.4},{"t":"2,00 %","x":25.231},{"t":"3","x":30.563},{"t":"717,63","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 24 CHO / 36 CHO.HAZ / 30 SALT
+DEBUG ADDICT ROW ITEMS: [{"t":"24 CHO / 36 CHO.HAZ / 30 SALT ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: PUMP PUMP CUTS 360 GR 11.00 13,00 2,00 % 140,14 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"PUMP","x":1.712},{"t":"PUMP CUTS 360 GR","x":4.281},{"t":"11.00","x":18.262},{"t":"13,00","x":22.4},{"t":"2,00 %","x":25.231},{"t":"140,14","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 11 CAN
+DEBUG ADDICT ROW ITEMS: [{"t":"11 CAN ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: RAW RAW BOOST 300 GR 4.00 12,00 2,00 % 47,04 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"RAW","x":1.712},{"t":"RAW BOOST 300 GR","x":4.281},{"t":"4.00","x":18.531},{"t":"12,00","x":22.4},{"t":"2,00 %","x":25.231},{"t":"47,04","x":31.231},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 4 B.ICE
+DEBUG ADDICT ROW ITEMS: [{"t":"4 B.ICE ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: RIPPEX RIPPEX 8   150 CAPS 5.00 11,00 2,00 % 53,90 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"RIPPEX","x":1.712},{"t":"RIPPEX 8   150 CAPS","x":4.281},{"t":"5.00","x":18.531},{"t":"11,00","x":22.4},{"t":"2,00 %","x":25.231},{"t":"53,90","x":31.231},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: IRON IRON BISGLYCINATE 90 CAPS 10.00 7,00 2,00 % 68,60 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"IRON","x":1.712},{"t":"IRON BISGLYCINATE 90 CAPS","x":4.281},{"t":"10.00","x":18.262},{"t":"7,00","x":22.669},{"t":"2,00 %","x":25.231},{"t":"68,60","x":31.231},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: GOODIE GOODIES 1.00 0,00 0,00 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"GOODIE","x":1.712},{"t":"GOODIES","x":4.281},{"t":"1.00","x":18.531},{"t":"0,00","x":22.669},{"t":"0,00","x":31.506},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: S
+DEBUG ADDICT ROW ITEMS: [{"t":"S","x":1.712}]
+DEBUG ADDICT ROW FAIL: SKU=S, Qty=null, Unit=null, Total=null
+DEBUG ADDICT ROW LINE: SAMPLES PRODUITS EN COMMANDE
+DEBUG ADDICT ROW ITEMS: [{"t":"SAMPLES PRODUITS EN COMMANDE ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: PORT FRAIS DE PORT 1.00 120,00 120,00 20,00 %
+DEBUG ADDICT ROW ITEMS: [{"t":"PORT","x":1.712},{"t":"FRAIS DE PORT","x":4.281},{"t":"1.00","x":18.531},{"t":"120,00","x":22.131},{"t":"120,00","x":30.962},{"t":"20,00 %","x":33.244}]
+DEBUG ADDICT ROW LINE: TOTAUX
+DEBUG ADDICT ROW ITEMS: [{"t":"TOTAUX","x":28.106}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: Total HT 5 499,71 €
+DEBUG ADDICT ROW ITEMS: [{"t":"Total HT","x":23.794},{"t":"5","x":32.063},{"t":"499,71 €","x":32.587}]
+The invoice name test: Facture No 12279_1753446100339.pdf, total expected: 5499.71, total output: 0.00
+Status: Failed
+🔍 PDF PARSING START - File: /Users/ilya/Desktop/work/fitness/Renta/ShopifyFWNAutomation/python/test_invoices/Addict/Factures-12355-du-01-09-2025-FITNESS_WORLD_NUTRITION.pdf, Supplier: "Addict"
+DEBUG: usePythonParser=false
+🔍 Supplier: Addict, isOstrovit: false, isOstrovit2: false
+DEBUG SELECT PARSER: normalizedName='addict'
+DEBUG SELECT PARSER: Selected AddictParser
+DEBUG ADDICT LINE: DATE D'ÉCHÉANCE :  01/09/25
+DEBUG ADDICT LINE: ASN EUROPE FACTURE  N°  12355
+DEBUG ADDICT LINE: MODE DE PAIEMENT :  VIREMENT SUR LE COMPTE IBAN : FR76 3000 4018 7000 0100 3188 102 (BIC : BNPAFRPPXXX) 3 RUE DU GOLF
+DEBUG ADDICT LINE: 33701 MERIGNAC CEDEX FAIT LE : 01/09/25
+DEBUG ADDICT LINE: CODE CLIENT :
+DEBUG ADDICT LINE: 05 56 64 72 12
+DEBUG ADDICT LINE: INFO@ADDICTSPORTNUTRITION.COM SIRET DU SIÈGE :  89775691200019
+DEBUG ADDICT LINE: N° TVA INTRACOMMUNAUTAIRE :
+DEBUG ADDICT LINE: RÉF ACHETEUR :
+DEBUG ADDICT LINE: N° BON DE COMMANDE :
+DEBUG ADDICT LINE: ADRESSÉ À :
+DEBUG ADDICT LINE: FITNESS WORLD NUTRITION
+DEBUG ADDICT LINE: 9 RUE DES COLONNES
+DEBUG ADDICT LINE: 75002 PARIS
+DEBUG ADDICT LINE: OBJET :
+DEBUG ADDICT LINE: CODE LIBELLÉ Q. PU REMISE PRIX HT % TVA
+✅ Addict Header found at Y=16.5: Code Libellé Q. PU Remise Prix HT % TVA
+DEBUG ADDICT ROW LINE: ISOCH ISOBOLIC  1.8 KG 90.00 42,15 2,00 % 3 717,63 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"ISOCH","x":1.712},{"t":"ISOBOLIC  1.8 KG","x":4.281},{"t":"90.00","x":18.262},{"t":"42,15","x":22.4},{"t":"2,00 %","x":25.231},{"t":"3","x":30.563},{"t":"717,63","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 24 CHO / 18 VAN / 12 CC / 12 SNI / 12 CHO.HAZ / 12
+DEBUG ADDICT ROW ITEMS: [{"t":"24 CHO / 18 VAN / 12 CC / 12 SNI / 12 CHO.HAZ / 12 ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: SALT
+DEBUG ADDICT ROW ITEMS: [{"t":"SALT ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: W2CC ANABOLIC TRIPLE WHEY COMPLEX 2 KG 23.00 35,00 2,00 % 788,90 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"W2CC","x":1.712},{"t":"ANABOLIC TRIPLE WHEY COMPLEX 2 KG","x":4.281},{"t":"23.00","x":18.262},{"t":"35,00","x":22.4},{"t":"2,00 %","x":25.231},{"t":"788,90","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 4 SNI / 13 CHO.HAZ / 6 CHO
+DEBUG ADDICT ROW ITEMS: [{"t":"4 SNI / 13 CHO.HAZ / 6 CHO","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: NATIVE2 100% NATIVE WHEY ZERO LACTOSE 2 KG 2.00 39,90 2,00 % 78,20 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"NATIVE2","x":1.712},{"t":"100% NATIVE WHEY ZERO LACTOSE 2 KG","x":4.281},{"t":"2.00","x":18.531},{"t":"39,90","x":22.4},{"t":"2,00 %","x":25.231},{"t":"78,20","x":31.231},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 2 CHO
+DEBUG ADDICT ROW ITEMS: [{"t":"2 CHO ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: PUMP PUMP CUTS 360 GR 10.00 14,00 2,00 % 137,20 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"PUMP","x":1.712},{"t":"PUMP CUTS 360 GR","x":4.281},{"t":"10.00","x":18.262},{"t":"14,00","x":22.4},{"t":"2,00 %","x":25.231},{"t":"137,20","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 4 CAN / 6 TROP
+DEBUG ADDICT ROW ITEMS: [{"t":"4 CAN / 6 TROP ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: RAW RAW BOOST 300 GR 24.00 12,00 2,00 % 282,24 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"RAW","x":1.712},{"t":"RAW BOOST 300 GR","x":4.281},{"t":"24.00","x":18.262},{"t":"12,00","x":22.4},{"t":"2,00 %","x":25.231},{"t":"282,24","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 24 CAN
+DEBUG ADDICT ROW ITEMS: [{"t":"24 CAN","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: TB THERMO BURN MATRIX 100 CAPS 16.00 8,00 2,00 % 125,44 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"TB","x":1.712},{"t":"THERMO BURN MATRIX 100 CAPS","x":4.281},{"t":"16.00","x":18.262},{"t":"8,00","x":22.669},{"t":"2,00 %","x":25.231},{"t":"125,44","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: IRON IRON BISGLYCINATE 90 CAPS 8.00 7,00 2,00 % 54,88 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"IRON","x":1.712},{"t":"IRON BISGLYCINATE 90 CAPS","x":4.281},{"t":"8.00","x":18.531},{"t":"7,00","x":22.669},{"t":"2,00 %","x":25.231},{"t":"54,88","x":31.231},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: GOODIE GOODIES 1.00 0,00 0,00 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"GOODIE","x":1.712},{"t":"GOODIES","x":4.281},{"t":"1.00","x":18.531},{"t":"0,00","x":22.669},{"t":"0,00","x":31.506},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: S
+DEBUG ADDICT ROW ITEMS: [{"t":"S","x":1.712}]
+DEBUG ADDICT ROW FAIL: SKU=S, Qty=null, Unit=null, Total=null
+DEBUG ADDICT ROW LINE: SAMPLES PRODUIT EN COMMANDE
+DEBUG ADDICT ROW ITEMS: [{"t":"SAMPLES PRODUIT EN COMMANDE ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: PORT FRAIS DE PORT 1.00 120,00 120,00 20,00 %
+DEBUG ADDICT ROW ITEMS: [{"t":"PORT","x":1.712},{"t":"FRAIS DE PORT","x":4.281},{"t":"1.00","x":18.531},{"t":"120,00","x":22.131},{"t":"120,00","x":30.962},{"t":"20,00 %","x":33.244}]
+DEBUG ADDICT ROW LINE: TOTAUX
+DEBUG ADDICT ROW ITEMS: [{"t":"TOTAUX","x":28.106}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: Total HT 5 304,49 €
+DEBUG ADDICT ROW ITEMS: [{"t":"Total HT","x":23.794},{"t":"5","x":32.063},{"t":"304,49 €","x":32.587}]
+The invoice name test: Factures-12355-du-01-09-2025-FITNESS_WORLD_NUTRITION.pdf, total expected: 5304.49, total output: 0.00
+Status: Failed
+🔍 PDF PARSING START - File: /Users/ilya/Desktop/work/fitness/Renta/ShopifyFWNAutomation/python/test_invoices/Addict/Factures-12471-du-09-10-2025-FITNESS_WORLD_NUTRITION.pdf, Supplier: "Addict"
+DEBUG: usePythonParser=false
+🔍 Supplier: Addict, isOstrovit: false, isOstrovit2: false
+DEBUG SELECT PARSER: normalizedName='addict'
+DEBUG SELECT PARSER: Selected AddictParser
+DEBUG ADDICT LINE: ASN EUROPE FACTURE  N°  12471 TOTAUX
+DEBUG ADDICT LINE: 3 RUE DU GOLF TOTAL HT 6 123,38 €
+DEBUG ADDICT LINE: 33701 MERIGNAC CEDEX FAIT LE : 09/10/25
+DEBUG ADDICT LINE: CODE CLIENT :
+DEBUG ADDICT LINE: 05 56 64 72 12 TOTAL TVA 20,0 % 24,00 €
+DEBUG ADDICT LINE: INFO@ADDICTSPORTNUTRITION.COM SIRET DU SIÈGE :  89775691200019
+DEBUG ADDICT LINE: N° TVA INTRACOMMUNAUTAIRE TOTAL TVA 5,5 % :  330,19 €
+DEBUG ADDICT LINE: RÉF ACHETEUR :
+DEBUG ADDICT LINE: TOTAL TTC 6 477,57 €
+DEBUG ADDICT LINE: N° BON DE COMMANDE :
+DEBUG ADDICT LINE: ADRESSÉ À :
+DEBUG ADDICT LINE: DATE D'ÉCHÉANCE :  09/10/25
+DEBUG ADDICT LINE: MODE DE PAIEMENT :  VIREMENT SUR LE COMPTE IBAN : FR76 3000 4018 7000 0100 3188 102 (BIC : BNPAFRPPXXX) FITNESS WORLD NUTRITION
+DEBUG ADDICT LINE: 9 RUE DES COLONNES
+DEBUG ADDICT LINE: 75002 PARIS
+DEBUG ADDICT LINE: OBJET :
+DEBUG ADDICT LINE: CODE LIBELLÉ Q. PU REMISE PRIX HT % TVA
+✅ Addict Header found at Y=16.5: Code Libellé Q. PU Remise Prix HT % TVA
+DEBUG ADDICT ROW LINE: NATIVE2 100% NATIVE WHEY ZERO LACTOSE 2 KG 4.00 39,90 2,00 % 156,41 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"NATIVE2","x":1.712},{"t":"100% NATIVE WHEY ZERO LACTOSE 2 KG","x":4.281},{"t":"4.00","x":18.531},{"t":"39,90","x":22.4},{"t":"2,00 %","x":25.231},{"t":"156,41","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 4 CHOCOLAT
+DEBUG ADDICT ROW ITEMS: [{"t":"4 CHOCOLAT","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: ISOCH ISOBOLIC  1.8 KG 62.00 42,15 2,00 % 2 561,03 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"ISOCH","x":1.712},{"t":"ISOBOLIC  1.8 KG","x":4.281},{"t":"62.00","x":18.262},{"t":"42,15","x":22.4},{"t":"2,00 %","x":25.231},{"t":"2","x":30.563},{"t":"561,03","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 24 CHOCOLAT
+DEBUG ADDICT ROW ITEMS: [{"t":"24 CHOCOLAT ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: 6 VANILLE
+DEBUG ADDICT ROW ITEMS: [{"t":"6 VANILLE ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: 8 SNIKERS
+DEBUG ADDICT ROW ITEMS: [{"t":"8 SNIKERS ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: 12 CHOCO.HAZELNUT
+DEBUG ADDICT ROW ITEMS: [{"t":"12 CHOCO.HAZELNUT ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: 12 SALTED CARAMEL
+DEBUG ADDICT ROW ITEMS: [{"t":"12 SALTED CARAMEL ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: W2CC ANABOLIC TRIPLE WHEY COMPLEX 2 KG 75.00 35,00 2,00 % 2 572,50 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"W2CC","x":1.712},{"t":"ANABOLIC TRIPLE WHEY COMPLEX 2 KG","x":4.281},{"t":"75.00","x":18.262},{"t":"35,00","x":22.4},{"t":"2,00 %","x":25.231},{"t":"2","x":30.563},{"t":"572,50","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 12 VANILLE
+DEBUG ADDICT ROW ITEMS: [{"t":"12 VANILLE ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: 8 COOKIES
+DEBUG ADDICT ROW ITEMS: [{"t":"8 COOKIES ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: 11 SNIKERS
+DEBUG ADDICT ROW ITEMS: [{"t":"11 SNIKERS ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: 24 CHOCO.HAZELNUT
+DEBUG ADDICT ROW ITEMS: [{"t":"24 CHOCO.HAZELNUT ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: 20 SALTED CARAMEL
+DEBUG ADDICT ROW ITEMS: [{"t":"20 SALTED CARAMEL ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: PUMP PUMP CUTS 360 GR 25.00 14,00 2,00 % 343,00 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"PUMP","x":1.712},{"t":"PUMP CUTS 360 GR","x":4.281},{"t":"25.00","x":18.262},{"t":"14,00","x":22.4},{"t":"2,00 %","x":25.231},{"t":"343,00","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 25 CANDY
+DEBUG ADDICT ROW ITEMS: [{"t":"25 CANDY","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: RAW RAW BOOST 300 GR 22.00 12,00 2,00 % 258,72 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"RAW","x":1.712},{"t":"RAW BOOST 300 GR","x":4.281},{"t":"22.00","x":18.262},{"t":"12,00","x":22.4},{"t":"2,00 %","x":25.231},{"t":"258,72","x":30.962},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: 22 CANDY
+DEBUG ADDICT ROW ITEMS: [{"t":"22 CANDY ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: IRON IRON BISGLYCINATE 90 CAPS 2.00 7,00 2,00 % 13,72 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"IRON","x":1.712},{"t":"IRON BISGLYCINATE 90 CAPS","x":4.281},{"t":"2.00","x":18.531},{"t":"7,00","x":22.669},{"t":"2,00 %","x":25.231},{"t":"13,72","x":31.231},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: RIPPEX RIPPEX 8   150 CAPS 8.00 12,50 2,00 % 98,00 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"RIPPEX","x":1.712},{"t":"RIPPEX 8   150 CAPS","x":4.281},{"t":"8.00","x":18.531},{"t":"12,50","x":22.4},{"t":"2,00 %","x":25.231},{"t":"98,00","x":31.231},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: GOODIE GOODIES 1.00 0,00 0,00 5,50 %
+DEBUG ADDICT ROW ITEMS: [{"t":"GOODIE","x":1.712},{"t":"GOODIES","x":4.281},{"t":"1.00","x":18.531},{"t":"0,00","x":22.669},{"t":"0,00","x":31.506},{"t":"5,50 %","x":33.513}]
+DEBUG ADDICT ROW LINE: S
+DEBUG ADDICT ROW ITEMS: [{"t":"S","x":1.712}]
+DEBUG ADDICT ROW FAIL: SKU=S, Qty=null, Unit=null, Total=null
+DEBUG ADDICT ROW LINE: SAMPLES PRODUITS EN COMMANDE
+DEBUG ADDICT ROW ITEMS: [{"t":"SAMPLES PRODUITS EN COMMANDE ","x":4.281}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: PORT FRAIS DE PORT 1.00 120,00 120,00 20,00 %
+DEBUG ADDICT ROW ITEMS: [{"t":"PORT","x":1.712},{"t":"FRAIS DE PORT","x":4.281},{"t":"1.00","x":18.531},{"t":"120,00","x":22.131},{"t":"120,00","x":30.962},{"t":"20,00 %","x":33.244}]
+DEBUG ADDICT ROW LINE: Le règlement se fait sans escompte. En cas de retard de paiement, il sera appliqué une pénalité égale à 3 fois le taux légal. Le règlement se fait sans escompte. En cas de retard de paiement, il sera appliqué une pénalité égale à 3 fois le taux légal.
+DEBUG ADDICT ROW ITEMS: [{"t":"Le règlement se fait sans escompte. En cas de retard de paiement, il sera appliqué une pénalité égale à 3 fois le taux légal.","x":5.056},{"t":"Le règlement se fait sans escompte. En cas de retard de paiement, il sera appliqué une pénalité égale à 3 fois le taux légal.","x":5.056}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: Facture Facture  N°   N°  12471 12471 Page  Page  1 2  /   /  2 2
+DEBUG ADDICT ROW ITEMS: [{"t":"Facture","x":1.7},{"t":"Facture","x":1.7},{"t":" N° ","x":3.369},{"t":" N° ","x":3.369},{"t":"12471","x":4.194},{"t":"12471","x":4.194},{"t":"Page ","x":32.806},{"t":"Page ","x":32.806},{"t":"1","x":34.081},{"t":"2","x":34.081},{"t":" / ","x":34.35},{"t":" / ","x":34.35},{"t":"2","x":34.756},{"t":"2","x":34.756}]
+DEBUG ADDICT ROW FAIL: SKU=Facture, Qty=null, Unit=null, Total=0
+DEBUG ADDICT ROW LINE: ASN EUROPE ASN EUROPE
+DEBUG ADDICT ROW ITEMS: [{"t":"ASN EUROPE","x":16.731},{"t":"ASN EUROPE","x":16.731}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: SARL au capital de 100 SARL au capital de 100 000 euros 000 euros
+DEBUG ADDICT ROW ITEMS: [{"t":"SARL au capital de 100","x":14.644},{"t":"SARL au capital de 100","x":14.644},{"t":"000 euros","x":19.906},{"t":"000 euros","x":19.906}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: 3 RUE DU GOLF 33701 MERIGNAC CEDEX FR 3 RUE DU GOLF 33701 MERIGNAC CEDEX FR
+DEBUG ADDICT ROW ITEMS: [{"t":"3 RUE DU GOLF 33701 MERIGNAC CEDEX FR","x":13},{"t":"3 RUE DU GOLF 33701 MERIGNAC CEDEX FR","x":13}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: Tel :  Tel :  05 56 64 72 12 05 56 64 72 12  -   -  info@addictsportnutrition.com info@addictsportnutrition.com
+DEBUG ADDICT ROW ITEMS: [{"t":"Tel : ","x":12.75},{"t":"Tel : ","x":12.75},{"t":"05 56 64 72 12","x":13.831},{"t":"05 56 64 72 12","x":13.831},{"t":" - ","x":17.075},{"t":" - ","x":17.075},{"t":"info@addictsportnutrition.com","x":17.506},{"t":"info@addictsportnutrition.com","x":17.506}]
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW LINE: SIRET : 79085841900027 - N° TVA : FR83790858419 - APE : 4638B SIRET : 79085841900027 - N° TVA : FR83790858419 - APE : 4638B
+DEBUG ADDICT ROW ITEMS: [{"t":"SIRET : 79085841900027 - N° TVA : FR83790858419 - APE : 4638B","x":10.863},{"t":"SIRET : 79085841900027 - N° TVA : FR83790858419 - APE : 4638B","x":10.863}]
+The invoice name test: Factures-12471-du-09-10-2025-FITNESS_WORLD_NUTRITION.pdf, total expected: 6123.38, total output: 0.00
+Status: Failed
+
+============================================================
+📊 DETAILED REPORT BY VENDOR
+============================================================
+
+🔹 Addict (Total: 5 | ✅ 0 | ⚠️ 0 | ❌ 5)
+   ❌ Facture No 12065_1745586980578.pdf: Expected: 14906.34, Got: 0.00
+   ❌ Facture No 12191_1750170897462.pdf: Expected: 12379.55, Got: 0.00
+   ❌ Facture No 12279_1753446100339.pdf: Expected: 5499.71, Got: 0.00
+   ❌ Factures-12355-du-01-09-2025-FITNESS_WORLD_NUTRITION.pdf: Expected: 5304.49, Got: 0.00
+   ❌ Factures-12471-du-09-10-2025-FITNESS_WORLD_NUTRITION.pdf: Expected: 6123.38, Got: 0.00
+
+============================================================
+📈 FINAL SUMMARY
+============================================================
+Total Invoices Tested: 5
+Passed (Perfect):      0
+Passed (Warnings):     0
+Failed:                5
+============================================================

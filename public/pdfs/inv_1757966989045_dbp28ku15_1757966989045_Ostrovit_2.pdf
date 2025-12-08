@@ -1,0 +1,1541 @@
+%PDF-1.4
+
+%âãÏÓ
+1 0 obj
+<<
+/Type /Pages
+/Count 0
+/Kids [ ]
+>>
+endobj
+2 0 obj
+<<
+/Producer (Odoo)
+/Creator (Odoo)
+>>
+endobj
+3 0 obj
+<<
+/Type /EmbeddedFile
+/Params <<
+/CheckSum (f09bf2b407f909afcae80c5b71d64880)
+/ModDate (D\07220250708074141\05300\04700\047)
+/Size /46227
+>>
+/Subtype /text#232Fxml
+/Length 46227
+>>
+stream
+<?xml version='1.0' encoding='UTF-8'?>
+<rsm:CrossIndustryInvoice xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100" xmlns:rsm="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100" xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100">
+  <rsm:ExchangedDocumentContext>
+    <ram:GuidelineSpecifiedDocumentContextParameter>
+      <ram:ID>urn:cen.eu:en16931:2017#conformant#urn:factur-x.eu:1p0:extended</ram:ID>
+    </ram:GuidelineSpecifiedDocumentContextParameter>
+  </rsm:ExchangedDocumentContext>
+  <rsm:ExchangedDocument>
+    <ram:ID>FS/2025/07/09692</ram:ID>
+    <ram:TypeCode>380</ram:TypeCode>
+    <ram:IssueDateTime>
+      <udt:DateTimeString format="102">20250708</udt:DateTimeString>
+    </ram:IssueDateTime>
+    <ram:IncludedNote>
+      <ram:Content>Terms &amp; Conditions: https://odoo.ostrovit.com/terms [1]
+
+
+[1] https://odoo.ostrovit.com/terms</ram:Content>
+    </ram:IncludedNote>
+  </rsm:ExchangedDocument>
+  <rsm:SupplyChainTradeTransaction>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>1</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5902232611243</ram:GlobalID>
+        <ram:SellerAssignedID>7467</ram:SellerAssignedID>
+        <ram:Name>[7467] OstroVit Taurine 300 g supreme pure</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>2.83</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.14</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>2.69</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">6.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>16.13</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>2</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5902232619041</ram:GlobalID>
+        <ram:SellerAssignedID>18383</ram:SellerAssignedID>
+        <ram:Name>[18383] OstroVit Omega 3 Ultra 90 caps</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>5.56</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.28</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>5.28</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">108.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>570.46</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>3</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5902232613124</ram:GlobalID>
+        <ram:SellerAssignedID>19024</ram:SellerAssignedID>
+        <ram:Name>[19024] OstroVit Omega 3 (180 caps)</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>5.68</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.28</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>5.40</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">24.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>129.50</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>4</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5902232611045</ram:GlobalID>
+        <ram:SellerAssignedID>11194</ram:SellerAssignedID>
+        <ram:Name>[11194] OstroVit Omega 3 (90 caps)</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>3.06</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.15</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>2.91</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">84.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>244.19</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>5</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5902232619300</ram:GlobalID>
+        <ram:SellerAssignedID>20071</ram:SellerAssignedID>
+        <ram:Name>[20071] OstroVit 100% Vit&amp;Min (30 tabs)</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>1.60</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.08</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>1.52</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">24.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>36.48</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>6</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5903933916217</ram:GlobalID>
+        <ram:SellerAssignedID>26725</ram:SellerAssignedID>
+        <ram:Name>[26725] OstroVit Flavour Drops 30 ml (strawberry)</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>1.27</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.06</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>1.21</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">4.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>4.83</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>7</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5903933916057</ram:GlobalID>
+        <ram:SellerAssignedID>26723</ram:SellerAssignedID>
+        <ram:Name>[26723] OstroVit Flavour Drops 30 ml (vanilla)</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>1.27</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.06</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>1.21</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">36.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>43.43</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>8</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5903933916231</ram:GlobalID>
+        <ram:SellerAssignedID>26726</ram:SellerAssignedID>
+        <ram:Name>[26726] OstroVit Flavour Drops 30 ml (caramel)</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>1.27</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.06</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>1.21</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">20.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>24.13</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>9</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5903933914299</ram:GlobalID>
+        <ram:SellerAssignedID>26575</ram:SellerAssignedID>
+        <ram:Name>[26575] OstroVit Plastic Funnel (red)</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>0.97</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.05</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>0.92</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">20.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>18.43</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>10</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5903246224894</ram:GlobalID>
+        <ram:SellerAssignedID>24830</ram:SellerAssignedID>
+        <ram:Name>[24830] OstroVit EAA 400 g (strawberry cream)</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>6.32</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.32</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>6.00</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">12.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>72.05</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>11</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5902232617597</ram:GlobalID>
+        <ram:SellerAssignedID>16603</ram:SellerAssignedID>
+        <ram:Name>[16603] OstroVit Creatine Monohydrate 300 g (green apple)</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>4.05</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.20</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>3.85</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">48.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>184.68</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>12</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5903933910031</ram:GlobalID>
+        <ram:SellerAssignedID>26407</ram:SellerAssignedID>
+        <ram:Name>[26407] OstroVit Cream of Rice 1000 g (raspberry)</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>4.05</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.20</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>3.85</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">5.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>19.24</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>13</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5903933903545</ram:GlobalID>
+        <ram:SellerAssignedID>26006</ram:SellerAssignedID>
+        <ram:Name>[26006] OstroVit Marine Collagen 200 g (black currant)</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>7.87</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.39</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>7.48</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">24.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>179.44</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>14</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5902232611151</ram:GlobalID>
+        <ram:SellerAssignedID>7397</ram:SellerAssignedID>
+        <ram:Name>[7397] OstroVit Citrulline 210 g (natural)</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>3.70</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.18</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>3.52</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">48.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>168.72</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>15</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5902232613766</ram:GlobalID>
+        <ram:SellerAssignedID>16669</ram:SellerAssignedID>
+        <ram:Name>[16669] OstroVit 100% Peanut Butter (1000 g, smooth)</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>4.03</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.20</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>3.83</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">12.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>45.94</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>16</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5903933906744</ram:GlobalID>
+        <ram:SellerAssignedID>26159</ram:SellerAssignedID>
+        <ram:Name>[26159] OstroVit 100% Peanut Butter (500 g, crunchy)</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>2.14</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.11</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>2.03</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">44.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>89.45</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>17</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5903246225051</ram:GlobalID>
+        <ram:SellerAssignedID>25148</ram:SellerAssignedID>
+        <ram:Name>[25148] OstroVit 100% Peanut Butter (1000 g, crunchy)</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>4.03</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.20</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>3.83</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">70.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>268.00</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>18</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5903933906805</ram:GlobalID>
+        <ram:SellerAssignedID>26613</ram:SellerAssignedID>
+        <ram:Name>[26613] OstroVit 100% Almond Butter (500 g, smooth)</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>7.03</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.35</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>6.68</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">220.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>1469.27</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>19</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5903933906720</ram:GlobalID>
+        <ram:SellerAssignedID>26206</ram:SellerAssignedID>
+        <ram:Name>[26206] OstroVit 100% Almond Butter (1000 g, crunchy)</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>12.51</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.63</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>11.88</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">180.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>2139.21</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>20</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5902232613773</ram:GlobalID>
+        <ram:SellerAssignedID>16672</ram:SellerAssignedID>
+        <ram:Name>[16672] OstroVit 100% Almond Butter (1000 g, smooth)</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>12.51</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.63</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>11.88</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">24.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>285.23</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>21</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5903933903736</ram:GlobalID>
+        <ram:SellerAssignedID>25999</ram:SellerAssignedID>
+        <ram:Name>[25999] OstroVit Training bands set of 4 pcs.+ bag</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>2.20</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.11</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>2.09</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">1.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>2.09</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>22</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5902232617566</ram:GlobalID>
+        <ram:SellerAssignedID>17196</ram:SellerAssignedID>
+        <ram:Name>[17196] OstroVit Ashwagandha (90 tabs)</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>2.43</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.12</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>2.31</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">60.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>138.51</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>23</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:GlobalID schemeID="0160">5902232610314</ram:GlobalID>
+        <ram:SellerAssignedID>14629</ram:SellerAssignedID>
+        <ram:Name>[14629] OstroVit A-AKG 200 g (natural)</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:GrossPriceProductTradePrice>
+          <ram:ChargeAmount>4.76</ram:ChargeAmount>
+          <ram:AppliedTradeAllowanceCharge>
+            <ram:ChargeIndicator>
+              <udt:Indicator>false</udt:Indicator>
+            </ram:ChargeIndicator>
+            <ram:ActualAmount>0.24</ram:ActualAmount>
+          </ram:AppliedTradeAllowanceCharge>
+        </ram:GrossPriceProductTradePrice>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>4.52</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">10.0</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>K</ram:CategoryCode>
+          <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>45.22</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:ApplicableHeaderTradeAgreement>
+      <ram:SellerTradeParty>
+        <ram:Name>OSTROVIT SPÃ“ÅKA Z OGRANICZONÄ„ ODPOWIEDZIALNOÅšCIÄ„</ram:Name>
+        <ram:DefinedTradeContact>
+          <ram:PersonName>OSTROVIT SPÃ“ÅKA Z OGRANICZONÄ„ ODPOWIEDZIALNOÅšCIÄ„</ram:PersonName>
+          <ram:TelephoneUniversalCommunication>
+            <ram:CompleteNumber>+48570707040</ram:CompleteNumber>
+          </ram:TelephoneUniversalCommunication>
+          <ram:EmailURIUniversalCommunication>
+            <ram:URIID>sales@ostrovit.com</ram:URIID>
+          </ram:EmailURIUniversalCommunication>
+        </ram:DefinedTradeContact>
+        <ram:PostalTradeAddress>
+          <ram:PostcodeCode>18-300</ram:PostcodeCode>
+          <ram:LineOne>Sitarska 16</ram:LineOne>
+          <ram:CityName>Zambrow</ram:CityName>
+          <ram:CountryID>PL</ram:CountryID>
+        </ram:PostalTradeAddress>
+        <ram:SpecifiedTaxRegistration>
+          <ram:ID schemeID="VA">PL7231641151</ram:ID>
+        </ram:SpecifiedTaxRegistration>
+      </ram:SellerTradeParty>
+      <ram:BuyerTradeParty>
+        <ram:Name>SARL FITNESS WORLD NUTRITION</ram:Name>
+        <ram:DefinedTradeContact>
+          <ram:PersonName>SARL FITNESS WORLD NUTRITION</ram:PersonName>
+          <ram:TelephoneUniversalCommunication>
+            <ram:CompleteNumber>0670881255</ram:CompleteNumber>
+          </ram:TelephoneUniversalCommunication>
+          <ram:EmailURIUniversalCommunication>
+            <ram:URIID>fitness.world@outlook.fr</ram:URIID>
+          </ram:EmailURIUniversalCommunication>
+        </ram:DefinedTradeContact>
+        <ram:PostalTradeAddress>
+          <ram:PostcodeCode>31200</ram:PostcodeCode>
+          <ram:LineOne>48 CHEMIN DE BOUDOU</ram:LineOne>
+          <ram:CityName>TOULOUSE</ram:CityName>
+          <ram:CountryID>FR</ram:CountryID>
+        </ram:PostalTradeAddress>
+        <ram:SpecifiedTaxRegistration>
+          <ram:ID schemeID="VA">FR79897756912</ram:ID>
+        </ram:SpecifiedTaxRegistration>
+      </ram:BuyerTradeParty>
+      <ram:BuyerOrderReferencedDocument>
+        <ram:IssuerAssignedID>FS/2025/07/09692</ram:IssuerAssignedID>
+      </ram:BuyerOrderReferencedDocument>
+    </ram:ApplicableHeaderTradeAgreement>
+    <ram:ApplicableHeaderTradeDelivery>
+      <ram:ShipToTradeParty>
+        <ram:Name>SARL FITNESS WORLD NUTRITION, Supply Web Fitness World Nutrition</ram:Name>
+        <ram:DefinedTradeContact>
+          <ram:PersonName>Supply Web Fitness World Nutrition</ram:PersonName>
+          <ram:TelephoneUniversalCommunication>
+            <ram:CompleteNumber>0670881255</ram:CompleteNumber>
+          </ram:TelephoneUniversalCommunication>
+          <ram:EmailURIUniversalCommunication>
+            <ram:URIID>fitness.world@outlook.fr</ram:URIID>
+          </ram:EmailURIUniversalCommunication>
+        </ram:DefinedTradeContact>
+        <ram:PostalTradeAddress>
+          <ram:PostcodeCode>14840</ram:PostcodeCode>
+          <ram:LineOne>zac de la delle du clos neuf</ram:LineOne>
+          <ram:CityName>DÃ©mouville</ram:CityName>
+          <ram:CountryID>FR</ram:CountryID>
+        </ram:PostalTradeAddress>
+      </ram:ShipToTradeParty>
+      <ram:ActualDeliverySupplyChainEvent>
+        <ram:OccurrenceDateTime>
+          <udt:DateTimeString format="102">20250708</udt:DateTimeString>
+        </ram:OccurrenceDateTime>
+      </ram:ActualDeliverySupplyChainEvent>
+    </ram:ApplicableHeaderTradeDelivery>
+    <ram:ApplicableHeaderTradeSettlement>
+      <ram:PaymentReference>FS/2025/07/09692</ram:PaymentReference>
+      <ram:InvoiceCurrencyCode>EUR</ram:InvoiceCurrencyCode>
+      <ram:SpecifiedTradeSettlementPaymentMeans>
+        <ram:TypeCode>42</ram:TypeCode>
+        <ram:PayeePartyCreditorFinancialAccount>
+          <ram:IBANID>PL23102038020000110201687458</ram:IBANID>
+        </ram:PayeePartyCreditorFinancialAccount>
+      </ram:SpecifiedTradeSettlementPaymentMeans>
+      <ram:ApplicableTradeTax>
+        <ram:CalculatedAmount>0.00</ram:CalculatedAmount>
+        <ram:TypeCode>VAT</ram:TypeCode>
+        <ram:ExemptionReason>Zaopatrzenie wewnÄ…trzwspÃ³lnotowe</ram:ExemptionReason>
+        <ram:BasisAmount>6194.63</ram:BasisAmount>
+        <ram:CategoryCode>K</ram:CategoryCode>
+        <ram:ExemptionReasonCode>VATEX-EU-IC</ram:ExemptionReasonCode>
+        <ram:DueDateTypeCode>5</ram:DueDateTypeCode>
+        <ram:RateApplicablePercent>0.0</ram:RateApplicablePercent>
+      </ram:ApplicableTradeTax>
+      <ram:SpecifiedTradePaymentTerms>
+        <ram:Description>Prepayment</ram:Description>
+        <ram:DueDateDateTime>
+          <udt:DateTimeString format="102">20250708</udt:DateTimeString>
+        </ram:DueDateDateTime>
+      </ram:SpecifiedTradePaymentTerms>
+      <ram:SpecifiedTradeSettlementHeaderMonetarySummation>
+        <ram:LineTotalAmount>6194.63</ram:LineTotalAmount>
+        <ram:TaxBasisTotalAmount>6194.63</ram:TaxBasisTotalAmount>
+        <ram:TaxTotalAmount currencyID="EUR">0.00</ram:TaxTotalAmount>
+        <ram:GrandTotalAmount>6194.63</ram:GrandTotalAmount>
+        <ram:TotalPrepaidAmount>0.00</ram:TotalPrepaidAmount>
+        <ram:DuePayableAmount>6194.63</ram:DuePayableAmount>
+      </ram:SpecifiedTradeSettlementHeaderMonetarySummation>
+    </ram:ApplicableHeaderTradeSettlement>
+  </rsm:SupplyChainTradeTransaction>
+</rsm:CrossIndustryInvoice>
+
+endstream
+endobj
+4 0 obj
+<<
+/AFRelationship /Data
+/Type /Filespec
+/F (factur\055x\056xml)
+/EF <<
+/F 3 0 R
+/UF 3 0 R
+>>
+/UF (factur\055x\056xml)
+>>
+endobj
+5 0 obj
+[ 4 0 R ]
+endobj
+6 0 obj
+<<
+/Type /Catalog
+/Pages 11 0 R
+/Outlines 9 0 R
+/PageMode /UseOutlines
+/Dests 7 0 R
+/Names <<
+/EmbeddedFiles <<
+/Names [ (factur\055x\056xml) 4 0 R ]
+>>
+>>
+/AF 5 0 R
+>>
+endobj
+7 0 obj
+<<
+/__WKANCHOR_2 8 0 R
+>>
+endobj
+8 0 obj
+[ 0 /XYZ 29.6 590 0 ]
+endobj
+9 0 obj
+<<
+/Type /Outlines
+/First 10 0 R
+/Last 10 0 R
+>>
+endobj
+10 0 obj
+<<
+/Title (Invoice\040FS\0572025\05707\05709692)
+/Parent 9 0 R
+/Dest /__WKANCHOR_2
+/Count 0
+>>
+endobj
+11 0 obj
+<<
+/Type /Pages
+/Kids [ 32 0 R 12 0 R ]
+/Count 2
+/ProcSet [ /PDF /Text /ImageB /ImageC ]
+>>
+endobj
+12 0 obj
+<<
+/Type /Page
+/Parent 11 0 R
+/Contents 31 0 R
+/Resources 15 0 R
+/Annots 13 0 R
+/MediaBox [ 0 0 595 842 ]
+>>
+endobj
+13 0 obj
+[ 14 0 R ]
+endobj
+14 0 obj
+<<
+/Type /Annot
+/Subtype /Link
+/Rect [ 116.8 391.599999 252 402.799999 ]
+/Border [ 0 0 0 ]
+/A <<
+/Type /Action
+/S /URI
+/URI (https\072\057\057odoo\056ostrovit\056com\057terms)
+>>
+>>
+endobj
+15 0 obj
+<<
+/ColorSpace <<
+/PCSp 30 0 R
+/CSp /DeviceRGB
+/CSpg /DeviceGray
+>>
+/ExtGState <<
+/GSa 29 0 R
+/GState6 28 0 R
+/GState17 27 0 R
+>>
+/Pattern <<
+>>
+/Font <<
+/F8 22 0 R
+/F7 17 0 R
+>>
+/XObject <<
+/Im10 16 0 R
+>>
+>>
+endobj
+16 0 obj
+<<
+/Type /XObject
+/Subtype /Image
+/Width 176
+/Height 52
+/BitsPerComponent 8
+/ColorSpace /DeviceRGB
+/Filter /FlateDecode
+/Length 4976
+>>
+stream
+xœí\{”Me?_ÒE…iúJ%rÉµ¤+ébf¨&£0²ˆ%Ñ]\JR3dJFˆ”K‰Ñ*¥TRš.³Ü¦©†1&†¦¤‹äò~¿u~ë<ë™½÷ÙgÏ9c²¾ÎóÇ^{öy÷û>ïóşëûî1&JQŠR”¢¥(EÉJG=räˆü‰{<ùù‰R$„µ;|øpØ+(/–––ÿüóÏ–ça0£)
+­Ê$-í0$O³°qãÆ¤¤¤‹/¾¸cÇMš4INNŞºu«÷½ 2BĞş_Ò1’F~~şœ9sÖ¬Y£m¾bûÅ‹ÇÄÄLš4‰şùçŸ#FŒ¨Q£ÆÇ,m\zXî’’’ÜÜÜœœğ3kÖ¬_|qÁ‚èÏu³-*éÄ<ˆ+ş?ù|¾´´4ïƒr~øá‡ØØØ¥K—?>==ëˆç“'O®W¯ŞüáÒƒ´nİº'x"..îôÓO¯R¥Š¯,á	ÃòdffnÙ²ÅØÂ•q¾PH)11ñæ›oÆÍ‡~hBiœA³ÛŞ®]»)S¦àaÓ¦M!óO<‘’ß°aƒÇ!:„ë Aƒ®ºê*ÜÜÿı-[¶üüóÏ/¹ä’‘#GâÉE]ôôÓO;¾KãÌ¨sçÎ'Ÿ|²¬ş	'œPµjUğfpÅ=à9`Üu×]ß}÷§¼ĞñæÈIQQQµjÕ ˆ×{ï½×„%ÑeJ:øê«¯âágœÁUàÃeË–Ù‡pûLHHxğÁq“šš
+˜8p C‡Ï>û,ôêÕ«ÿşÁ¦ÓstÒI'q­qÃuF`mˆ
+¸§¹sçšcŸÈ óıõ×±ë¿\ÄE0` $ÀulØ°!Ù+¯¨ËãÆ“®Î;ï¼}ûöáa÷îİoĞh>tìĞÅØVkØ°a¸ÁìÁ\œşùğx’’’Ò¯_?K'Dp«ÂU† °Ü­ZµB?şøŒ3àÈ²³³Gİ·o_Ä¨lƒ+Ú°Hš“
+$Ì´   öóÒK/ÍÊÊş³D<@‹)
+dşüù¦œìQ\¸r	¨’TjB5h1&»4ÁØœØØ¾}û´iÓ°XS§N•Ñy…õnß¾½ñ;;î¸7:u:t(nZ´h1vìXİ•€¡yóætRœ Ú£GD’ÁVöï¿ÿ~ë­·BĞ˜ˆ5ƒû³3	Qæ=ö˜(ÀI*jˆ°‰ÂAhÜ¸±¨0äoÊé2(®/¾øBdÿÒ×¾üõÉ'Ÿá b4$H¦yÚi§­_¿I¼ùæ›¯¿ş:®0AR‹é û@è¢ÁpÁ¼ıöÛÒ!®è_Š¸çs¾ŒÃâà&Nœh*œòÀ«à
+l˜ã& yFÁC­ZµJKKMyŒ$;Ae½âŠ+	«Ûƒv¾øÀà,:®À†QÖ‰íaÛ!:Ø1ËŸ``  Â(È±1B º	‚6æ‚ÍÜ×”ğÀòâ3Ï<“ ®¼$¶‰CÀÖ¡çSO=õ¸²&Àæ+1®TC.ƒ°Átö‹³°,k0Ò@:å”S_ä*¼óÎ;W_}uıúõN4hĞ Aæ'Ÿ|bÔq"+V¬ƒ›FíÜ¹Óû\¤åÊ•+)
+^¯½öZ=ÙHˆ|ŞsÏ=Ç']?â+ãY8AXoQ(tÂ,>dÚ>Ãƒôƒ‡Û¶mËËËÛ±c‡¶ğš®¿şzYD˜;¸0Sşt‰£gffj;óòË/ë
+lˆÓ±?&i0Ó_cÆŒÁäMâÂ¤+Ü8Õ-éX09Ó3Ú¥Änİ§”ŠË€ıñÇ7u`Ïˆ»ÄYtëÖM¿«÷´:ƒ˜ËĞ[Œğ\ï/[Ş§«ÂÃ»ï¾Kã@<¤§§›°rg	«.¿ür‘	¦•{Ë.–y.®ÁÖˆü2$lûàeQì~~ŒaR1:¢ÅøK,DP˜óæÍ3Ì,{ûõ×_³ùE§ç{ÎË»Òæá‡v·ö§pûí·Ëò!'ıé§Ÿ‚µ÷È&"­^½Ú(€õnŠ‹‹‘9öéÓ­Y³fHŠ‘İ´mÛ¶W¯^4•X‹¹sçÎò2¸k®¹FXEÚµhÑ¢™3g¾ğÂˆfqƒ?	¯¾újúôépßH¾´­CıÌ3ÏtíÚ™W||<2q‘˜p…¥ÿı÷a{“’’D5mÚÉ>|:|ì?B²={öèöv!ßtÓMâ2À¤a’=ØR‘€±ÿ~£tgíÚµÈ"9)Üká<ÿüó¯¼ò
+f$ÂmÉÉÉ¡p@h éé¢D0úí·ßnH?<òˆ‰ ©çÄ!±ØØX‘ÉC=dÊæ>@Ò±š5kúœˆE¸¬Ë¾}û¤2æØX¿R§NVi²²²DSX„!Ï¢öÉ.@õêÕ¡’²@ŒØÉ^™×„©¥¥¥íİ»×8ÙãOµdYaÊ¶oßnBAB+&"%aŒ ôÑGÅ6R¤#³	/Â©Q£“JwNkø9‚}šå"¾<têÔÉ(œÃ\œ}öÙ>¾Ú‰/.\¸ğ÷ß÷‚öS¯^=®ïäÉ“ñ'í6ë9K–,¡f?¼"%Dÿd{ëÖ­é7Ó57@Ë™‹¨a`cbb|³İ4L7²9½¸ºÍw/ùé$ÕÁ‰w< Æ¿üòKH< i"¤!áUY5‘y‚™İ‚X!şºaÃšš#H,113ç§Ñ£G§¤¤Ô®]›S€ıÇzA¶Ğt$Î˜»Ö\tÎ‡ Dnèî†6NÁ°£F‚]=ë¬³|òûı„ØŠ>OÈ‡@Ÿ0¹à\;7]ºt¡n>„®ĞáÚ³gO™>¼¡^÷`lD,ğ´í’„š²ö“Â“]»vA³B
+7°9b<İîÛ°QwŞy§‰¸\ÀÙÁ¯ù6Sò&ãßUÑ³ÎÍÍµs‡:·iÓ†Á’#˜\\a¢o»í6áö¾ûîÌ¿ú	m`?):¬&«šÀ"®Í›7ï÷^„{…âQ“¨3¸E ‡¦llkAAAjjªN¨]'±äïHóE1Á-·ùÜ{Ã7ÈÔÀ§Q—´P^äŒ˜8ƒ/@x#=@Í9ÇÂ ÁşxYY„IÒ	F4$
+¹4¼ˆmL ‘áè&¢>È˜ì™”ZÛ7
+‡E3—ü‚ÌÓ_P=“““áGp¿bÅ
+ã´(qqq`Kiá¢å09Á\¾»alÈ¤i‘ØÆe«…ü ¥ä–lıõ×šÕ`xy3|øpŸçüÂ‘`”>‰ètÑ;l¢@°”,_S ÙÙÙ2#2Ü»wo—±,EQÙ…×õ(ÇzµÆ‡¦-BŒÍÆ²pl	—DˆR—¹³ìX| 6‡&‚oçF©3oX-¤`‘§ğ¡½[²AƒÆÆÈ¡´$g<„¬G…$Ø[íÍ¹ãP!x€±Ò1á……á!C†˜òT9<Ö'5ªø	7:t0NúÔ¥’=z„d‰V£è:äİwß­_´oKAùùùÆf,5jÊŠĞÕ«Pix€Yƒİ<õÔSatb!9Dèİ‚ÌB|µÀ1‹w¤0ğ sÈÍMÙ…æºlÚ´I¬4³~ızã!|âS¦L‘Ù!agÀ,Uk6kÑ¢…`†!cyíÚµ
+"'B”hÊZ’
+ÇÎ>ğÖÅ§N$,‡\…0ğÀI!q°ÇÕl6iÒ$Y/
+>‰O6())AF/A£%OgW§ôlØû×uEª	fcÃd¥áZ¬‹Q™™™atb!ÎKÀøÈ_°`ñÇÃ4Œây‡º{÷nyÑÅV‡.Äe—]f÷İ8r[ «ô^æÎ~ĞÃ•W^)¢›1c†~ıÃGPH–z…”C6l(‚Zºt©±ù¬JÃÆ…¸Dtğïatb!Ë	@šˆ/¿ü’¿b¾D‚@Z†Xâ³Ï>³¤lvVM9ñ@zöìiœ‚¼(‡±ãö†xCF™0a‚qO
+±%dâÍêÕ«}ª¾ªıP¥áÔ¹sga˜‡*+¤ş k¶0Ì)H^RQQÜÇÇÇÏ=›±o…Â#aZ2rş§nİº¾@ş»råJãl–––&£ØU‰÷p”bC7n¬Ë}ú„åL+œíòô>Ô…ÈS	NS
+t& 6ä×‰‰‰¢<²Ë{ä¿H¾ìl„î_Øñ _)ÛvcîeÌ(õ†‚}”¢¢"†Dİk¯½fÔ‡*‚I–îóòòy¨L<èTİ…Aœi×®]}ªhl¾2€Éåá7ò »mÛ¶ıöÛo­î†n<àÁrLÑôé82ã¨Úd^W€ÄQØ2''G„ß®];Í¦ÊÄÃ;¸"¸¿¹mÛ6î³p¦üÈ²"²Ğ………ãÆkÖ¬™/°—Ä·°XºÌ[áx€n^xá…¢¹,K–+~è×¯Ÿ,´£üùçœ9sD‘;h¨wïŞÒ?ºq”|eâÁ*çd¸BÎ?dddÀ°¬1’){8SF6ÊO€
+2“À_ë“âC·nİZødFì=¿ éó–üB·„ï«_¿¾DS‹-â¯3÷y}şí³‚‚Ä2Wf~ë¼yó|ªšm5å©Z¦¿k×®ÚµkKL’ššêŞ›>Ãä0®/¿àSŒ:²[!x~xÚJ×Ï½8J1/ú4Å§Ÿ~êøºŞvá@àO¬hK‚4U$ĞmÙ²¥/âó“‡ÕgJTp„R›7ov™©ıõ’’î6N²Iq,ğÀú˜lpÛƒ.|òà+ßuù‹W­Z%JLLæˆ‡IIIb^^zé%;“B•é/Èğo¼áS•Ã&Mš{ïPìùôéÓ}ê(æˆ#ŒÂUÈø82D™8{8äÿîÃ”=or?ËbÊç[åzr¢‹–€Ù>l”PM/^¼gÏ"Ô A~^L8ñ óùğŸ“áš«V­xäŞ½˜¬­=À@ãIñ6oŞÜñ †‹Ù!ÿÌU-ç[*¡¯G<˜€Éêß¿¿(iõêÕ¹Ñì	r(')1f&%öÆ½²”™™‰[şäÇû!Å<Úä"Äõ*--åş‹œC°dÉiÀ}=!½wƒu§æÊ¸jÕªi)±ÙG}$6Y*MC£J¦T%nEqDS¶Ô”–?Ñì·åÅÃ–-[˜^ÃĞb—å®ŠfOôY+ÌôhL!]TFN8HÁöºë®£ãã !Kañ0aÂÎ7Şhº¬™÷HRdf$¬¿ä½å–[–/_~ğàAGçˆW`·ù–Ôa„ß{ï=-%IØkÕªµpáBÇO³Ù??m¦ HÈ‘ö0uêT
+Ú€1=
+n(:/x0%˜6mšÖ¬µ‰±³·lÙ²:uêˆIy9¤JâG.rfØ ƒ
+‰ÒH(nN¹rF¾øı÷ßÓÓéï»q)uïŞ}äÈ‘Xı1cÆŒ5ªoß¾hÉM+Ÿ:yxî¹çZØçÔn´lÔ¨ÔjöìÙ7nÜæ'D°XDÖ’LgæÌ™Òx|;"cjzz:Şıæ›oæÏŸ>‰}^ÎÒ- =.Ö¹dVV²†?åææâÏ¸¸8}Æpİ´i“ñ-stä¤>µqÃ®øU‘»a‰‡£cíL`)
+‹…ÂÉÉÉIIIñ]çµÿ~äGbÜ f—óç–që­·bqí""çÃ†“‘ Xù”©ˆ‹Aš&Pä‹RâÆ+ì³nİºú|5ÿŠ;Œ?hğkfÀ|ŸH@¾V†.XNµ¹Gáqhğ\ÕOè
+l[_:™,p
+Ôçt²‘Â?~¼è¦‡z¼ÆËùj;çr*¾K—.úÿÃˆÑS Ÿ·oßöJ÷ ‰Üfggkƒf?%Î'ˆ·áSìR’s&İºuÓıÈ
+Ë–4Øş…ä[WFPÁ¯ËÂA$OàywÊºŒ/†¨cÇÆÃÙíƒãév•œœì( ©¼ß›[˜7ş`'!ÿØØX¨‰VüY³fÍÄÄÄŒŒØU)ú¹·fÍhbëÖ­¡) ›VğsÎ9§OŸ>p".¢–3ˆÏÑ	Ş‚u‚®á¦Dà!p<x0rÕêYàBGÿr¦I¼àÄU“`òLHH˜8q¢htî‚‚íæ'„”Œ$=BH†éÀÜáÊ›úÂ¯øÛ´iCá`É08V¼ÉIË—Ğ;¸Q8£å~Â¼IÂéÓŞëW üîİ»óóóW­Z…Şà·2º;oÆ?ñ¢¢¢uëÖåååáu~y	é%FoèÓüàƒÀ$â„½{÷Z.„A‘l{$
+Ş¹s'„ƒà
+	‘–m$t4Ô?ï
+ÙÀÎ­‹0İµ´tÜÑıHJë‘7’KjVŞÉë!<Şô»î/º§éˆ¢È{c¤ao,DÎŒ#	{• ×Ç‚©p¢¥(E)JQŠR”@ÿb¡ĞÛ
+endstream
+endobj
+17 0 obj
+<<
+/Type /Font
+/Subtype /Type0
+/BaseFont /Lato-Bold
+/Encoding /Identity-H
+/DescendantFonts [ 19 0 R ]
+/ToUnicode 18 0 R
+>>
+endobj
+18 0 obj
+<<
+/Length 756
+>>
+stream
+/CIDInit /ProcSet findresource begin
+12 dict begin
+begincmap
+/CIDSystemInfo << /Registry (Adobe) /Ordering (UCS) /Supplement 0 >> def
+/CMapName /Adobe-Identity-UCS def
+/CMapType 2 def
+1 begincodespacerange
+<0000> <FFFF>
+endcodespacerange
+2 beginbfrange
+<0000> <0000> <0000>
+<0001> <0038> [<0053> <0068> <0069> <0070> <006E> <0067> <0020> <0041> <0064> <0072> <0065> <0073> <003A> <0050> <0075> <0063> <0061> <004F> <004E> <006F> <006C> <0044> <0074> <0049> <0079> <006D> <0054> <0042> <006B> <0043> <002E> <0052> <0055> <002F> <0045> <0056> <004D> <0051> <0059> <0025> <004C> <0047> <0078> <0046> <0032> <0030> <0035> <0037> <0039> <0036> <0033> <0031> <0038> <0034> <002D> <004B> ]
+endbfrange
+endcmap
+CMapName currentdict /CMap defineresource pop
+end
+end
+
+endstream
+endobj
+19 0 obj
+<<
+/Type /Font
+/Subtype /CIDFontType2
+/BaseFont /Lato-Bold
+/CIDSystemInfo <<
+/Registry (Adobe)
+/Ordering (Identity)
+/Supplement 0
+>>
+/FontDescriptor 20 0 R
+/CIDToGIDMap /Identity
+/W [ 0 [ 543 532 564 269 561 564 513 191 704 565 405 530 433 263 620 564 473 519 793 750 564 269 741 384 311 529 835 590 646 547 665 223 650 722 384 568 704 922 793 649 796 512 717 535 557 ] 45 54 575 55 [ 356 692 ] ]
+>>
+endobj
+20 0 obj
+<<
+/Type /FontDescriptor
+/FontName /QBBAAA+Lato-Bold
+/Flags 4
+/FontBBox [ -88.3789062 -180.664062 1143.0664 937.011718 ]
+/ItalicAngle 0
+/Ascent 937.011718
+/Descent -200.195312
+/CapHeight 937.011718
+/StemV 79.5898437
+/FontFile2 21 0 R
+>>
+endobj
+21 0 obj
+<<
+/Length1 10300
+/Filter /FlateDecode
+/Length 6867
+>>
+stream
+xœz	p×™æ{‹¸Ñ hÜh qß7@ A<%’)Š”D‰·DE§uÛqklË¦Ë™$J&GÙI<åŒg6;Îx’Jf'§ÖÊ¦ÊÙõlåÚ”S“İulÇv¦‰ ÷oD+ñî «Áîw¿ÿøşï Â¡ôQÄChl"ÿ±ğùW äÜsû[©üîïáù„µËóKË?º!'¼£ô(PÌŠ¾†ËÂ;{àğÉ³øšVƒğşú¡£‹ósb!WŞO?{ÑÇáı)x·™?¼œıñøğş÷"¿‹ø $ø¬ ¶5şòş+zš@<BÙAŸGğ ûßŒ£¹Ôüœ<7¾Ù‘ü&!<^;èüY;BŸàêø&Á5n6D >
+À{
+Şy°ç"Ú‡P‚dH_št&ˆëuÜE	E·/‘ÓãÎ¤[W*éq;›UN¡Ç£I6kt®úVÃãæ® _²ã}dıü…Î‘¡•Á\Öç¥(,WPzƒIG«5|İój¡LFQF­#U´1â¦¤F®P²ª¾OI%ZµÑ`5õZT‚±DªÑÒF“Õ`Tk%RÁµ™A÷—ù[C6›FË8£±Î¬×gµkõj-©¥Nº,F=¥US”ÉÀ²zuˆ¥"1¶]Şl¤Û5Ã $
+S’F¹6ŞâË?Bóeê[lJ'1¸=w\©¦\‹¦lê-YQZ½îKÛ(÷4åä—J­Áfö{²é­§K=Øl‰Fó…b©»™­Œ­˜ß½ëäùc‡ÇÊR¥JCLg8RÌ‚f«\i5Ç¢…îRO!ZÌØá,õí»o°¯R,¦³û\*Æ”Î`ÔRÙÌœ›5ÒµVc1GÂ•òÊ¶­[»;],ö†¤;ÄÖ¡V©@G´‘qú’'mÔh)Êj„zJ»—¦gzJ.7VÈ´ÛÉÉéBİÆŞA&ÎšdK
+ÜE:É–ÈÕüğĞÒro(Š¨â@xº7×¼S}±“e±ÙšLï¬._˜K%á5Qí §@§aŠo
+ŞB6“iš–xËP[RlJ[óŸÁ
+©²š«YO)äœ­Y¬ŒÃl¥ôR…c]°•«ĞrZ½Ùê`ÌJ/S`¬é)‹ùÆç›nşŠ›ùBí*”ÏÉÁÌd}Sú6; ÚM$9ËĞ5!ÙT¾ê/|Î@ª„TqbûÑƒı©¨ÇfïìŞ¾cÿ®|!HÄºs‘0cÓ¨°Ri²¸}±ñL6Z»*¸KdºùÁP ³l_eañÁ3K+C#^¿É¯m#¤ÀôT0Xî-öø¼j5ãèniƒ@L]ñÆŠÿ¨N>Sªm¬Ãç	…RïSß`LJ^rWõğSû_Æ¡)t]FHÏ¹A›;pÏwÛ˜ºÆDm "Ô€sdšõ™ømºuqÎ¥i5hS '|&÷êè‘Ze28ÇCŒí¶lftË®¾îÎ8ËdÖ½!’ÎLwåâØb…]¥B¡;¶'±=¥½ûÎÉu™,×r›5èO&;©Tk­v0M$ÃAƒ±[&Óë\H˜uĞ:¹‡#³{áÇmËæhš6Ğ”ôöÏ•ŠáMc¹Ò0g+ù¤ÅbulÍ=¥Ö$S@ +Ì–X|´ÒÛOÚìX¯ó¸ñimP©ÅR,k5F£İ8&ğø<èb°1>^‡Ûn×ÓrÎ¦åz½İî‹„ÃÎ¦…‚¯ş+‘ì3¸n¼<†ÇI3¼¦@EB¢ˆş×\:½ähõsG;hƒ“ø‡_—)Ur¥\!ç°W­6âhí´F‹‰ş
+¤RÁˆ›§°ñ[¾@ğ[ä@]à;É6¯…9=›Â„K{[3dËuà*ØmùÎÉí¦‹ùxõsq…–a]Ş@8š™L¤L,TÊ-&Ÿ'>šMÇƒ±dg.µ9T$ÑqjyyxÈï7["Dà†2´ä?§dR§³Ò·¼øàl±äõÏ0İøG	½N§ûÊM4ã¹ÀëhÖòùÄmTozÎ§<J¥@•Ù:²o4Áğ$RRe0…Àu=|@'sn6Æ¯“¢Ü!ÂĞdu•“KÈwæPÿm¹¼P˜6[¯Wnª.&y;¼”œRÏ¾½§''»»œŒyÂ‰\U=-Ùºåş|(ÄØ!¶*eñ°?™ÎtvveìİWpû0¯Ë&‹ÏŸ;–/ì¡}³ı>/xC>?=sÜªÑH¤|ÁÓ[¶b¥\C*åX(’ÌF§šu°ì`ÿÁÕßÄ‚Æ®Õà|‘“]`ã-^ì®1[0}W¿åüº<´;<gzá @İŒ³è„ˆIÓ”Æbr³]!»M§•Jtz§;‰ÆÃ–Õé±Ñ-™îÎIA&jJo´8ØèH ˆ=İÎH8‡uêu&K25:¾”N¦ÂQ¯ïÄ¼J*BB`JÔ*ZgtÑ:©“*ÎÉÄ£ıÅ®\Ğo4`€ˆì,§g©T!“Ÿ°ÙNMªå
+p0¨¸µ§‰à°j5­;8¹ñ~ ªà2íşÑ¾Ó¦4È¨?)“è r16«™ÒÀÊlµqqM'‘ı©º‹ï+Õ4z 5 nş‰JØÁ“gş ‰yê,R·É†$Ù
+‡-µ;Oâ_~âÈáŠ“©<ôÄ«¯nÉfÜ¬V­Ö²îLvË«‚kP•/îÜ¹ÿĞ0'[ıñ¬Õ°d¬§3q:ÔjÎÖîÙx›/à›¸8ÇE}m; ^„ïƒ—{ª¡À®Ş\.ÁAép8=¾`$1ÕÛ
+ƒ•<@|¾º4ŸLYÍIâ÷7…#“ŒÉ¤ÑŠ¥s:92ÈÍ~Ëû;°ì¾6¯½EõZFÛ„,};–5°c³ÿ–¦Ô3·÷Ã§g¦ú¤)l•69Ød9gœJ«UNG4Rèv»8–ª·’ƒşX<‘Îä2;vö”X7¡:±¸88ŞŠ]îşY¥¨C&Q“cš…zzÆ'{K¡N¯TªÕ
+%Öí‰3Å¹­s y‘C¢íoóşp®İæU™Te­/Ö“vÅo‡zÁ¦­p±ùVØM5+'°İ:<xïÙ ùv¼~+kÇÙÃ/`¼{x03ğq—†’è}.×x^Î s×éßáx›Íl6Z‡"¤«:s@‘lAq5™€˜©Ö*”
+¹vû—±ÕšÎm™®Ê˜Q·Ù¬Ñv€‡±l:½£d¶`ÜÑìõ¯
+…<œÛweãm¡X}İó4àY®MªÌ¸Ûˆ\•tzqáÒÚ³_¹´¶0ŸM§³ók—¾òìÚ¥…E€c/äwî<txçB·İÆ!CwaÇÎÃGvìÌìñú—.­­,uæ:;—–×.}ééµµ•å\6›[^Y[{ú¾¹…Ş²“eåŞ…¹ûÎ-Ì•û\,ëê+Ï-€=^8~¼ÏÒdyawÊjx€Ûƒ¹ıW Ri‡T,å‰Ä»—Á
+¨õ<ƒŸñø èòu†u:¬¼‡nd éL¼;lvÓú‰f›·¡È&«¿›¤„ú[÷uNÁí*÷-ì;szno¥×ír¹{Ëss§Îì[è+Cò Ä¥Â#ç{ŠÅóJ„òÃË‹·‹³åÊÀâò‡ï_Zîp¹İ.°Ö¥û›Á3Ó_}n×4Şµ‹óÆÏÀ×'!ãà52Ï¬Ş¹¡€sRù{Š¹ê˜´9Kp1›‘“¹B¤][[œÏ¤Ó™ùÅµµgk¿ÀöÃS 0>œºÕ~!¸–ÉÎ-<úØ—Ÿ¾ğØüB:‹¯7Ôro]-\ò‘wãmâ=Á.ÃÖ¤2\6P)¼K,ç¤–ª«É{5ÅW*ôamíl¤}zœX*KÄ¢-Ù¡-H«Tòş|	òĞÊÚ×_¨¾ër>%çÀÓ·nyŒ¾Ç­åEøú~=Ë¯ç÷/bŠ£k\rš, &°MÜh¸/niõü?ëĞ­ıÔFª:~!‘ˆD"€§i5ô÷ª/KÕj×·^æR]ı¹Él5[,&a×(å7^6ßüË&ƒ€İtoÎ@âÍ©ÚÍ¨‘´ “{mR÷FrBš­'ãóDKE;ív!_Šï,÷EÂ4yJp‡‡ôT®¬ùÛÓÑ˜R–Q@&¤,éÌtÒíª3ql0%Rƒ#{¹ìe)«§¶.wŒ{]FMæğú¬’~şUšˆÓ §9†4ğŸ¨õÕŞàÿë/yÓÀÿW †è
+´ú9´2£(Çmßoe"¾¦‘.fSBèa *6œÎ+¸öñû{Kv«Recbñ
+rl¢RYZşhíuLoIÅí6…+Ië¯ıïŸ\Â=}ÿàšÙOíNE¢^¿ƒ¡ûk7öçróÖ’v«ß‰z<&3ô®m!N%GOÄb°Çµş$xÛğœz„Æ·4_ÏËp=ê+$×ªƒJNbŠÒØ]û©ÖR©"ñŞ×mJU{O©$-‚wÖ¿4Wƒ;52YíJMÊ•EW×ğñãúQÍÆYFqãmA °·o÷mOá[ĞJm†Ş†ÕèÛ0§˜Í,/]Z{îéûïÙÓy>Í©µ³kúÀÎ™Bƒe…®‰mû2‘Çådœ™D¡#ï>ÿğß?sş¡Ù½±8ñ«g.^\ZÊfp2µó£2È¨@xz­VÍ\ÍÏŸı`p/ë
+rÖ&gÃªSÇ»º²™•¥‹kÜF€Ç=ˆİ€‘ÈâFş½L5Ø–À	VÇ€ÕµÙ\+Qqjs4Õæq6Œ¬tMÚõİO>T©06
+^¾°5éÆ'~ÏŒªÚ+$¥óş«­]9…á¡á¿ø‚k6&“Ÿé-§ *ÓÖLõ§J¹	ÿØ£úm^‡Vã„<7w¬À8üÙÆ[‚qX›‹cb¹Yo\Ñ§4 vz]0P,Œõƒ½Äîm;vâñËÇî÷‰í¼3ë¦Ê•XÌh2âÑJyŠwïúc;>>„,>œ?~4°ñæÆ“¼(X´!®£.n¹Ÿš˜R9ì‘UÿFÂ‘¥™Üà¦»!5¨H™L(ä")øs¬^Z—+çõõû
+ï/«ÇAõ&ñ„àÚõÚÊkµ=×¡5PvÁÕ:ëmâ'nàgÓ‡œüŸ±zÏªH•BïÄ{Ä´ıYõ¹?@´U©Íëç‚Étçé]¼@ê ë³¯ÃxÉ;ãx”q:0rœÛÃû«j…\*‘ˆÅø›*°"R©Æ'’ˆ¥…\ıƒw	Ì¯õ(i£İÍĞFE­“_üO +×¯fTØy)¥X, Rp#Ãû–ÉncÖ¿aÇ¤ÊÂvÚìæõ2Çœj?ïõ£á»0§Öqq><íG›ÿ$
+kt.O&ÛÏ¾wûì?J¥²]ÿNFµ<³{l¬·7^ÛÑõ–’´ÿvµñĞrh…ÀO¼O! g°iÑ»,ÅÙÑ¤
+ REc…„Ö9ß«şªöF]Ù¦š:èñ¹Ü>w¿©£4ë§«ß!€r
+€W½)~˜D[ÑôøgW·Î5oc4Dç?"Ï3§ğpµTbÓ·òòæ£!*æ‡‡z
+‘°Ñ`¶„£ù¾‘|!1·ò·HµjæÅ›/È4ZÃ·ÏJ%ZÉdµ™LZ`‰\£5™lv¤P)ñ€‘æÆÙ<V1¡ÿTïl°7:Ëdwtå/ìèF¹Û`ŒFûvìè+G¢#†¼>)÷İ|WğE…Bvc–äç¨Œb)DÚçÍç¹ÜœËÆ%2ƒÑÌ¯ß˜ê/Ç[ƒÅËıS“}•pÌ`4báJßd·zs§ÿĞÛ×]ğûM­Ş&¿5<•wlBĞàT€XCl\»iø%Ô gÁ7*m¹T#?lWÜ¶÷;òÃzR•JM¼óÈ³ˆ³©åÅËûÛyhÏ¸Ò@ÆÁzı‰Tß‘é™|ÑáÄ,[ê™™>¸g Rø†I©Äodó…rel|×—}la9“%^æÒÅåEn`;îwcR£¢&»Üen§?º´X©°,ø8îP*õOU¯ú¬V.ëÅõ°z±Éˆr;qƒ/¶qÅæá¡PÄ:xí+ï™2éOøb‘ìk2HÑ~]{x×¢RK~.Qı“TEÒ„W±H¬ª}Q¥Q©1¥–ŠkŠêÿPÊ5øˆ›®ı€T*Q*‹ÛQ¹Éşê¿pˆ<t½ú4×r
+Z‚äËĞ²~ìÜÂÌ[Fí¸%YOzhµÂg½w„AQSR	_Ê„6©R’&‹ÇİÓÙ­“éô¥æae0Ğ×;µcaej²ĞådhÚëK§»kÿ1ñ‡½zÂ`6éñËÙT*‘H¥º’>¯™caáÈV/ì—G¯nÛ–Nsş’ÉnÛ;Q(”ººòµç"Œu4ûi@ÚÄÆ[üã,Gm%´°Áµéì;•¼ÓÜ>ïğĞâü©Ë‹ÃC~/Æ^ÿĞğâò‰Só‹CÃ^èu^O"‘N§'‘Jƒ~=^xı»—Ÿİ	…"{f¿üİ—¿<;Ë£GB³³—é‹VóEšóHº˜?¸úäS««…"m0ĞÅÂê*hgtãm¾ôØİ8Ôİe©‘GSÿYÀÉğnCÖ¦S†ÑQÚg0X`¥şTÒåĞ¨û=tè÷×ìXm5½4yjfº»‚ìodiåô@¾˜Î†"O~È¬l_	M¯óy³™Şså>ì	¯L9˜Ú6ØáÊ'&çNÏÏWX·Bn í6Xı°å…f´O5~ºh`°V¶ÀG©¤ú*i³g^$òl°ÚmP©Ì³Gâ+uó~ X˜¬'IÃ=£­†ëñ³…ï‹Ÿ­	Ò™öSá?n´öÃØÍr¿?¾g¦Tt:¸ßôV;[{t°ÿ…¿¯"•ŠD¾Ğ7:4œër8«¸T<“†©Âj-ãE2Ü©9£RóşmiçtoÉãÂ¬«§´{×¡J¾íLf’5‹‘§(-åT’FS:5>vÿ}=% n‡#JuEÃŒ]­ÂÃ4~k˜İ/‚ôü·öÛÆÏşQÎlomgİÜ5ƒƒş<¯f‘ÿYRÈ²@<Ö59>Zèr³.w¥2·pòÌŞ}¥²ƒ}—•º	Â5ÖPW,ÑİK8 Œâ›û>‹h€eWM*U*\f¶¤sÛ'Øµ§\á¼†›ËÇNV£ÕR,‹uåq' Œædcq°“=°Ó= ÙØgÛ/mí¶£SéÛ›j;h»…L›B¶¨Íá[òÙsÌl5Q””ÔSv›ßÛÙ‹Ú!]Ç)Ëö•Íºİ¬Rs]»;»i¥wê‡•¡&nMlïÊÙmµÙıÁÌÃ½=€¾ÊÀ®=ûo›ÈA|6,ƒ¡t¬Ãi²(IJëdüŞ@2ä·Û@L/pœĞì÷ÆW…£#^É£nË ¤a³%™*Œ&Ó^ŸÑ¢ì˜:tr*×e¶rçğÃC ©«€Ö‚ÿR÷(\Gv}îÌ-<»Š_~K×¿ƒXğšB®”S*µˆ¿?pãß¾óŞl<ó5O€±¸CÆåâã€““ ÷DšHÙöëãvVµ™˜ÖáHx—Ÿ7ó£ñRñ±#É´ÓQÈOíXY™ÚQÈ;éìÁGK=.w_yï¾'g÷Õºø¤Ên‹†{ò±0òë«œ>ÓWfeŞbŞ_ç(r¥Áìõgr^ŸÉ"Uà§ÎïŞMl?594”ÎXá“IMÚ>
+îÚ}~ql[&gµcl·æ2ÛÆö'!›]»-HëÉcœï9G|)äõÛ°qğOÆî÷†|n—Õ„«4f«Ëş	ì–ÿ€à{HÍÅyN	N@=:I†“P†©§4ñí·¿)WùYõ	£†â¿‡_âa!Áğ®®/ı9‡ªµOãU0úcøuÆíòƒ–WLœ#ş…;âps…Ğøµ×¸hÍå±ÂœlƒEÕ%ÿ¾ó‡¶DöI¬)yŒ5şƒÅüMMASzš±ñ^\O«j³”ÁŞ)ø^õ
+ÄmÛòêg-L®Ó;« &ÂYOZOqÿ
+ƒ÷áÏ~·OÙı;î66Ş¬}2²w ğV!æş£¦¶‚ø³ĞâŒğz}¤öO?‡üaäâ_Bˆ :Ã]àùNÄà‹°ë¿FBşeTà•¡¬•xAÂŠN|ÚİÃû*ñ£hB¸Œ*Bºeç3‚è
+F^âÏĞ‹ü2	¿ı_BAÚ¬¢5Á,*âï£A=)øoè!½ñ&ÿ“è
+ÌÇCW¸ñİB¾Ê_AEş6dàßı¿Œ¦àNÀ=
+÷ÜÃ=÷¸¯Â=7Mü­>Åé]Á~<ƒ¯àß^¨——ä}œ÷üÿeK°,ø¼P |PøºH'Z=/z·uÄ;ïø¢‰‹âgÅ?‘ø%«’Ç$OI^‘Z¥Ÿ¾$û‚ì¯äzù¤|UşÏŠ¬âÓŠP¦•_Uõ¨ö“B2AöÔ%COp¼»©ÁÍŸ´KÁ|àŠp¥ùŒQ¼5	x67ŸyHÙæ3©q¼ù,@ã¸Ü|Bù'›Ï¯ #øÔ‡¢cèº­¢ı€5'‘yÑ"òÁß8Š¢Ü¡æSÊ ­ZCãĞóš‡<o	J¶ SèCğvİoeø^EËPÃı]„’3ğ÷$ŒoGÛ¡üÜ÷ ÓõvÔ#©Ï<
+#†R;rÀˆóPvÂõñ¹q–¡İ‰f¯Sõ™¹qìõ‘¹^hqÿ/6{âÚ¶}çA(™ª÷>åGëmc0w·fî­ïp	Ö¾û^iÔªµßª¿û8Q”D]ğ¶³¾ß“õ6GP )·U(ã¤q´¹Òğt
+Zp+lÍº5Ã$´åzØo­‚“è|½d½?7ú|}–¥6-5¤r[è8Ì²
+mïšCP2pGï£ğ7ŒĞÿI°oZ
+endstream
+endobj
+22 0 obj
+<<
+/Type /Font
+/Subtype /Type0
+/BaseFont /Lato-Regular
+/Encoding /Identity-H
+/DescendantFonts [ 24 0 R ]
+/ToUnicode 23 0 R
+>>
+endobj
+23 0 obj
+<<
+/Length 882
+>>
+stream
+/CIDInit /ProcSet findresource begin
+12 dict begin
+begincmap
+/CIDSystemInfo << /Registry (Adobe) /Ordering (UCS) /Supplement 0 >> def
+/CMapName /Adobe-Identity-UCS def
+/CMapType 2 def
+1 begincodespacerange
+<0000> <FFFF>
+endcodespacerange
+2 beginbfrange
+<0000> <0000> <0000>
+<0001> <004A> [<0053> <0041> <0052> <004C> <0020> <0046> <0049> <0054> <004E> <0045> <0057> <004F> <0044> <0055> <002C> <0075> <0070> <006C> <0079> <0065> <0062> <0069> <0074> <006E> <0073> <006F> <0072> <0064> <007A> <0061> <0063> <0066> <0031> <0034> <0038> <0030> <00E9> <006D> <0076> <0043> <0048> <004D> <0042> <0033> <0032> <0056> <003A> <0037> <0039> <0035> <0036> <002F> <002E> <0050> <004B> <005B> <005D> <0067> <0025> <20AC> <0028> <0029> <0026> <0077> <0068> <006B> <00F3> <0142> <0105> <015B> <002D> <005A> <002B> <0047> ]
+endbfrange
+endcmap
+CMapName currentdict /CMap defineresource pop
+end
+end
+
+endstream
+endobj
+24 0 obj
+<<
+/Type /Font
+/Subtype /CIDFontType2
+/BaseFont /Lato-Regular
+/CIDSystemInfo <<
+/Registry (Adobe)
+/Ordering (Identity)
+/Supplement 0
+>>
+/FontDescriptor 25 0 R
+/CIDToGIDMap /Identity
+/W [ 0 [ 527 526 674 638 510 191 561 304 585 750 576 1010 791 747 724 210 551 547 254 508 520 554 254 370 551 430 551 400 554 458 503 463 334 575 575 575 575 520 814 508 679 750 913 642 575 575 674 250 575 575 575 575 370 210 606 675 297 297 507 779 575 297 297 697 760 551 520 551 318 503 430 344 619 575 728 ] ]
+>>
+endobj
+25 0 obj
+<<
+/Type /FontDescriptor
+/FontName /QGBAAA+Lato-Regular
+/Flags 4
+/FontBBox [ -94.2382812 -182.617187 1116.69921 918.457031 ]
+/ItalicAngle 0
+/Ascent 918.457031
+/Descent -202.148437
+/CapHeight 918.457031
+/StemV 59.5703125
+/FontFile2 26 0 R
+>>
+endobj
+26 0 obj
+<<
+/Length1 13268
+/Filter /FlateDecode
+/Length 8426
+>>
+stream
+xœµz	tW™î½ÕÕ{WWWWï›zß¤Vï«$·ÔRk—,Ûò.k÷.ËûFÈê%vÀ08@’8`&dpÀ„1„/™y†÷û™œÇãä@Øæ1¶ºõşÛİ²ÛŠCæĞuª»êÖ­{ï¿ÿa„½	Z¹&{ı[CË8'·Ïß¶ûå¯\ë7j¶ìØ:5»½¡ï%„ÂhKí€ö8÷ípïŞ±çĞ±ÎOÚ:à~!Ü4·wfêŒõ‘A„"€çÙ3ulZ…à:ê‡{ûüÔ­-İ«‡á¾!êĞü$DHø1aFh¨ş
+¾î D@±BŠ¢h%x¡FĞä ª}Díˆ¹N‰ö—÷#$Şˆ?nGèCäÍ	vD!5Ã=÷ ¹mF(Î98¾øTºzÄô:rh5bÑCìòyÓKRÉ„ÏërV¹œ>ŸH§âË^ƒvo³à…aÁ±…“Om·3à´§â^VËªtz‹UoâÔ4w—B¨dô:«ÙdàTo.h±ñ:F%3)"çí¶˜NÇ«™T*cT¼N³Ù…W®ÓÂÁkŸ£7h5jV)cµºÁŞNgı›]«WkÔıÜ1§Ù«áº[ n·Ie2…Tª\x,âpH¥,«ÕŒ¼–e¥RG°µ,¾%øğŸÑBé
+™º*AñXl ºşH&ªíÂ—(®5ÎhEz]ıQÏ™–œ˜‘©´VsĞßš]×M{=:ÛlÑØŠ|¡ÏGc6›ÍÚ’Y7:ÇÖÙ¡ˆT&W©uF§;ëîŠÅn•s¢ùJïXÄns8òùÍc‡ßèèó“2à	ÖÌV½AÃ»]±ÈŠBSĞjÑò:­ÙÜÔT(L÷÷e2°@ÿ˜J,á8à¤Š°ÑFV›F§Õ[,Á¦¶üæÉÑµmy—+ŠH!Ùâ¢p'è‹ ;8]" XàÂ°CàõeÔÀ«TÿGÍ*µøTiş´D¥6bšrÿ½V.SÈˆ±’Ñâ©ò @ÊA­M¯itzŒ0ş+ û¿h*èfM«ôKÊ¨ÓcX66»\·$›dåşüñ‡¶ÍvìØ`
+…;»FİVü·—6–ïSó:ÿ#ßZ_(„:¼vı§¿/¼b±&RãÃ]É´ÇËë}¥/)…Q.+=FıA«õzS‰û:D7.şV%$k‚Ui/½Bİd¼ù‰ÚS:O¥•k•ó’àd©ÚTzNxåB]("=¿_¯X_eœï½BXíVácĞ.FˆO’·]œ•¾«ìù†Pó‰O\{S¨©Î"Ü }Œ•w	_Ò0LEñ0Ñ0îÒv“RÎ	V0…?3kPqÊ…àRxE$á¯Æd2höZQ"ÖÒ«Lı—õë—×¯h¬P+}ƒú*¡ÁüxY~z+Á] wÖ'¢!3ë‰0±†êÊn6¤AEpU+°Kù¬Y­ã°X"”ˆ$b)Ş(R«MY3§’àõjV$¤¥8BójÓ£åÔ¥ò¹LH‹èòéKÂ+˜au«Íát:ìfÁ‚JÅ2JÍêtØm&Á‚šeğµ"=ÑĞ¨á5ìõ§ˆ®/¾%‚E7 <¬µŞ\ë¬Ñ'ªZmºf­iİMG%?7LLŒ?øÀ…>0	×‰äøä^¸ğÀƒã‰äkØëéêœš8zdj²«Óëv{;»&§˜êìòx©?{úÔÖ™L:™Ùzêô³Ï<=³5™Á8“Ü:súäs'wÍõõû|ı}s»N˜Û5Øğû}ƒ»æ€K`sãjä©Hh™?ñy±ekv\¢<OÕ/ô©òÓxË‘ÉÉ®‚×ãñº&'”Ÿ®&’“ÓxöÙ'¦¦I|Áçíïİ½óäƒ»võ÷û| íg-LÀÜ03ª¦¹•IDûê¼9ùºÙöömîíGÍFüu```nşÁ{æû‡|*/¸sáş-ƒÃéLƒƒË¤‡·î^¸ÿ}»ç‡GšB¡¦‘áùİD/'Ë¿ÄĞoQxä%é-ySMÕÜtÃp,-aR*áX½ÎÜ`Ğƒb‰±Ù`r¹›”¬”Sq*%#bÌZ½’“Hï6hy•K±ŒáµFSCx:…}6Ç°2Úd°Y\RxÉ ƒÕÜ¹økÁh†Ø*á„¨ªöç«Ó¤».ƒ`çWöv·^óË”ÅÕ£{Öµ›À,Q.í>šï m¡J×çİ7
+clµÄcı  óå§h?mG6¯ÌÓëo£²:9È!V'tòìüœW®*¬İ¿¡¿'³šì™ÜêÑ †‰h[KÿûG†Õj§+[±±³+]~J8ç9¶2qº:³³ï=43İ×çÚZÊIjc—ÙŠwly¶¿/Ü¬Óa°ŸÈä"|M
+¾äÁ.^şüš…x…ò“´¸c¾­W '@äâ•×ÿ±N"‰*@)bş\édk9ñešÁ2[:¯êğEQÉeøÚË…ãG	‡#ø	mCiÔõv›&QÂµdqİ‡úŒñÕ$íğŞäÙ DÎ¶Í›ö·d!tHeÆÒ06é›[sÅXÔí4Ô:&îj§RÙlvnÓ¦BÁã½B%°ŠsºÂ±÷Q–¹‰ñbWÀ×àÈµ®İ°§‰a§{ûÃƒs*5Ï²ªÎ ­×HåØíîéŞ±ıßó©„ß§ÕâÁ! ê±ÅßÒaáU¹¾¾“Ôá'};¹?ö…öÑÕ{6V…n³g[V¯İ¾µØ“Jü…hkkÿ¹ázÁß(ıÍ@(ät:g@ìÓ3½ vŸ§gÜw­*õ¯Îö÷Ö¤ŞG¸ş Hı”ğ»àI]ïîI‰u< —©UFÙlĞñj¹L&‡ l0[t•Z&÷\®1j<àÔò@¯†Ãkj½îÚÿ ™ë¿­
+-¾E½&GÓ|%¾T¢“¦—é*ò%ìIr„.1#Sá@ù{ö†¸EGl\&e˜d¸ĞÕ}G¡p'SïÕáv¥\V~ôşÒÃ]6»D"—Ø¤Ú4Š÷RwÀbˆÆŸ‡ØÿĞ8kE2º[-õâãˆí±£«÷®íh5êu_À‰ÔŞUİ=9ĞjÏŞP³ÅOöôo(ÍQ>\hÇ>_¡$ 3äy:a†‰òŒ/Óàä-¸ÈôÖ9Ã›|_ŠTZÍ­¸S_§@ùFÀµ–·Yıí‰€ßlT2 =ŞH,Ä<>°\“!ÜÜİµqëšU-…QÅk,V¯?v{fF©×ù<ÑH<‰x= ¥Œæh¼·|~ıÆ½E|-£RñŒĞAo·¹ƒ‹FÊ¯Òjöp¸+—NıFn°';VÈX†Q(ZPGÀlÈ­Rq¼ÖÖĞjëk]Ñ2šÜ.Ğ¿şÅßĞ>àPØıı[èïÉ	û*™JÍúû]Îö±ÍŒmêhw9®öMclkïpº¾„5¼ÏÓ’úèĞÀÀĞG‡³9×P¢ã³³Ån¯c·»8;{üéébÛ‹±×İSœ~ÏXo4n4ãÛ¾øÒÎíØh‰ÆújZ£ On®iMUoÒ±«¬Š;¿Ã ‡I¬ÚİèrÚôƒÒÖ˜hïW(7=¾³5‡e2Õ}&b8İUÚüè/ø#á¿×â„·Îo†#×;–bv%ZÕ´µÛ­-¹5«w;S$L©ºF×ÍoìëÅÍÖ/«U.äŠ™Xkkß‡†)|pf¦¯/t8sTşšÍ{çH$‚]ÎÂÌÌ=[{ûCa­üƒø?:-F¼}'p 8°"¨h,v ´%²Âm/–ˆT²ôm%–ÈJW©Ô ‚ç8ê×ç†5Ï”ø³@åˆ¸ï¶¢µ7©LWü^M¤}õ¸ 
+†}Ë¾fY.—¬u‡lb`à=Ç?Oníj
+9\zƒgX±cíÖé÷¬ï*„›AÇW™U­z|M‘X®-‘ôùuú iÕ‚Š‡~·ÓÑ`¿{ÃÆTÆhÂÂ¶L¶©Ñj®>ow¢ÖjÕ–KU­«~. Ìe]i‡DjñYx-x=ØŒ@Ö¥ÖH$Rğœfƒã»BVe49]ÀÉÁÅß
+ş´9Š×IÙµ,é¼ınzGrÚòmc›î]Ó‘Š%*V­6[½ìP¶Åà5X¯õù2éî!A£VäñâìÖ}ÓkFÛòN%:83İÛ{ÚÛ"V*X•Ba6¢6Nôö)˜€šc±ªsÔãu¹»ÀJ€°êáÿB^âÉãu¹sEL7V¯­&?d©æ§MÆps¡}MwM±œ­!âñY¬‹›Ê?xé€^¡¼00»¡§i6t›5´+”&kS¨0qÿÂiÁA†VÈ`Ş«Ûd„ÿ€40/®Ä¤ƒK¤…Kşâ*şÜ‡±}áW¸EP¾&—Ê¥¬B)¤»ñ±kWÏü¢©ù§Rƒ¶ÊH„8DßQAâÆêxq¢Ğ‰º8ápšŒJ¨W/şD&ç/?U:¢a9Áç(r0J"xqaİNµLQ~~ŸB¡ŞN›ì6;`©éÅ·è<d*a4‚öÕ¤¼¼Ä@<]5¾ÜF½—ç.z~9n÷ŞÚaº¿ïô¡\ ¿ìš‘­ÓkV·ä 	åZèYwlÛ3~²àvY«	ø²é¾Şl: ğÅh
+4¥2­­éL°É`Â%ãhHDûzãQGdd€Îh¼½9\,‡ÏÛìo\·öØHOw2aƒO"Ùİ3rlíºFßæ±³SƒC©ŒÅjµdRCƒ³+¢q·—×hx¯;]1˜Jºì„»+™¤^ŒGÂ7+¬×¹İ‘æd<r94<¯q¸B!"«6ˆÛŞ)û[B„78(úÓløûz¦'÷ï›êínôcìoìîšŞ·rº§Ïø2`øps{[±3ß[-k8Ú–ï,¶µ7‡-Vê'/Ÿ}h|K>[Æ:ûò×Îœ#wccgÏ|í“ûö‹6[C±¸ß'Ÿ;¸¯§HSìÙw4£‚wŠ4*¢U!Ä+æ+½â¤fãû‹À_îË0j•óÒ¯ )×ı9Xø$ş£@ÙY±×Ğ—ˆß—Y¾RËÂ*»áH–3e¶§{bg¡İ¦s9Cñh|iF¾9ğ¶©rêË8ŸìÊ¶„	bÛÙ
+åZ¦ÓA‚‘ÕÈŞ?NÀÛñö¼Š%Ç¶ÒnêÃw®h:ò×`µjğBˆyºwÊ‚\êó:%#Æ€ÂÄ±\ªÄr‘’Ñ>\Şøl%à«J[½n¯Ë_Ô£$÷ãAî-(Öi€®–`Ï-¿,
+ÜĞ‰¥p1–JNO:ñÌSGu@ÌQ+•*^k¶z|ÑXáèätwOµÑÕ9¾e®#™5ú=~’<o~ï=Ÿâ{6EãÔO}èôÌt&£‰µ›åB	`)Š dä2ÈúwÍİz÷î~ŸKÄœÊdp±ÌèÎ\Î¤ffNŸFuU-y­²Fğ|_ú¦@÷Ío.üRx¥t€zøZ‘z¬4[í-úôöß@UËŠODìäBŠh©$ö!³éuF!#ÅGÿ†aË?ƒ)L•¥¦5l,•¤F†i‘ná˜Éh¶XÌF³à„AH_+Ò)­É`ZØyzXğQ³Ñ¤»ş*Ø%©™}	VbCÍ¨­¾R©]*™×ûé›šJu†ãê+6.Ç%üÓSíy›­bSñd×“kV9]…ÉÉ;Ê_Åm£+Z^¯\õtùŸ°ht¸#?¼òéòï„WÌ¦h¬»wS*69\ûèÚ“ã¤ºbµ=®á]îH´å@¡PFÔY5o·Gš3ï]Ñ
+œÜ§4ŠD››5ÿ¥cyÌ—Lİ\½¢ÕPTa·hêØ°ÌÙîÒiyµJ‚XÀèx·3lÉy=Zå ãì?°¥P4<æµNws$i¸½z“œÔ‘E´H<Áıí+ÖŒLŒ¬Ì¦X­v8›#¹‡û{±ÇWèZ¿qÛáÕk²-./Şg—PR©ZH…6Ûá$ÃdøbÑH.q»µ<¾kÔ.g¸9—4Û­«R[¬ş`³”†èˆjvx0•0›Iª+öŒö$3şF‹Måİ¸ñm#k2Y›ÍjIÄ{º«»@+Ú€«ıó&–Ìş¿Ä·å».}®xví.‰X¿›E\Nµó:§;Keš!!3˜¤gÑâ›<Ù²jUKÎå4˜Át¦µ|·¿ÑïÇoÚ8^X”ÃßÏeR™t.ÓÑN¶ ¢ráåä’duphbM±;ßÑÒÖV>(ƒìN¥6Ï«•€Õní¯ø¹ØÛÍ»$O˜HQ÷	Èï UÕ=.XûDéâ‹Â+ŒRsın°±1èwÓr•Š½V$ûŞÅ·ğ½‚ßV#vÚ{{ÆÜ¨2¼Ëóû _"•;)A¨ ·—«–J\µÒğÎO÷›õĞªÉĞj4ZIÙBJŞ‘ªáõO>&üÙ¿¸H¯«ñg)é©àÜŠ>¨¸_ğ†X"-=¥Ôü÷R;%Ã—(5£¶ß±Ú¥Ó³×Óf@ãô—Œ@˜’!ÜùèÖèV3^nQbgÕinÓËö²–Ôñ#ng¡}ã†¹ëÖæ[]…B§o°ûÊSêMŸÄ_Ñixu¶»gåhß@:ëp\&©r*ÑÕ—KCØæAö^_*ÕŞ•Îø½ 4¹v4Ÿw»±Ó½"¿~ÃÎ|6›‚O¶TÒÈTŸÍd2‡	¯S©ááİ©”@6}¾D"Ó•Iù=:­NGFD?õkZœ,Tj#KÂ¾AG½Yùø
+§}Á­€¹.ìíMsvŞlôºcÑâ`¾­‰la^ã´¶®ÊäZÛ¥¾`0eËñÎÓ×¯oÍÙmØìîœÜWÈµÄ“Á¦‡†!äÔcƒ!jÏ3iŸG¯•Êxõ™aä?å»lNw®uõêÉÃã]N7VÊõZ‹d8^w¨ñ¢îZF[³—ºr†ş]ÀırÙíÅM[ğ!Ælt\(âùşõ#Ã­9·{¼…-[öíÛ°)ßáp}VËäŞß×šk
+êu 5 ÛÒ5kõÁ€ÿmr~Ïİøœ’)İE¼"¶4¤³«×ìÜºnC¾Ãí&µ“-›G{[Z‚A$ÉÁ`.WìmÉı:ÑlÊdAZ‹¿_|F şœDsñÍº¯KAmW˜Œ¡ÒãJ‹Í2&,9À]yTHx#XıFD¬ş]m~ÓŸaµÕ½EúQà¾†T1o³B6ëJndCñ³§wlï*¸nw±¸mÇ}o¾Y©íU¶_xCƒ½µetí¶í£ëÚV8\¸ôê!!	ø³éâC+Wud?sÌÙXÅ7•ñk2¯EG²¡YUc¼„ã\Ü+_ğéu:üw~ªôm=§ÑZôZ=Õû·“T.–‰ËB¹L.Wª8#_º¨4Pn“\V:C˜!UkÌ¥n‘–‰eT2}‘ ãÒ$¬è\ùuJ&jF,ÙapÔòWâG´Úsø8Ãê^Ç2å×ÅëVšå^Âk ”Œ•_ÇÿZ}OŸ¨b-Rr…tÚ1¦dôÏ?¯‡r¼|âûZ•J4Ì²ú•¼ˆ )ÅÊ§ÿA7 Qt…w½·æ¶·\¹“%‰o&h"ßŸ*iŞ®ÆU[¼ÕZÑ¸ŞˆˆÅq,¼.d4IÅjÖd´56Ù,ÉxïºÎÖ\›8ÁlqHR×ö·;TœÍæÛ
+íím±¨Í‚Î¶ü¦±}Ö®OCŞú¤šóz uíkÉ|z­Vïò†c‰d:%HdËZ-Á@&E¶â!7Îµì™ÏµÌ'Sv€@YƒÁh0èt\cOÏÄ@[[S”Œem.‰ª0<”_
+éX£5ôà.!9¢dr‘Øhjjîîj[Ø¬˜TfãÑa·Í¦Ó+”X©0œÎ OoP0"± Ó‰ÕH	,!·Ïhfác6úÜ¡1²-	JŠú%\¾
+vØ„†Ğ<zxYe±ÎŞˆÁ75Ùåz‹—A-~—ÑÒñw¡IK»‹­­MA“r²Ææ\[{O¶µ±É`š¢Viºïú·äŒŠ?V2&ƒÃáõ¸ì&#©E0¬Ñdwy¼‡›züæh¹P£ÉP­ui4üş?ı>½qC±3Úl2LÍÑÎâ†õ]Íax­R=ïê¼^>êÚŒR,¥7æCM3£P0fK¨±½½¹Ñfaàc±56·—¨õÅJŠ‹ë—´¾£ñÆ»M¡|{s“µú®µ©¬Òå,Hm¢RWó¦“^p¢®d¼VÖ3¹ÂKa½ËAÒD­H_»««K¶¨¯+!ø\§¨
+B<}E{{'ÆçOÎLõæ¥b)±Á>25ã "˜QJÿz’î?%|+OYf¦Î§šv«^Ç±JF!‹¤ƒ½»vğØøD±§±YE¥v²¬×k5;ïÙ±½¿à@rS§LI¥†7 Ù¶í³j–ÕòZesË~g×n,—s*¯·iZÜ·=Û‚ş¹¹	z8YşÅˆÈWW?¾éòoxr'®)Û)Ì±G*5´
+ ¯l.É¦w‹€±D¶j(•r8XºÿÎ£G<|ğhL"!ºö÷W¯şğGÿrõŠü²R*E:xøĞÑ#°‚òwğ·ª+Ğ'núŸ·ë–oaˆ+5Z
+‹weÓ8™ƒè%ËW¦S;ÌÙ©ôà*¹Xò¿a&Å•«ÿò£^½ú÷j‘K$±£°¢ÃGŞy×‘£‡<t$*’K!ê.¾%üàÆÍh®nï¤Şë.9Õw¨%,qi)—‰Ç+@³Z{§ñ	£}S°%WÌ[l¤DÜß;6ÒÕ[-ÂBZ)gh	ËLNOsÂ´Ø RIÅ¼Êjöáç öI±B¦ŞO¹=8ñY›š×}hêÎ»Y34Ò–÷x¿ˆMú€/OÛÔSOfğı½íí)ğ­öáşU…XÄjÁ³56eZÚ4)ájŒ6³AÏ²*Îjõûšİ»Óét{Ë«‹ƒ¼BqtÿÙò?CGıÇ’I³9™˜ïŒ%œ.µ:èÁŸÏ­Zƒªÿ€ñ4KjRÕì‡_Ê~ª;”ok"…§OPFbxKå ÈŠ^KÄB±B&ÿ!­d4Ã<4}W!›–Še¯Ñ*FsªüÙsfÙRZ("‰ïÿ•7œ¢…’+íò:ÜN' êI%ÙFU–&=N—ÃéöØ—
+G.ê+F@jàWô¥‚ki'SøFmOê–=æ[Êe—;W­Ü½|SøFéãİÁwÚÃ|°•
+Ÿ»†sb·Å95€ã±/„Z÷(9Öô\ù^–Qª9N©Ä~Z¯â˜ò§AÛmqáÏ> ªñFV.+ÏsŒRªdÕ|iA*ÖàOi%¢²Š ŒÊî`¥Ò›©ÿWÀrãz·ıA}}Yô¿±Yˆÿ©¾úßÛ9ÜL]¸µş™†Ôo#ğ•#ş=‘&7IWƒÈÒ¦Ç._‰T»Lİ¹Û&ï¦.}~x@aqqáwÔ«$kÜR¾@#Ú¦Ñÿõ=4ÑÍ½¤¥JP|)!¦oz‘?k§ò]é-;m­^ÅCv‘ÙÀ*åRbBš²Ú›#‰M‰$¸-o1ÛMÒ¿ğnœœätƒ™ì~c!-iZHw6àë²Y-f“^¯¹¦}V›æİwì¨ê>häÚı×ßÓ¯WÛ¿âşşë´û¯¶×Oï«SŒ¶QFj’ºLşmDê(Ûğ5ÊøøãÄ.6€¿ù;È«˜j¥­¶·ŒÚA~á;tT»ğ² {¸ÁLŸ»Ğçj¸~àykúİB_$ù)ŒÇUÿKââ¶á'Îã'Ë“ç©]gñ‹å¡³å~|y©î>	rºÍÎK2zÛîë u#GZ†uÇ’‰™É3§Ÿ_?Ğ×‘Ï¤ÂÎÂñ¦{(Ü¶bí]3[»{=^ğõvÏNËÅ£M~Ÿïg¹¢Yg×ğğæ§îpb2•¢~ü‰3§g¦2)œÁéjÜd¥äŒ×ğJÆÚµû‡ææ},*d*V‹W(äÜáÒÿXmZ²S­ÅWşZ9ßÜ÷ì§'ØÖ??Å/ÿ,ş¾|Jb 4ƒ‘èF#&ÿ6/O#$µxTb¨ŒTÿ ÛQ3İ†Z„ûLèE¯Ğt	?<.Q‡Ğ÷è—U¤@—ègÑ%‰)EÓh\$B—„ßCÏàKh’>€î¢w¡ó”]¤HIGÑ }=÷P×QŸCyøídÑyxÖ/¸„zi%|	R—™~]…3 ç4œmdÑ9èk@já{Ğ™_<s†`O£½pî‚õJ(İ×ûáüH­}/u}ñ÷°®MôÏĞ+Âèj:ç­CqQê‡>.¸?ç ğ	4*²Ãša0çcdÔ9”®¬ÖL}m£Kh¼³MøS4ü:‹íx?Š/Âñüş1%£Ôêƒ`àqÁUÚN7Ñ“ôkB³p½ğ£ÂWE›EŸıLœ¯ÿ@Ò*9&yBòšô°ôuÙÙ²Ê{åòg´âÆÅ3/2?VnP~…³}ìİìK*¬²ª²ÃıB}Tı’ú?ù|YÓ¤Ù¥y]óGí‹ºõºYİ{uè•© ÷“ÿ@W¥ş¶ìK€0-…Ç„j×Ià®zM!%¶Ô®p¬]ÓÈ€3µk!Á#µk´?Y»ş&šÇ/¡N´íCÇÑ´mG;Ğ!dG~4ƒğC…3T»Š"÷Ã÷!ø7çĞd¶³Ğ2ˆƒoBÑ{à®¾w¢­ğ„üÎ@ËQø=ãÛÑjh?çt¤ÒÃºa¤ùÊÌÃ0Âhµ#'Œ8m{áª¹2>g+ô;X{ëpef2½22ykêƒv´h"}ëÇ¾u„&hYWyû ´ï­ôÂLä\š™¬t;ÌC¨< lê·ÕÆ[êc_ÖëöcFPµÀİú
+í‡*}æQc‡;¡pfomÕáê0ô «]š'´lQxƒ¼g¿±"Âã©JËöÊ(d©Ê\³ur«òé&WÖ ı0æNè{ ÌAKÏ-oï…ßæÿ#Ëâ
+endstream
+endobj
+27 0 obj
+<<
+/ca 0.901960784
+/CA 1
+>>
+endobj
+28 0 obj
+<<
+/ca 0.098039215
+/CA 1
+>>
+endobj
+29 0 obj
+<<
+/Type /ExtGState
+/SA true
+/SM 0.02
+/ca 1
+/CA 1
+/AIS false
+/SMask /None
+>>
+endobj
+30 0 obj
+[ /Pattern /DeviceRGB ]
+endobj
+31 0 obj
+<<
+/Filter /FlateDecode
+/Length 4141
+>>
+stream
+xœí][Ü¶~Ÿ_¡ç ó&‘Š¾íC…ä¡èƒáØ‚8í&ú÷Kñ¢‘Äù(wfÈY8»Ë‘>ÃÃsùxÙ—?~øÔüûÏæå›ÿm>»ÿ¿ù°#{EÜŸføûbúFÉÔ÷ÃŸæó·İcó¸{Ø=èwöóŞüCõ¿†5×ÿıÚüó_ú‡?»ø¶ëz¾7o`úÛß¦ßÊ^íIÛ÷Ô?'Ëo‡ÿ²ûé‡æ÷mè–è(o©Áÿbò¨îæJ×w^öƒ~ş}÷òÇß?}ÿÒiŠ&m(¼éÚFˆæ/»¯ä¼ª»8„‘BÉ‹KqYˆA
+Êé¥¥¸0„‘B¶ë.(Åe!)¡—–âÂF
+&/.„Ø3Õ1)ZÒë¯9å’µ¢^É…ÁNÈ±ŸÀik==fÌW€Öî ô0‡sAë‰GóŒõ0[rA·¼1:Ï Í3Óÿ\Z8©™"W›3aÁ»îúØª·Ø”\_p¡”—ìêØmëçıõ±{é°ÅÕ±;N,¶È€-¹Ã¾¾Îmvg’Ù´!¶ö©½6·<Ş|@Ö;ƒ3Ï‹œ#Šäzˆ_™¡sDÎŒRë :CºQì!SÉ!GÊ(õe†Î‘f”ZÃf†Îg”zHÄ3Cç(2J­«ÌĞêŒR%WfèÅ^F©u™:SuIjÕfk‘o5 #´¡JkÄhÚ
+±C\!¶a§kÄ6ÔB}Ø†•¯{X¨{Ü‰T¶ßUö(fM×òlŞÈm³µ
+±M¶V¶ÍÖêÃ¶ÙZ…Ø&[«Ûfkb›l­>ìq·wmØ~zeØ6SÌ—®eÚk›Údk5bÙZ…Ø&[«Ûdk5bÙZ…Ø&[«{ÈÖ*ÄOÔÕ†íùU†m2ÅœéZ£Q¡m¶V!¶ÉÖêÃ¶ÙZ}Ø6[«ÛdkõaÛl­Bl“­Õ‡=ŞZP¶¿J¡2l›)æK×2dÏmtWˆm“×‡mO²×‡mOÑWˆmNğ×‡mo¨ÛÜ\Pöx3TmØşºªÊ°M¦˜3]ËxûOh›­Uˆm²µú°m¶V¶ÍÖ*Ä6ÙZ}Ø6[«Ûdkõa·oÖ†í¯­ÛfŠy°íM¨l¸ÔŒe9ûÌÌ_×ÆvÙpÈşêØö0k†‹Ÿ®®t{—w ]Û†eÃu@WÇ¶'RÙp3Îµ±İ©P6ì-¹:¶=™É†ûR®íNGf™dî„âûáÔ·¤vvËçÁMıÉ ¯?î^¾ª’æã×Æ
+÷Âşïã·,/(éô×?7!„Ñ¿6İuû¾å”µæ÷ ¸nZŞ}ÔÚ*OŒ–ÌÄàÊt–ïÛË–LÅx‹äüô–ˆºŞÀ·õ¨o¤5-loŸ˜¶Ø·õû¶[´Pû¶vÏÈ‡JÓ"ö¢SsúÚµ(¦Ï¼r½îĞAw¦Eíé²…vNôö KÑ¨8½…¿vzŒš.lÑ5ƒ’2$)ë‹1Å¥
+¶xÛ‘Ë1èÍJ*÷~ö6q°…à¯kg:[¬
+÷š¿Es³sÚA¤~|\Ãä™÷å;<©Vİ@’iâh‚¢gø»’ÉY?€0@¤K	)-¢h÷báäæ)î‡Ú„ğœô6€ğøãü6Vò(·TmI	sŒ{îN˜—¥ê«kgú">Å
+C8N’/+
+ÕJGØÜŠÖ’»RåİÜç‘³Zö›¢eßîïŸİ¬–¬ÛXQ»ó˜ìX_¸H…8ãb˜­cÉç§÷EÏÙÓ»­\XÇŠ«ga+†¨£D¬šŠÜBÅ0uëAŒóuIy%%w¢îNÔİ‰º¢î¼vP…GóÃòŞ9ˆ@Å7€M-ÄÁõN’
+;¥Ê¿ro5ïäŞ…È½IH¿“{‘bÕeKîmÉ?“ˆÍgGXrï ¯;¹w ÷&Vt«äï·Î\Æ@›¬}]ÛuÛ#Á³›ï–öÛ’iD¨œ”İ$g¥rÊ¶/KûM|êR9–ö»ÛÊ%uli¿Û·Kû	µ>E»G[ëbDh?l£	ûóRòğ;íw§ıî´ßö»¬+ìºUqß¹·‰ÜÛïä^*¹wÜç%÷Rvˆar/eÅ0%Æ;ypºQt’Ù²vëLª¨¤wŞ¨•;…7¡ğ¶rÛŞA;…w ğ¶øûg7ß%ï¶zA\p¦èk-Ö•ª/KÇüãR,ŠĞû¸ŸN­İü¸[j­gëÃQ´Ë¶õä(FÒº„¬>©åN­Å$U""rÙ7Üëw®×á3¸o)Ù*|&BÃ@Ii‹´ˆ<	t¶Hß°Uaj-a´#öFÜÛÈ2bDèE8ƒ#=yb§ã¡oEƒÚÁqNô	}K°g‰…ºiÇVÂÍY8GØªµ°–Âå”ªc[½ba5[ÑRØªÈ3eßõÁÙ|&¥,kßhê8©Qö;'5á¤q«œ”93º¥$Iª*‹¶ìn»ï~v³Z.j¸¤qÇ6_tùêX¤ƒG»Q6AÑ¶Ú1tŒĞÍ¡a„İ@¾-YãMb$m¶ÂYc
+ïs?c™Æá­NPR¼›C§7»Õê”šú»s^¦&rôâ$]+–P[EX
+lUX;˜ÙÀÜÊìÃÙä6Ï{È*åm7z¿¥e6&>½š}8‘İ6)7_=ÊvÎd”ïGéFÎã •;çqà<&^÷¦9-Ñ#bÙ˜K/ºŞè¶{õg7«ín›É¸§pèØÏ?»Y–'™xÁ­±ín›û¸ŸÆ­Üş¸[nEl¸‰£h1,·"6Ü_…í:!oDÅûn›3s+Â¿-hÁÏp	ßöÊg«}·õˆÛyO²$¡JàV"Ù7fC°íàcq)»¡àÑÀ›àV6¸ÍHİŸRİ§ğk»cKÕ±ÍÂÅ….0*˜[IÙO²×
+eÇ­ˆW¶ÔÇ­ˆû5EG¸qó×Ynå G¿á_‹æR»í^ıÙÍj)øÖq?ï¹•¢—Åƒ"nıJEÔ}tOrâèº¢Ëe¦‹7ÕÁ¯ç¿Èoıóä?ÔÈ/¿b~!m}€å®ƒ2ó%~P$ÍîÍ(MÀv. ËTäŞ%*;%®%¼7‹Ş¹¼å»:#¢Ç×øUxNƒúË^‚ºÚÍU±ï–éŸWáŒu•jç4°¤.>©}ë‰eÇ÷²[¶@ypˆD³ ;çt¤oÌÎYJ÷A/Ù49çóÉ‡-kk¿-Å‹Ö¤èæ³<byĞŠhÙös[où	Æ{UÙ¹}è“"û1Y²ÛNÌuŒ}8œAÎ*¡û-Y	¡¿ØÊë¢%äíÓã}z¬+U+RÍ#ôóXvœiD"¿ˆ´[îeªd}É¶ß˜ãHSö<±µ>ÑHº'`ş„n°3{Î²ç‰­‘'şÑ¯Âur™]'TxzZÉj+SáÌ_×ıïŸ¾éµæ!¢£¼µ]ŸÿBöÚCµ}ßÉæ³â”SÒP"Nš?¾ì¾Î*ûÖé‰Á¯'= 2¡­º t$ÉÔ«µpÕ’¢ ¦4zÃil3ş¹°¥ø<à"‹àÖÜ¡µKÉ7â´>q7Y%§¥I>õåOó!GGõ©¯7½7¯¿\ïm862gé½uïîıÅt{Y³U]—-6¦L]ØFçY±añáÔ·$ännahıó’şÓ@}Ò/’af!œ:OÓ)ÙS›¨’şÖ•B!™`é¾vïV-&-Ô=Ã—›ñÆï[±Üøè[Âíš½ïAĞ"áJ•~ïö#NúöÊ/'ô¸@’º»ãµ¬ig± xš‘g]P=j7²—ÆnÛ=Ô.¯K^<á°…1øL‹ppßÜF¶c½n‘E³ü›Ï|”ğ§)‚"Á_Ş³å6/¬•‘,Ç¥”MPGõ¥ØB_Xh_øÜ²Í¾¼ÈÔü
+e²ª«ğÁ-Ñ óÑÀ‘›êÈ²#ô‘)Ñ€N–S&ÙŠ¿êêöW7ÚcãiîÓÄ3¸Ü¯“†çBÆ•¡àDw-!ëkßFÙÙT#4{´š¤·Ÿ!SìMõ‹ıø™H^;î5\µÂòx¾6\7{Wˆ`¯#£ û‘ÇO*Öçòiş ™ºÂ{“Ã-*êÅYÆ2§?‚ƒ{‘‡À^cyüv÷ğø‘«¶(Ï~üz(:îìêÏlßÙ·’3ÃbrïCBŸÈœƒ“wn'«:’ä¾ƒ-ø™÷°÷ âprÖ·QØÂN¦˜ÀGm†Ónf3eXxÜƒ+ö„É’\šà×`
+év}—~€u‘â¯¡.nÖ9š½ŞÛ!pØDBÏ§I.øF8Ö&!Ó&Ñhs]FŠC…ÏDz {íª°3õ÷ ò¶³¶¤ŒÂyÇ'E‘¾á@G.¢>y%…<©Şß³?ƒg03aaI„ƒ_³z£tßÛl|õ×;„orşà´ã-ëµ‡¾n•2ß_÷:(tDª‡°şùò4Ğõ Û²QH$ÂòåJ5w¤²~ïŞßp–2)(}a$5¸RócyÎK‡`5ì,Êbıu–óÖ?¿eßI +&Íf6IèğØàÌÈ$Œ€súGppKÄ:°}âg`‹síÜ¯‚nzÔAD£˜ÃT†tŞ( fRfbDÒí™7vv‘¡¼.Åé¶—>4Ãb¿™/`j»ì„2+ÿ”‰=åú­ü›¿3g¼“Lß9 Ïß6œBçz’ë?lÖğÛ´¡gıI®ˆÔ?'Ëoçı²ûé‡æ÷õÍgiêÃúIÑÒ›/t4¾v?¦§mÚ˜÷Pû:JD£¸lNÙ³Ä¼ùµ–›úı¯ˆw—r™Ş2¼I‡„â×Ã½00	z-¬—!a&ô?·ˆpã‘ùà8 ~¦W^×',±`¶å,<60%—m‚ŠS²œËÀ·¹;òõT‹¢*¢.Ìpß°F1dŸÁÃuĞA§ì¬(‚ACşµÓ/yÁÇ+5±×I)|ğ0áùıøy=ÃË˜õKxƒorğş¢Zpß„Ÿà˜Rä¿“o×u$+õÜQ8ù¡DbtLI‹õØbW’cJÙIwÜ(íÆıB»öÅ.÷2Ø	¥H3^üRÚ±•u«ñ+èAdñ³õxF'xÙàˆ·IXä,æÒç£–)‡EÆõ·“º?b1o½WÖaÍbK)¾·DÌŞã1Æ6»fáÔ“&jH\¨êà@H×3Â¶æÌÚDËô¿úŸÏßš—ûFIÓ¼ıÏ„ç8?qw"{uÎdxËŒ+~0ãH¨juä#’rCŠ,¾µßÈ<µËàøò&ÖÃaëIO×Á·sËnß<ÇÁ{}[¹«À¼#R)Ã’¬ô5¤-1\o7j«ì8BÈI_#
+d‹¶czå§{›¸7nvÿ‘â~
+endstream
+endobj
+32 0 obj
+<<
+/Type /Page
+/Parent 11 0 R
+/Contents 35 0 R
+/Resources 34 0 R
+/Annots 33 0 R
+/MediaBox [ 0 0 595 842 ]
+>>
+endobj
+33 0 obj
+[ ]
+endobj
+34 0 obj
+<<
+/ColorSpace <<
+/PCSp 30 0 R
+/CSp /DeviceRGB
+/CSpg /DeviceGray
+>>
+/ExtGState <<
+/GSa 29 0 R
+/GState6 28 0 R
+>>
+/Pattern <<
+>>
+/Font <<
+/F7 17 0 R
+/F8 22 0 R
+>>
+/XObject <<
+/Im10 16 0 R
+>>
+>>
+endobj
+35 0 obj
+<<
+/Filter /FlateDecode
+/Length 6886
+>>
+stream
+xœí]]¯ä6r}¿¿¢Ÿp[$%J‚ ¹3‹ä!€aûäÁ˜µ³X¬xwüıˆ©–Ä>”ºFbSÕòbí¹Ã+"«X<<âÇ·üá§ËÿãòíÇş÷òÅı÷ãoÅµ)Ü?ó¿oÆ!‹K-›«jÍ?—/¿¾ı~ùıíû·ï»ûÿšg~}Ó­ºÚ_’İÿX·Íµ¨ÚV×İßóÍ/ÿåíO¸üÖ½Ğ›Öò/¿½}ûÇşùÓ?Öá]¹µ¬ÔBU¢ÿÙÏ}µ—²T]]d}ùûÏo¿tfnñŞFïó^co]Ø÷ê­íİã½ÆŞVïcïïíì­¤ÜÅŞ]Şkì-›}ìİã½ÆŞºÜÇŞ=ŞÛÙ«‹}úÛ.ï5öÊ}úÛ.ï5öVûô·]Şkì­÷éo»¼·³·.l¿(Ëíİå½ÆŞòÙ.ï5öÖ;µïïíìmÄ>í»Ë{½å>í»Ë{½M³½{¼·³·Ur{ñ{¯²Ñ².«¢íş¬„ªeU¶æ=ª¢Ö†ˆ:ÔŸV#
+ƒ$/â"›dxİsâ^¼ï…×Ş”x†°&ÅëtR¼.Á¦Ä3„/)L/†p%Å«ÓÆ‹!<"a>«÷‡ºN[?CRÖÏøIë×4IñÌ€›OµõE‰2!‘¿’à•ÏÁ“M‘¨ASWPÉò9€Z'jÑô5lÚ'©¢4yË.i?°–©:~êVUbz@Õ&jÒô5´µ{ *S5iêjU<°LÕ¤ékX«ç –©:~òÁî)€ÉXTú6ú9€éš4u›*±ËÄêoj<3µ`Ø}Ş€†wó44˜9 åkœIdØq6Ş€ıªFÖ€v}%g@C¡’Sš”´SãYFÃĞ0Ö€–Ñ°´Œ†7 a4¬-£áhk@¿Ñ‚1 ÛòÁĞR¨Ô”&å½Ôx–Ñğ4Œ†5 e4¬-£áh?qq´Œ†7 a4¬ıŞOÆ€n*_@K¡Sš¤ÛRãFÃ°c4¼£áhsÀÑğ4Œ†9`Çhxúã(ºƒ1ø
+•œÒ¤Ü9–Ï2Ş€†Ñ°´Œ†5 e4¼£aho@ÃhXú²º³ºøZ
+•šÒ¤<"5e4¼£ahk@ËhxFÃĞ2Ş€†Ñ°ô‡v2tÇ‡ò´*1¥IzŞUj<Ãh˜vŒ†7 a4¼£ah6R³4Œ†9`ÇhxúsÄºÍù
+•œÒÈ´k¯’âYFÃĞ0Ö€–Ñ°´Œ†7 a4¬-£áhk@µ	c@wÉ
+_@K¡RSš”§’§Æ³Œ†7 a4¬-£aho@ÃhXZFÃĞ0Ö€ş¶5Æ€îŞ7¾€–B¥¦4)/ZIgo@ÃhXZFÃĞ2Ş€†Ñ°´Œ†7 a4¬ı°ŒİU´|-…JLi’Ş—Ï0æ€£áho@Ãh˜šk¤XFÃ°c4¼ıôŒÍíí¬…JNiï LŠgo@ÃhXZFÃĞ2Ş€†Ñ°´Œ†7 a4¬-£áhk@K¡RSš:1eK‰go@ÃhXZFÃĞ2Ş€†Ñ°´Œ†7 a4¬-£áhk@K¡SšF¤¥lIñ£aØ1Ş€†Ñğ4Œ†9`ÇhxFÃ°c4¼£aØ1Ş€†B%§4ebÊ–Ï2Ş€†Ñ°´Œ†5 e4¼£aho@ÃhXZFÃĞ0Ö€–B¥¦4MÃÏ2Ş€†Ñ°´Œ†5 e4¼£aho@ÃhXZFÃĞ0Ö€–B%¦4­’|ñ£aØ1Ş€†Ñğ4Œ†9`ÇhxFÃ°c4¼£aØ1Ş€†B%U‡$/J\d*
+eğdS$4”Æ j
+°cP©ªhF|ƒXËD€f ¶QÓ¦ìÆCX&4Ã“,“v£…LÕ¤&y'í&—&<SÛ™ÚÎÔv¦¶ç¤¶ï×=JµkÍïÿğñ?ŞŠËÿu6ı{÷ÿ¿^şó¿:Ì?wvQA?üøöíçúÒ%Ö¹ôUø¦ÿÏ6İ~£»’?_ş¥(
+ñ¯—ÿúÖ\%dÕıl~§/‘®¤•6E·eKÊkaÿ~\RºgJİÔÕÊü¶
+Z mI}µ¯š<SÛymÚböLcKDqÕ¥-º•´Ç·¦ä;[¢¯¢hÕ´äCÿÌí/>º__‚KŞmÉ§»ğ|^5‘êzÒ$‚êkßau-.îû¼õ®â¤ó¬Èy4Üó¬ö±Õ”3_Ô.¶*gÜ<š«{$ğ¹W%1‰“ïÜ3¡m¸p	®OA¢ºJ]M#õ£·­­ÔÔ6J‹¾û·õ]enOŞÛ´5¶šâ9ün7\ŸÏ¶D]E-f·ô¶(œÕjŞÖÂg`çìU%ÒÙÖoSÎı€Õ0Ş„ ­…ÏÍ®¢_×O…†õé}Z]«z^ÒÀÅV·>á³qÃ•dœpEÑ,ûë;Ø&\Íƒq>K	>†ı)Ò°±Õ”ˆÁÏàvk²éãB¼»Öjå¬ï‹O®G™QôY®^áZ¸ÃEŞ†Ã»­mp	¥¦Ø6Ø%"o›;,b,j˜#À”|+(‹ìûUé®ôã°›ºŒj!a‰"<S¢’H¾…NVÈ+²ÏƒB^ek¡ÖDödG$ßÒ»^Î£Ëe¦ƒG4œ£qÏ’A„”‡ªcéá“#ÿ!½ø'şpÚí´¾Š`*…!P‰ÌÌƒé=V²Ä[g4õ9‹_1{;gñ‡˜ÅçÜÓDá»…4`WÊAÖœ‡™$tÙ—u­gÔ âŒC -‘î‰ÛàƒÀğ28Ğ±mKoË: ¥xåG€˜é¾?ÎZI|çŠ+qÖ¤¼ßåïşRät¹•´o%9„A@{0!ÊZ,êâ|RA¯o×suÙõÎl«ÑŒ«¡–¨%&… ›ñ3\Ù"X°˜Ğ­“o~ªZÙM’:gÁ?O¿m/ÿşŠàxÔ‡’h.+9å,íµÏLaÖİÈp_Îú:OòN¹óŒğ1(æ­ìr (ƒÁdœ·¶ ¶¿¨'¨X™T“J:9­ñ
+Àœ0t±4'ªèG¯ÕÏû¥ÖÌéÔ½øŒË&÷J°Çe­­Ş&`‰zü™ûùì(ı©¾ˆæ³ÖÏ8ÚµrÀ<úÜTİ!º­'­ÁÂ›®$\’ƒßæ—×ã‰ûğÜ±"÷İméjß	‚™Öó‰l{%Ì‘‰;Óœ@ &Za	~f©äùÚîıÖªÅ8T‡æ
+¾0¢k8a¨<#mækÑp¨â€Ô> ËYòXà¿NXw·Ü¢8]
+•(?Yú/~ÛÀoyÛ;¡OÀgÜÈ—ioQjšØ'®©@ñ"Â¯¸ä3L¸g?"ö#ë°³åÖÊ¶Œ:Ÿ¼x\­u<A*çé'|"˜ğE¢¸B}/Ò'pßûàÅµù–BŞ"õÉºïY'ßúò³íàÛ¬k®êêV’ßá hùe7©ŸsêAó,‚¹»_dé>(ú‘öMìä¨54Ş‚`™gƒ[PßÓM3Ãà8qGÛ÷	Ûøçx”[Ÿ°sÆÊhs+ÿÚ;«U`¨FwŸ'˜•ã.Q8ú.ÛÂ%x&»8e@ÌºëY×ŞÇx4>>ªp¤G@Å`ødŠ5şMú~&bÖ9`ö¡Ø±€®§lÕØ›ú‡ÔĞ…ıK°xtÖ¼ |-È4ÓWB¯Lõpn/ğÈ¬`_õ!«oŠyÄ¹Qù/sá
+ÏaaÆ¼„’i#Ï|¸5ñ­•
+å>Á?O¿,ÿş
+×<ê£òî§)ÙıPŠ!(ığ`k­û’ĞŞÙ$óyz¹Õ¯šÔ¯V¥ÌEféW£]÷jîc%d°>¢9âíÓÂO,Ä|.êrayg¹¤pÌ«œoàq¹P_›j%aM‡ñ \÷Ü§¤;K?p}°ûD
+Ã2¯À6·máNÿŸ¹E¦RjÒõp`àFÁ‰ßF	ç¬²Ô“>‰;C"ï
+¶“Hq’Ñâ´³Xõ{)&¤H:ÀI¬Î¹‰+]NšçoØ}d•sµY¬8ª Lõ‘HùuÍ÷–¯éé£\®R7“1fx\uL1"cÌg8ålrn®ºj×±a<ÆäİIêÒŒ$J}E~'p(RÁ¤™w'iŠI'‘~?I fRæ¸û¸’¬å©‘r¼Ey¢ú†\h1­ıóµ<alU~\¶q(/ú‡³‰J”‚%ğmªE²bø­ÛkkUÀiû·UW|ëöÛÕ‚ïz.¥—ğ¼}ÕÁg]?6|‡=î!ß†Djê?Álî“³-,)Õ‘šb«ø¶Ò•È`u¬ü£ª|¼ã¨aö|‚Ÿ‰ÄnQŸşu òâ¶†í6ÌüÂˆĞÖÛ(’ÅbS˜e;IÁï(d”€aŸ‘øX‚qKrmâv2Ê)<
+àæÂ}7>.Á¹»P'Glƒ­ã¬ÎÔÉ•’'ãİ§*˜1/%ò\«®«qÕ#+ñˆHû³9g."+İò*ô­úu5J½rxÀa3GÖ=Z¯NÛìzt¯†ÌçeÍ[p£àQ!ëx¨ëI£D(tÖÕèõ‹Ó·ÓFQßZ9e8ˆJæ²ôË)ƒ­XN‰„ÔÒÀ²Ñ3§ĞB«)eRå,ÛPD“H}0}•·[Äs„úP&ˆ™ã³‹Äğ$,‘ai$k:ŞËóÔøØœSx<RRŞ¶”ğrmâv2ú¼ÌAª–9²Ö²*ÑLú¥ê/'4+6U¾œ4ÒÔË™ğ ÒÈš|Ã:òLÖ©^¯Nõìzt­ÖzÆ›ë ‘Ò‹&·xĞ‰uSˆÓëÊ)‡÷º‘S*1¬ôÉÚV#§Ül¥È)Órº§œòBrŠzßTØËEæ¸o*—ƒ«± 2Jf§ ² 2ÊÁ/#€Dpè+@2ur%«•ıè…&EVæ¸5Ê)s2Ç(R,s¬ÊjXæÀ9%ë„®W'tv=ÚÊ£à%äñÈrM‚ –ys™c” :áµ2Çéõ‡dã{İÊª=ı*Æ¶’Vlº&ı”9N™#.s`ÍÆAÅŒ[Ê:ÅŒÄŒ[¦}1cÓÕyœ±3nı7×M}z1ch”SÌ¸‰·H9´˜q«^óKë¼¿ÉêÕ	]îÅŒ5tOD)ÍuĞıª½˜qK€ÖöbÆéõ‡ÄŒÃ{İŠºšf¹LmµbÆÍV,fàĞ%œıY¢„C÷3b‚eÊ°Ä Ú;#a6­©úìŞ:Ü{xp
+iÕá”ˆœ‚ãË)•+	o…9´œ2$¢SNÙKN™K/ §DêC?Ñ(S'÷rÊš~ôB“¯^NÑ³ãGO9e)‡–Stµœ(kC²k½:¡³ëÑöt‘×±ˆFÙé‡'ãYğ½hrKs>ÛÓANßÎE5|k¥‘vvBY¦¶Zi¤]>l•BV#~Û¹Îƒ¶ÎCûÉò|ÍFä48õvW%è«˜ß÷‚kJ9²3RŸwç9tKÍC^ ¬ÌØöˆØÈÛğ:è9Š ³qÄÃØ)WŸàĞíˆ WE,À%
+Eïä¡!GÂŒ2£ßVlZz&×&n§có¶ò&qq†ò6Â!s”Àp#{¦N¶GÄúÑM{¨=ˆE –Å±£jD ïÎºGëÕi›]®§34R2;èÁÀ½ÔÓı°ĞFT¯êÁ^Ğ9¼ £E}ˆTiÒÅÈÖ§:çq¯§ s
+:{:Ÿâ55Úã‰`né“´àƒ ÁPîâ9êúW+ÁŒF¨S‚‰ÍH—ÀËÔÉv…Î¨mûyó S9+ÎÜågqf)GgFÕx5qfUBg×£í
+‘×—îTÛjGÖ³e+ÛŒÒÜA'ıv…ÎéÛY£¨†ƒo­ SÇïd¿BçfëóÈÛNAçtNA‡,èÎœ!¬Ğ¡œüƒkzA§TËq®©¡6q;MOA‡¸,kÕ®tÊÇñR®_8èô¯tÊó8ŞPĞ)YÇ;ªÆË	:k:»İ:kÒÜ¦'–ä=éïòèÇ¯ö‚ÎéÛK(èŞ·VĞÑÃ™[yS©bbë¶‚áÂ¬sËMĞQıÛê«
+l#:¤ÖÁõRI ÂÂ&¶¸„ 2ä;Ø?=¶(Aæ˜'À‡:ûÆ'ËĞ¯?Ëµ‰Ûéó22Gä[}AS¦Nîe½â,Ã—“9ôyPo(shõ®ª>Yæ Ûõê„Î®G÷2ÇÍë„"ù­mèe}ôƒY{™ãôí%”9ï[Ywµh—Ë;ûX¤ıªãx—8Úèï)€Dkúj·B""%xıaÎJYço7:Ï[¡·Bº_‰"ÛÖºAĞiÏ£‚÷tÚ
+&ûùîDYi²éè¹x3_¦Nî5”	kYì¦½ ÓG‡‚NËâ¨àQV£Lò–rW®U_ĞÙõè^Ğ¹U²®ŸrWÖ¹¿tÚ£'Û:§o/¡ sxßA§–ËGze¾8¸×‚rYtd˜"ìš?Ïœ¡	:²q8a}6”“V´Ö“DjŠïWÂ[”°ğ™RÀg h‚× Pä¡H[SÚ~—EŠË9ßİnøÄW’ãëÒ)ı	—nş"]cKğŠ7|™|şÜhh>¸}¸ox»º(kqºÊÂ
+p£~DÑÙM×­ wk”S€¸Q¤Y€[ğü&åzuBg×£íÕç«fòx¼ 4WdôÉzè·ÒÜ(T¾±WŸŸ^H´;¾×­h·â2Æ¼¿–ØIìW]Š	CÊ.LŠOÑ.Ñ¯¤‰ˆ¸u
+g[pzPÄ§}¼Õ×Zl°$mz}kÔ(‚"î?XzúJ´#ˆMkî÷¥à¦o[ÜA–kÛ¹É^Ãç¼}’™zJ‘¹ùk•“ÙM@{Ié¼şıJJ<®Uãå$¥—ìÑvM××‘ÊÙTy¯çí…£Ã_n×t¾5Šj8øÖÊC+®iÌ{Ç¤•‡vºBIÏc§‰ò^éD9T8Õú,,jáõYÛŞS…×îlº‡t‘Ôó…#,èPÎ¾‚"]™õ€erdS´‹µ ¼N’æp„™ãÂX{®ÂÚ[[s·ò1…1Šmøón¼3•]…µ¦½Ğ»—ÌÚsV(™µ<Vaİ²ş¸L¸t;ï—zuBg×£ûUX+æŞ‘x .KãE®ÍeÅ´Ã_ÏŞ¯Â:½şÌvx¯™­Q+Vaeí;…TË«°"»~	¤ø\kµùZ+
+Ä5Å‚EäJ%Úm:;O&eá6 lª¤H=çÈ·®’3áœèm6Zg7£·²Íhäx™Ís”’ˆ “÷z&#ÛŒúÑ¹yÎË6·F9e›A¶EÊ‘e›Q5WkG˜rÖa­W'tv=ÚÊ6kær‹Ÿ¶Š”¬wîXÙf” :·²Íéõ‡d›ã{İÊ6z…V—5û¶²N}âåƒõ)èD%‹M·M8nÕ^KÙïP[aAä9ÊÉZ˜òba‚ÒnœÕ!é&àPÎ¨ÂQE²ŞØ÷9ûLXk `~ÀÛG#+úp	Œ|âÚ$3½b…% é,yO3zÉL¿ŞyS‘i4ş´ÄB2ur/™­ ˜/wàû­QNÉì&™i+FÕØV7Êz.©W'tv=Ún\åuÊùB]LÑcúè+[ìæÀÓ·³FQßù«-Vk™ÖÂLúnµØxs á+î)ò×)Ñå¯ÈúˆSäòùN*ßö”»q\à˜ÅÛ"	×
+@şŒ§üµü5µ_f£_DÊÂß‚º¸ßÊ_£~DÙÉÈn²lå¯[£œò× "åÈò×š#ÖëÕ	]¶ò×Èë”…„]y/J±ò×(ÍT"±ò×éÛY£¨†ƒo­üU¶‹‰7ïÖv:8Ô‚$-mHxŒ’gcò×)‘å¯sõ×WeB]ŸÂØÎÂØmÈ<…±„±ÛxH#ícÅ#¬?£Èş‡ŞJ9ròÒ.±—˜F÷ÂØĞ(§0vÆn÷ĞÂØ­¯¶.lUBg×£íVÊ5taÛMu‡m.+™İàAe»•òôúcbÚƒ^ïşwù½³¨°oßıB#,¢,¯BuÿˆË—_ou±ÿ[¾³¿Ó Oßfrœº¶æ9)øÛ¸ •íUÖª)êîï‹ùÓÇşòö§?\~3õ»6İ<JUõ™ş¼U•ÆmGŞlíD«ÍŸİ_‹É‹´PTQ”—FÕKşşóÛ/Ö•Ôj>…Oıê>îĞS©OßƒçM_h]7ùÇÆëğN?'õ5¡Ì%k'%éz&šÄ2” COnÚÙ$¿Ç)£·	g›tÜv()²º,µ­[=µÚX^ßÙæöÉ•`)6°Z‰JŠá3°­ÈTÃ³©îyZ-„ñ\/ÜÔ+*ˆ«ËŠĞÄç£/©gšü¶²ğ]­ìCcMs•0˜°m¸E1v²„Ï`÷ã6Ğ0©uN~>µ¸›_u÷’o:z±˜uÙ-â&Üaß6SIß%Ü\? œwJ(o“ğmò#,)/Á¶•Ş?âgúÎÒvµº­İ†i!¯²dnÏT°óÃ8ˆŒe01áú(¿™;ü@‡Ó)N%”1&—ùØı,ĞtY@ìë'ŠëüŞâBÂ_s|ÛrÈq|Û—²ƒA”}v^©çCÅû…°œŞz¯¾z4!Û8ì¡·Ep–Ş–idÖÊl‘“ŞVÿÉ:Œ˜wŸ‚¬pÎ@‰%JnÆ%Ø+8şö1Ù¥¸pŠİ‰¿æx¢ÚE¡[YÈ­f¬İ_õSÉîßİ¿¾üzùöß~Ååòş?#d{‘ã!e¥n›ó–‰’bşb¢ ˆ¦êÆÅ¢ÊJ&³û__©œ|­É¿G]‰İ¥„Â*!j½27ûğ
+ˆj»±¹ªÇ2ÌJ"óh8a[Ì™¥‘J‡ÖÊ{l+Ëzdk„¿”úQ®õ«Æ‘;>­0ÌÊ_ŸmâÙøòıÛÿuLÇ³
+endstream
+endobj
+xref
+0 36
+0000000000 65535 f 
+0000000016 00000 n 
+0000000069 00000 n 
+0000000123 00000 n 
+0000046565 00000 n 
+0000046702 00000 n 
+0000046727 00000 n 
+0000046911 00000 n 
+0000046952 00000 n 
+0000046989 00000 n 
+0000047053 00000 n 
+0000047164 00000 n 
+0000047272 00000 n 
+0000047397 00000 n 
+0000047424 00000 n 
+0000047622 00000 n 
+0000047848 00000 n 
+0000052994 00000 n 
+0000053133 00000 n 
+0000053941 00000 n 
+0000054357 00000 n 
+0000054610 00000 n 
+0000061566 00000 n 
+0000061708 00000 n 
+0000062642 00000 n 
+0000063157 00000 n 
+0000063414 00000 n 
+0000071929 00000 n 
+0000071973 00000 n 
+0000072017 00000 n 
+0000072110 00000 n 
+0000072150 00000 n 
+0000076365 00000 n 
+0000076490 00000 n 
+0000076510 00000 n 
+0000076719 00000 n 
+trailer
+<<
+/Size 36
+/Root 6 0 R
+/Info 2 0 R
+>>
+startxref
+83679
+%%EOF

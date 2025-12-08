@@ -1,0 +1,71 @@
+{
+  "vendor": {
+    "name": "Ostrovit",
+    "currency": "EUR",
+    "language": "en"
+  },
+  "header": {
+    "fields": [
+      {
+        "name": "invoice_number",
+        "regex": "Invoice\\s+([\\w/]+)",
+        "group": 1
+      },
+      {
+        "name": "invoice_date",
+        "regex": "Issue\\s+Date:\\s*(\\d{2}\\.\\d{2}\\.\\d{4})",
+        "group": 1,
+        "type": "date"
+      }
+    ]
+  },
+  "table": {
+    "strategy": "text_regex",
+    "start_marker": "NO\\.\\s+PRODUCT/SERVICE",
+    "end_marker": "Untaxed\\s+Amount",
+    "row_pattern": "^(\\d+)\\s+\\[(\\d+)\\]\\s+(.+?)\\s+(\\d{8})\\s+(\\d{13})\\s+([\\d,.\u00a0\\s]+?)\\s+Units\\s+[\\d.,]+\\s*%\\s+([\\d,.]+)\\s+([\\d,.\u00a0\\s]+?)\\s*€",
+    "columns": [
+      {
+        "name": "sku",
+        "regex_group": 2,
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "regex_group": 3,
+        "type": "string"
+      },
+      {
+        "name": "quantity",
+        "regex_group": 6,
+        "type": "number"
+      },
+      {
+        "name": "unit_price",
+        "regex_group": 7,
+        "type": "number"
+      },
+      {
+        "name": "total",
+        "regex_group": 8,
+        "type": "number"
+      }
+    ]
+  },
+  "footer": {
+    "fields": [
+      {
+        "name": "subtotal",
+        "regex": "Untaxed\\s+Amount\\s+([\\d.,\\s]+)\\s+€",
+        "group": 1,
+        "type": "number"
+      },
+      {
+        "name": "total",
+        "regex": "^Total\\s+([\\d.,\\s]+)\\s+€",
+        "group": 1,
+        "type": "number"
+      }
+    ]
+  }
+}

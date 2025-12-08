@@ -1,0 +1,452 @@
+from pdfminer.high_level import extract_pages
+from pdfminer.layout import LTTextContainer
+import re
+import sys
+import json
+
+MAX_REALISTIC_QTY = 500  # Some Max Protein orders exceed 100 units
+
+
+def extract_invoice_data(pdf_path):
+    invoice_data = {
+        'vendor': {},
+        'customer': {},
+        'order_items': [],
+        'totals': {},
+        'metadata': {}
+    }
+
+    full_text_lines = []
+    for page_num, page_layout in enumerate(extract_pages(pdf_path)):
+        page_lines = []
+        elements = []
+        for element in page_layout:
+            if isinstance(element, LTTextContainer):
+                for text_line in element:
+                    if hasattr(text_line, 'get_text'):
+                        text = text_line.get_text().strip()
+                        if text:
+                            elements.append({'text': text, 'y': text_line.y0, 'x': text_line.x0})
+        
+        # Group elements by Y coordinate (same row)
+        elements.sort(key=lambda x: (-x['y'], x['x']))
+        rows = []
+        current_y = None
+        current_row = []
+        
+        for elem in elements:
+            if current_y is None or abs(current_y - elem['y']) > 3:
+                if current_row:
+                    rows.append(current_row)
+                current_row = [elem]
+                current_y = elem['y']
+            else:
+                current_row.append(elem)
+        if current_row:
+            rows.append(current_row)
+        
+        # For each row, sort by X and concatenate with markers for column separation
+        for row in rows:
+            row.sort(key=lambda x: x['x'])
+            
+            # Build line with column markers: identify large X gaps as column boundaries
+            line_parts = []
+            prev_x = None
+            for elem in row:
+                # If X gap > 50 pixels, insert a column separator
+                if prev_x is not None and (elem['x'] - prev_x) > 50:
+                    line_parts.append(' | ')  # Column separator
+                line_parts.append(elem['text'])
+                prev_x = elem['x'] + len(elem['text']) * 5  # Approximate text width
+            
+            page_lines.append(' '.join(line_parts).strip())
+        
+        full_text_lines.extend(page_lines)
+
+    return parse_invoice_text(full_text_lines)
+
+
+def _find_best_qty_unit_total(all_numbers):
+    """Helper function to find best quantity, unit price, total combination"""
+    best_error = float('inf')
+    best_combo = (1, 0.0, 0.0)
+    
+    # Try all possible triplets
+    for i in range(len(all_numbers)):
+        for j in range(len(all_numbers)):
+            for k in range(len(all_numbers)):
+                if i == j or i == k or j == k:
+                    continue
+                
+                qty_candidate = all_numbers[i][0]
+                unit_candidate = all_numbers[j][0]
+                total_candidate = all_numbers[k][0]
+                
+                if unit_candidate > 0 and qty_candidate > 0:
+                    calculated_total = qty_candidate * unit_candidate
+                    error = abs(calculated_total - total_candidate)
+                    relative_error = error / max(total_candidate, 1.0)
+                    
+                    # Prefer reasonable ranges and small errors
+                    if (1 <= qty_candidate <= MAX_REALISTIC_QTY and 
+                        0.5 <= unit_candidate <= 50 and 
+                        relative_error < 0.2 and  # Increased tolerance
+                        error < best_error):
+                        best_error = error
+                        best_combo = (qty_candidate, unit_candidate, total_candidate)
+    
+    # If no good combo found, use simple fallback
+    if best_combo == (1, 0.0, 0.0) and len(all_numbers) >= 3:
+        # Sort by value and try to identify reasonable pattern
+        sorted_nums = sorted([num for num, _, _ in all_numbers])
+        
+        # Try the three largest numbers (most likely to be qty, unit, total)
+        for i in range(len(sorted_nums)-2):
+            for j in range(i+1, len(sorted_nums)-1):
+                for k in range(j+1, len(sorted_nums)):
+                    qty_cand = sorted_nums[i]
+                    unit_cand = sorted_nums[j] 
+                    total_cand = sorted_nums[k]
+                    
+                    if qty_cand > 0 and unit_cand > 0:
+                        calc_total = qty_cand * unit_cand
+                        if abs(calc_total - total_cand) / max(total_cand, 1) < 0.3:
+                            best_combo = (qty_cand, unit_cand, total_cand)
+                            break
+                if best_combo != (1, 0.0, 0.0):
+                    break
+            if best_combo != (1, 0.0, 0.0):
+                break
+    
+    return best_combo
+
+
+def parse_invoice_text(lines):
+    invoice_data = {
+        'vendor': {},
+        'customer': {},
+        'order_items': [],
+        'totals': {},
+        'metadata': {}
+    }
+
+    def parse_number(s):
+        """Parse a number string that may have spaces, commas, or dots"""
+        if not s:
+            return 0.0
+        # Remove currency symbols and normalize
+        s = str(s).replace('€', '').replace('EUR', '').strip()
+        # Handle spaced decimals like "5. 65" -> "5.65"
+        s = re.sub(r'(\d+)\s*[.,]\s*(\d{2})', r'\1.\2', s)
+        # Remove thousands separators if present
+        if ',' in s and '.' in s:
+            if s.rfind(',') > s.rfind('.'):
+                s = s.replace('.', '').replace(',', '.')
+            else:
+                s = s.replace(',', '')
+        else:
+            s = s.replace(',', '.')
+        try:
+            return float(s)
+        except:
+            return 0.0
+
+    # Find all lines with [SKU] patterns to identify item blocks
+    sku_pattern = re.compile(r'\[\s*([A-Za-z0-9]+)\s*\]')
+    item_starts = []
+    
+    for i, line in enumerate(lines):
+        if sku_pattern.search(line):
+            item_starts.append(i)
+    
+    if not item_starts:
+        return invoice_data
+
+    # Process each item block
+    for idx, start_line in enumerate(item_starts):
+        # Determine end of this block (start of next block or end of file)
+        if idx + 1 < len(item_starts):
+            end_line = item_starts[idx + 1]
+        else:
+            end_line = len(lines)
+        
+        # Get the block of lines for this item  
+        block_lines = [line.strip() for line in lines[start_line:end_line] if line.strip()]
+        if not block_lines:
+            continue
+        
+        # Extract numbers from the first line, but respect column separators
+        # Split by | to separate columns
+        first_line = block_lines[0]
+        columns = [col.strip() for col in first_line.split('|')]
+        
+            
+        # Extract SKU from first line
+        sku_match = sku_pattern.search(block_lines[0])
+        if not sku_match:
+            continue
+        sku = sku_match.group(1)
+        
+
+        
+
+        
+        # Join all block lines to find all decimal numbers
+        block_text = ' '.join(block_lines)
+        
+        # Try column-based extraction first (works for newer Max Protein format)
+        quantity = None
+        unit_price = None
+        total = None
+        
+        if len(columns) >= 3:
+            # Column layout: [SKU + Desc] | [Quantity] | [Unit Price + Disc] | [Total]
+            # Try to extract from specific columns
+            for i, col in enumerate(columns):
+                numbers_in_col = re.findall(r'\d+[.,]\d{2}|\d+', col)
+                if i == 1 and numbers_in_col:  # Quantity column
+                    quantity = parse_number(numbers_in_col[0])
+                elif i == 2 and len(numbers_in_col) >= 1:  # Price column (may have unit price + discount)
+                    # First number is usually unit price
+                    unit_price = parse_number(numbers_in_col[0])
+                elif i == 3 and numbers_in_col:  # Total column
+                    # Extract the actual total (may have € symbol)
+                    for num_str in numbers_in_col:
+                        val = parse_number(num_str)
+                        if val > 10:  # Total should be significant
+                            total = val
+                            break
+        
+        # If column-based extraction worked, use it
+        if quantity and unit_price and total:
+            # Validate the combination
+            expected_total = quantity * unit_price
+            error = abs(expected_total - total)
+            relative_error = error / max(total, 1.0)
+            
+            # If math checks out (within 30% for discounts), use these values
+            if relative_error < 0.30:
+                pass  # Use column-extracted values
+            else:
+                # Math doesn't work, fall back to pattern matching
+                quantity, unit_price, total = None, None, None
+        
+        # Fallback: extract all numbers and use scoring (old method)
+        if not (quantity and unit_price and total):
+            # Find all decimal numbers in the block (prices and quantities)
+            decimal_pattern = re.compile(r'\b\d{1,3}(?:[.,]\s*\d{3})*[.,]\s*\d{2}\b|\b\d+[.,]\s*\d{2}\b|\b\d+\b')
+            all_numbers = []
+            
+            for match in decimal_pattern.finditer(block_text):
+                num_str = match.group(0)
+                num_val = parse_number(num_str)
+                if num_val > 0:
+                    all_numbers.append((num_val, num_str, match.start()))
+            
+            if len(all_numbers) < 3:
+                continue
+                
+            # The pattern seems to be: quantity (integer or decimal), unit price, total price
+            # Try to identify these by position and value characteristics
+            
+            # Sort by position in text
+            all_numbers.sort(key=lambda x: x[2])
+            
+            # Filter out SKU numbers and meaningless values
+            meaningful_numbers = []
+            for num_val, num_str, pos in all_numbers:
+                # Skip SKU numbers that are in brackets like [000116]
+                # Check if this number appears in the SKU itself
+                if num_str in sku or f"[{num_str}]" in block_text:
+                    continue
+                # Skip the "1" from "1.5kg" or standalone 1
+                if num_val == 1.0:
+                    continue
+                meaningful_numbers.append((num_val, num_str, pos))
+            
+            # Use mathematical validation: try all combinations and find the best match
+            # where qty * unit_price ≈ total
+            best_combo = None
+            best_error = float('-inf')  # Changed from inf to -inf since we're maximizing score
+            
+            # Try all possible triplets (qty, unit_price, total)
+            for i, (qty_val, qty_str, qty_pos) in enumerate(meaningful_numbers):
+                for j, (unit_val, unit_str, unit_pos) in enumerate(meaningful_numbers):
+                    if i == j:
+                        continue
+                    
+                for k, (total_val, total_str, total_pos) in enumerate(meaningful_numbers):
+                    if k == i or k == j:
+                        continue
+                    
+                    # Calculate expected total
+                    expected_total = qty_val * unit_val
+                    error = abs(expected_total - total_val)
+                    relative_error = error / max(total_val, 1.0) if total_val > 0 else float('inf')
+                    
+                    # Skip if mathematical error is too high
+                    # Note: Some invoices have discounts, so allow higher tolerance
+                    if relative_error > 0.30:  # 30% tolerance for discount scenarios
+                        continue
+                    
+                    # Calculate score based on multiple factors
+                    score = 0
+                    
+                    # 1. Mathematical accuracy is CRITICAL - highest weight
+                    if error < 0.01:
+                        score += 10000
+                    elif error < 0.5:
+                        score += 5000
+                    elif error < 2.0:
+                        score += 2000
+                    else:
+                        score += 1000 - (error * 100)
+                    
+                    # 2. Unit price sanity check - accept wide range but penalize extremes
+                    if 0.1 <= unit_val <= 100.0:
+                        score += 300  # Reasonable range for supplements
+                    elif unit_val > 100:
+                        score -= 1000  # Strong penalty for obviously wrong prices
+                    elif unit_val < 0.1:
+                        score -= 500  # Too cheap, likely not a price
+                    
+                    # 3. Quantity bonuses (but don't penalize small quantities heavily)
+                    if qty_val >= 20:
+                        score += 200  # Bonus for larger quantities
+                    elif qty_val >= 10:
+                        score += 150
+                    elif qty_val >= 5:
+                        score += 50
+                    # No penalty for qty < 5, it's valid
+                    
+                    # 4. Total amount sanity (prefer meaningful totals)
+                    if total_val > 100:
+                        score += 200
+                    elif total_val > 50:
+                        score += 100
+                    elif total_val > 10:
+                        score += 50
+                    # Small totals are OK, don't penalize
+                    
+                    # 5. Position-based scoring: qty usually appears before unit price
+                    if qty_pos < unit_pos < total_pos:
+                        score += 400  # Perfect order
+                    elif qty_pos < unit_pos or qty_pos < total_pos:
+                        score += 100  # Partial order
+                    else:
+                        score -= 100  # Less penalty for wrong order
+                    
+                    # 6. Prefer decimal unit prices (more likely to be prices)
+                    if '.' in unit_str or ',' in unit_str:
+                        score += 200
+                        # STRONG preference for non-round decimals (5.65, 10.10 vs 10.00)
+                        # Round decimals like 10.00 are often discount percentages
+                        if unit_val != int(unit_val):  # Has decimal part (e.g. 10.10, 5.65)
+                            score += 800  # Very high bonus to override mathematical error differences
+                    
+                    # 7. Penalize obvious nonsense combinations
+                    # - Very small quantities with very small totals (likely picking wrong numbers)
+                    if qty_val < 3 and total_val < 10:
+                        score -= 300
+                    
+                    # 8. Quantity should be plausible (not thousands)
+                    if qty_val > MAX_REALISTIC_QTY:
+                        score -= 500
+                    
+                    # Keep track of best combination
+                    if score > best_error:
+                        best_error = score
+                        best_combo = (qty_val, unit_val, total_val)
+
+
+        
+        if best_combo:
+            quantity, unit_price, total = best_combo
+            
+            # Preserve original precision for unit prices by finding the exact match
+            for num_val, num_str, _ in meaningful_numbers:
+                if abs(num_val - unit_price) < 0.01:
+                    # Use the original value to preserve precision (e.g., 10.10 instead of 10.1)
+                    unit_price = num_val
+                    break
+        else:
+            # Use general mathematical validation
+            quantity, unit_price, total = _find_best_qty_unit_total(meaningful_numbers)
+        
+        # Round quantity to nearest integer if it's very close
+        if abs(quantity - round(quantity)) < 0.1:
+            quantity = round(quantity)
+        
+        # Extract description more precisely
+        # The description should be the product name only, like "GOOD MORNING® (1.5kg, Brownie)"
+        
+        # Start with the first line and remove the SKU
+        first_line = block_lines[0]
+        line_without_sku = sku_pattern.sub('', first_line).strip()
+        
+        # The description typically ends before the quantity number
+        # Find where the first meaningful number (quantity) starts
+        desc_end_pos = len(line_without_sku)
+        for num_val, num_str, pos in meaningful_numbers:
+            # Find position of quantity (first number that's not 1.0)
+            if num_val != 1.0 and num_str in line_without_sku:
+                desc_end_pos = min(desc_end_pos, line_without_sku.find(num_str))
+                break
+        
+        # Extract just the product description part
+        description = line_without_sku[:desc_end_pos].strip()
+        
+        # Handle multiline descriptions by adding continuation from next line if needed
+        if len(block_lines) > 1:
+            second_line = block_lines[1]
+            # If second line contains continuation text (like "Cream Cookies)"), add it
+            if not any(str(num) in second_line for num, _, _ in meaningful_numbers):
+                # Only add if it doesn't contain numbers (not a data line)
+                continuation = second_line.split('Units')[0].strip()  # Stop at Units
+                continuation = re.sub(r'\(Bienes\).*', '', continuation).strip()  # Remove (Bienes) and after
+                if continuation and not any(word in continuation.lower() for word in ['intracomunitario', 'exento', 'bienes']):
+                    description += ' ' + continuation
+        
+        # Final cleanup
+        description = re.sub(r'\s+', ' ', description).strip()  # Normalize spaces
+        description = re.sub(r'\s*€.*', '', description)  # Remove € and everything after
+        description = re.sub(r'\s*(Intracomunitario|exento|Bienes).*', '', description, flags=re.IGNORECASE)  # Remove tax info
+        
+        if description and quantity > 0:
+            # Debug output for final result (commented out after fixing)
+            # if sku in ["000066", "000111", "CDAR1"]:
+            #     print(f"DEBUG {sku}: Final result - Qty={quantity}, PU={unit_price}, Total={total}", file=sys.stderr)
+            
+            invoice_data['order_items'].append({
+                'position': str(len(invoice_data['order_items']) + 1),
+                'quantity': str(int(quantity)),
+                'article_number': sku,
+                'description': description,
+                'unit_price': f"{unit_price:.2f}",
+                'total_price': f"{total:.2f}"
+            })
+
+    return invoice_data
+
+
+if __name__ == "__main__":
+    args = sys.argv[1:]
+    pdf_path = "Max protein.pdf"
+    json_flag = False
+    for a in args:
+        if a == "--json":
+            json_flag = True
+        elif not a.startswith('-'):
+            pdf_path = a
+    try:
+        data = extract_invoice_data(pdf_path)
+        if json_flag:
+            print(json.dumps(data, ensure_ascii=True))
+        else:
+            print(json.dumps(data, indent=2, ensure_ascii=False))
+    except Exception as e:
+        if json_flag:
+            print(json.dumps({"error": str(e)}))
+        else:
+            print(f"Error: {e}")
+

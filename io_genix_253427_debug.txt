@@ -1,0 +1,237 @@
+
+📄 Detailed Table Inspection: python/test_invoices/Io Genix/FRA 253427 SARL FITNESS 15.10.pdf
+
+
+================================================================================
+PAGE 1
+================================================================================
+
+Found 2 tables on this page
+
+--- Table 1 ---
+Rows: 3
+Columns: 5
+
+First 5 rows:
+["FACTURA", "DATE", null, "N.º CUSTOMER", null]
+["253427", "15/10/2025", null, "30546", null]
+["PAYMENT TERMS\nTransferencia anticipada", null, "AGENT\n4", null, "TRANSPORT\nGEFCO"]
+
+--- Table 2 ---
+Rows: 6
+Columns: 13
+
+First 5 rows:
+["REFERENCE", null, "DESCRIPTION", null, null, null, null, "Quantity", "Price\nUnits", null, null, "Dcnt.", "TOTAL"]
+["IGW2CHM\nIGW2PIS\nIGW2CHKR\nIGWSU15CODO\nIGIW15CHMCR\nIGIW15CODO\nIGIW15WCHA", null, "De Albarán Nº 25-4002 del 08/10/2025:\nWHEY 80 PROFESIONAL 2 KG. CHOCO MILK\nBAR(IO GENIX)\nCaducidad 30/07/2027, Lote 253293 Und. 16\nNº Cod. Imp.: 21061080 - 2,000 Kg / 32,000 Kg\nWHEY 80 PROFESIONAL 2 KG. PISTACHIO ICE\nCREAM (IO GENIX)\nCaducidad 30/07/2027, Lote 253683 Und. 20\nNº Cod. Imp.: 21061080 - 2,000 Kg / 40,000 Kg\nWHEY 80 PROFESIONAL 2 KG. CHOCOKRAC (IO\nGENIX)\nCaducidad 30/09/2027, Lote 255544 Und. 16\nNº Cod. Imp.: 21061080 - 2,000 Kg / 32,000 Kg\nWHEY SUBLIME 1.5 KG COOKIE DOUGH (IO\nGENIX)\nCaducidad 30/09/2027, Lote 255291 Und. 40\nNº Cod. Imp.: 21061080 - 1,500 Kg / 60,000 Kg\nISOWHEY SUBLIME 1.5 KG CHOCO MILK\nCRUNCHY BAR (IO GENIX)\nCaducidad 30/08/2027, Lote 254965 Und. 40\nNº Cod. Imp.: 21061080 - 1,500 Kg / 60,000 Kg\nISOWHEY SUBLIME 1.5 KG. COOKIE DOUGH (IO\nGENIX)\nCaducidad 30/09/2027, Lote 255005 Und. 60\nNº Cod. Imp.: 21061080 - 1,500 Kg / 90,000 Kg\nISOWHEY SUBLIME 1.5 KG WHITE CHOCO", null, null, null, null, "16\n20\n16\n40\n40\n60\n8", "37,95\n37,95\n37,95\n29,95\n39,95\n39,95\n39,95", null, null, "", "607,20\n759,00\n607,20\n1.198,00\n1.598,00\n2.397,00\n319,60"]
+["IMPORTANT NOTE! No claims will be accepted after 24 hours from receipt of the order\nSupplier R.P.P. Number. (RD 1055/2022): ENV2/2023/000015314 Identifiant unique: FR328077_01YWLI", null, null, null, null, null, null, null, null, null, null, null, null]
+["GROSS\nAMOUNT", "TAXABLE\nSHIPPING", null, "DISCOUNT", null, "TAXABLE\nAMOUNT", "VAT", null, null, "ADDITIONAL VAT", null, null, "TOTAL\nAMOUNT"]
+[null, null, null, "%", "AMOUNT", null, "%", "AMOUNT", null, "%", "AMOUNT", null, null]
+
+================================================================================
+PAGE 2
+================================================================================
+
+Found 2 tables on this page
+
+--- Table 1 ---
+Rows: 3
+Columns: 5
+
+First 5 rows:
+["FACTURA", "DATE", null, "N.º CUSTOMER", null]
+["253427", "15/10/2025", null, "30546", null]
+["PAYMENT TERMS\nTransferencia anticipada", null, "AGENT\n4", null, "TRANSPORT\nGEFCO"]
+
+--- Table 2 ---
+Rows: 6
+Columns: 13
+
+First 5 rows:
+["REFERENCE", null, "DESCRIPTION", null, null, null, null, "Quantity", "Price\nUnits", null, null, "Dcnt.", "TOTAL"]
+["IGI2CH\nIGI2BC\nIGI2CO\nIGI2CHM\nIGI2CHAM\nIGI2VMILK", null, "AMAZONICO (IO GENIX)\nCaducidad 30/08/2027, Lote 254375 Und. 8\nNº Cod. Imp.: 21061080 - 1,500 Kg / 12,000 Kg\nISOLATE PROFESIONAL 2 KG. CHOCOLATE\n\"gluten free\" (IO GENI\nCaducidad 30/09/2027, Lote 255299 Und. 40\nNº Cod. Imp.: 21061080 - 2,000 Kg / 80,000 Kg\nISOLATE PROFESIONAL 2 KG. ORIGINAL BLACK\nCOOKIES (IO GENIX\nCaducidad 30/07/2027, Lote 252788 Und. 28\nNº Cod. Imp.: 21061080 - 2,000 Kg / 56,000 Kg\nISOLATE PROFESIONAL 2 KG. COOKIES CREAM\n\"gluten free\" (IO GE\nCaducidad 30/09/2027, Lote 255099 Und. 8\nNº Cod. Imp.: 21061080 - 2,000 Kg / 16,000 Kg\n(IO GENIX)\nISOLATE PROFESIONAL 2 KG. CHOCO MILK\nBAR (IO GENIX)\nCaducidad 30/07/2027, Lote 253489 Und. 32\nNº Cod. Imp.: 21061080 - 2,000 Kg / 64,000 Kg\nISOLATE PROFESIONAL 2 KG. AMAZONICO\nCHOCOLATE (IO GENIX\nCaducidad 30/07/2027, Lote 254145 Und. 28\nNº Cod. Imp.: 21061080 - 2,000 Kg / 56,000 Kg\nISOLATE PROFESIONAL 2 KG. VANILLA\nMILKSHAKE (IO GENIX", null, null, null, null, "40\n28\n8\n32\n28\n48", "56,95\n56,95\n56,95\n56,95\n56,95\n56,95", null, null, "", "2.278,00\n1.594,60\n455,60\n1.822,40\n1.594,60\n2.733,60"]
+["IMPORTANT NOTE! No claims will be accepted after 24 hours from receipt of the order\nSupplier R.P.P. Number. (RD 1055/2022): ENV2/2023/000015314 Identifiant unique: FR328077_01YWLI", null, null, null, null, null, null, null, null, null, null, null, null]
+["GROSS\nAMOUNT", "TAXABLE\nSHIPPING", null, "DISCOUNT", null, "TAXABLE\nAMOUNT", "VAT", null, null, "ADDITIONAL VAT", null, null, "TOTAL\nAMOUNT"]
+[null, null, null, "%", "AMOUNT", null, "%", "AMOUNT", null, "%", "AMOUNT", null, null]
+
+================================================================================
+PAGE 3
+================================================================================
+
+Found 2 tables on this page
+
+--- Table 1 ---
+Rows: 3
+Columns: 5
+
+First 5 rows:
+["FACTURA", "DATE", null, "N.º CUSTOMER", null]
+["253427", "15/10/2025", null, "30546", null]
+["PAYMENT TERMS\nTransferencia anticipada", null, "AGENT\n4", null, "TRANSPORT\nGEFCO"]
+
+--- Table 2 ---
+Rows: 6
+Columns: 13
+
+First 5 rows:
+["REFERENCE", null, "DESCRIPTION", null, null, null, null, "Quantity", "Price\nUnits", null, null, "Dcnt.", "TOTAL"]
+["IGI2CHKR\nIGIC900ITP\nIGEG9BC\nIGMA1ME\nIGDE1LI\nIGGLY540\nIGGLY540", null, "Caducidad 30/09/2027, Lote 255444 Und. 48\nNº Cod. Imp.: 21061080 - 2,000 Kg / 96,000 Kg\nISOLATE PROFESIONAL 2 KG. CHOKOKRAC (IO\nGENIX)\nCaducidad 30/09/2027, Lote 254958 Und. 48\nNº Cod. Imp.: 21061080 - 2,000 Kg / 96,000 Kg\nISOZERO CLEAR 900 G. ICED TEA PEACH (IO\nGENIX)\nCaducidad 30/09/2027, Lote 255647 Und. 20\nNº Cod. Imp.: 21061080 - 0,900 Kg / 18,000 Kg\n100% EGG ORIGINAL 900 G. BLACK COOKIES\n(IO GENIX)\nCaducidad 30/06/2027, Lote 252011 Und. 24\nNº Cod. Imp.: 21061080 - 0,900 Kg / 21,600 Kg\nMALTODEXTRIN 1 KG. PEACH (IO GENIX)\nCaducidad 30/09/2027, Lote 255203 Und. 32\nNº Cod. Imp.: 17029050 - 1,000 Kg / 32,000 Kg\nPURE DEXTROSE 1 KG. LEMON (IO GENIX)\nCaducidad 30/09/2027, Lote 255303 Und. 30\nNº Cod. Imp.: 17023050 - 1,000 Kg / 30,000 Kg\nGLYCINE 540 G. (IO GENIX)\nCaducidad 30/09/2027, Lote 255428 Und. 10\nNº Cod. Imp.: 21069098 - 0,540 Kg / 5,400 Kg\nGLYCINE 540 G. (IO GENIX)\nCaducidad 30/09/2027, Lote 255428 Und. 2", null, null, null, null, "48\n20\n24\n32\n30\n10\n2", "56,95\n34,80\n21,45\n6,15\n5,55\n8,65\n8,65", null, null, "100%", "2.733,60\n696,00\n514,80\n196,80\n166,50\n86,50"]
+["IMPORTANT NOTE! No claims will be accepted after 24 hours from receipt of the order\nSupplier R.P.P. Number. (RD 1055/2022): ENV2/2023/000015314 Identifiant unique: FR328077_01YWLI", null, null, null, null, null, null, null, null, null, null, null, null]
+["GROSS\nAMOUNT", "TAXABLE\nSHIPPING", null, "DISCOUNT", null, "TAXABLE\nAMOUNT", "VAT", null, null, "ADDITIONAL VAT", null, null, "TOTAL\nAMOUNT"]
+[null, null, null, "%", "AMOUNT", null, "%", "AMOUNT", null, "%", "AMOUNT", null, null]
+
+================================================================================
+PAGE 4
+================================================================================
+
+Found 2 tables on this page
+
+--- Table 1 ---
+Rows: 3
+Columns: 5
+
+First 5 rows:
+["FACTURA", "DATE", null, "N.º CUSTOMER", null]
+["253427", "15/10/2025", null, "30546", null]
+["PAYMENT TERMS\nTransferencia anticipada", null, "AGENT\n4", null, "TRANSPORT\nGEFCO"]
+
+--- Table 2 ---
+Rows: 6
+Columns: 13
+
+First 5 rows:
+["REFERENCE", null, "DESCRIPTION", null, null, null, null, "Quantity", "Price\nUnits", null, null, "Dcnt.", "TOTAL"]
+["IGCOFO3LI\nIGCOFO3LI\nIGCO4FR\nIGCO4FR\nIGHA1BC\nIGHA1VA\nIGHA1CHBCO", null, "COLLAGEN FORTIGEL 320 G. LEMON (IO\nGENIX)\nCaducidad 30/08/2027, Lote 254057 Und. 10\nNº Cod. Imp.: 21069092 - 0,320 Kg / 3,200 Kg\nCOLLAGEN FORTIGEL 320 G. LEMON (IO\nGENIX)\nCaducidad 30/08/2027, Lote 254057 Und. 2\nCOLLAGEN PROFESIONAL400 G. RED FRUITS\n(IO GENIX)\nCaducidad 30/08/2027, Lote 254724 Und. 20\nNº Cod. Imp.: 21069092 - 0,400 Kg / 8,000 Kg\nCOLLAGEN PROFESIONAL400 G. RED FRUITS\n(IO GENIX)\nCaducidad 30/08/2027, Lote 254724 Und. 4\nDELICIOUS OATMEAL 1 KG. BLACK COOKIES\n(IO GENIX)\nCaducidad 30/08/2026, Lote 254244 Und. 24\nNº Cod. Imp.: 11029030 - 1,000 Kg / 24,000 Kg\nDELICIOUS OATMEAL 1 KG. VAINILLA AND\nHAZELNUTS (IO GENIX)\nCaducidad 30/10/2026, Lote 255570 Und. 128\nNº Cod. Imp.: 11029030 - 1,000 Kg / 128,000 Kg\nDELICIOUS OATMEAL 1 KG. ROCHELLO (IO\nGENIX)\nCaducidad 30/10/2026, Lote 255727 Und. 16", null, null, null, null, "10\n2\n20\n4\n24\n128\n16", "16,50\n16,50\n12,40\n12,40\n3,37\n3,37\n3,37", null, null, "100%\n100%", "165,00\n248,00\n80,88\n431,36\n53,92"]
+["IMPORTANT NOTE! No claims will be accepted after 24 hours from receipt of the order\nSupplier R.P.P. Number. (RD 1055/2022): ENV2/2023/000015314 Identifiant unique: FR328077_01YWLI", null, null, null, null, null, null, null, null, null, null, null, null]
+["GROSS\nAMOUNT", "TAXABLE\nSHIPPING", null, "DISCOUNT", null, "TAXABLE\nAMOUNT", "VAT", null, null, "ADDITIONAL VAT", null, null, "TOTAL\nAMOUNT"]
+[null, null, null, "%", "AMOUNT", null, "%", "AMOUNT", null, "%", "AMOUNT", null, null]
+
+================================================================================
+PAGE 5
+================================================================================
+
+Found 2 tables on this page
+
+--- Table 1 ---
+Rows: 3
+Columns: 5
+
+First 5 rows:
+["FACTURA", "DATE", null, "N.º CUSTOMER", null]
+["253427", "15/10/2025", null, "30546", null]
+["PAYMENT TERMS\nTransferencia anticipada", null, "AGENT\n4", null, "TRANSPORT\nGEFCO"]
+
+--- Table 2 ---
+Rows: 6
+Columns: 13
+
+First 5 rows:
+["REFERENCE", null, "DESCRIPTION", null, null, null, null, "Quantity", "Price\nUnits", null, null, "Dcnt.", "TOTAL"]
+["IGHA1CHP\nIGHA1PIS\nIGHA1PRA\nIGHA1DP\nIGHA1DO\nIGHA1ST\nIGHA1CBBC", null, "Nº Cod. Imp.: 11029030 - 1,000 Kg / 16,000 Kg\nDELICIOUS OATMEAL 1 KG. CHOCO PEANUT\nBUTTER (IO GENIX)\nCaducidad 30/08/2026, Lote 254728 Und. 16\nNº Cod. Imp.: 11029030 - 1,000 Kg / 16,000 Kg\nDELICIOUS OATMEAL 1 KG. PISTACHIO (IO\nGENIX)\nCaducidad 30/10/2026, Lote 255607 Und. 80\nNº Cod. Imp.: 11029030 - 1,000 Kg / 80,000 Kg\nDELICIOUS OATMEAL 1 KG. PRALINE (IO\nGENIX)\nCaducidad 30/10/2026, Lote 255566 Und. 24\nNº Cod. Imp.: 11029030 - 1,000 Kg / 24,000 Kg\nDELICIOUS OATMEAL 1 KG. DARK PRALINE (IO\nGENIX)\nCaducidad 30/09/2026, Lote 255178 Und. 8\nNº Cod. Imp.: 11029030 - 1,000 Kg / 8,000 Kg\nDELICIOUS OATMEAL 1 KG. DONUT (IO GENIX)\nCaducidad 30/09/2026, Lote 255289 Und. 24\nNº Cod. Imp.: 11029030 - 1,000 Kg / 24,000 Kg\nDELICIOUS OATMEAL 1 KG. STRACCIATELLA\nICE CREAM (IO GENIX)\nCaducidad 30/10/2026, Lote 255568 Und. 8\nNº Cod. Imp.: 11029030 - 1,000 Kg / 8,000 Kg\nDELICIOUS OATMEAL 1 KG. WHITE CHOCO", null, null, null, null, "16\n80\n24\n8\n24\n8\n32", "3,37\n3,37\n3,37\n3,37\n3,37\n3,37\n3,37", null, null, "", "53,92\n269,60\n80,88\n26,96\n80,88\n26,96\n107,84"]
+["IMPORTANT NOTE! No claims will be accepted after 24 hours from receipt of the order\nSupplier R.P.P. Number. (RD 1055/2022): ENV2/2023/000015314 Identifiant unique: FR328077_01YWLI", null, null, null, null, null, null, null, null, null, null, null, null]
+["GROSS\nAMOUNT", "TAXABLE\nSHIPPING", null, "DISCOUNT", null, "TAXABLE\nAMOUNT", "VAT", null, null, "ADDITIONAL VAT", null, null, "TOTAL\nAMOUNT"]
+[null, null, null, "%", "AMOUNT", null, "%", "AMOUNT", null, "%", "AMOUNT", null, null]
+
+================================================================================
+PAGE 6
+================================================================================
+
+Found 2 tables on this page
+
+--- Table 1 ---
+Rows: 3
+Columns: 5
+
+First 5 rows:
+["FACTURA", "DATE", null, "N.º CUSTOMER", null]
+["253427", "15/10/2025", null, "30546", null]
+["PAYMENT TERMS\nTransferencia anticipada", null, "AGENT\n4", null, "TRANSPORT\nGEFCO"]
+
+--- Table 2 ---
+Rows: 6
+Columns: 13
+
+First 5 rows:
+["REFERENCE", null, "DESCRIPTION", null, null, null, null, "Quantity", "Price\nUnits", null, null, "Dcnt.", "TOTAL"]
+["IGHA1CRCO\nIGHA1CHKR\nIGCOA1BR\nIGCOA1BC\nIGCOA1PRA\nIGRI1NE", null, "BLACK COOKIES (IO GENIX\nCaducidad 30/09/2026, Lote 255261 Und. 32\nNº Cod. Imp.: 11029030 - 1,000 Kg / 32,000 Kg\nDELICIOUS OATMEAL 1 KG. CREMA RICA\nCOOKIES (IO GENIX)\nCaducidad 30/10/2026, Lote 255391 Und. 32\nNº Cod. Imp.: 11029030 - 1,000 Kg / 32,000 Kg\nDELICIOUS OATMEAL 1 KG. CHOCOKRACK (IO\nGENIX)\nCaducidad 30/08/2026, Lote 253881 Und. 72\nNº Cod. Imp.: 11029030 - 1,000 Kg / 72,000 Kg\nDELICIOUS OATFLAKES 1 KG. BONBON\nROCHER (IO GENIX)\nCaducidad 30/09/2026, Lote 255001 Und. 12\nNº Cod. Imp.: 11029030 - 1,000 Kg / 12,000 Kg\nDELICIOUS OATFLAKES 1 KG. BLACK COOKIES\n(IO GENIX)\nCaducidad 30/09/2026, Lote 255440 Und. 48\nNº Cod. Imp.: 11029030 - 1,000 Kg / 48,000 Kg\nDELICIOUS OATFLAKES 1 KG. PRALINÉ (IO\nGENIX)\nCaducidad 30/09/2026, Lote 255010 Und. 8\nNº Cod. Imp.: 11029030 - 1,000 Kg / 8,000 Kg\nRICE CREAM 1 KG. NATURE (IO GENIX)\nCaducidad 30/08/2027, Lote 254063 Und. 32\nNº Cod. Imp.: 11029030 - 1,000 Kg / 32,000 Kg", null, null, null, null, "32\n72\n12\n48\n8\n32", "3,37\n3,37\n3,37\n3,37\n3,37\n5,77", null, null, "", "107,84\n242,64\n40,44\n161,76\n26,96\n184,64"]
+["IMPORTANT NOTE! No claims will be accepted after 24 hours from receipt of the order\nSupplier R.P.P. Number. (RD 1055/2022): ENV2/2023/000015314 Identifiant unique: FR328077_01YWLI", null, null, null, null, null, null, null, null, null, null, null, null]
+["GROSS\nAMOUNT", "TAXABLE\nSHIPPING", null, "DISCOUNT", null, "TAXABLE\nAMOUNT", "VAT", null, null, "ADDITIONAL VAT", null, null, "TOTAL\nAMOUNT"]
+[null, null, null, "%", "AMOUNT", null, "%", "AMOUNT", null, "%", "AMOUNT", null, null]
+
+================================================================================
+PAGE 7
+================================================================================
+
+Found 2 tables on this page
+
+--- Table 1 ---
+Rows: 3
+Columns: 5
+
+First 5 rows:
+["FACTURA", "DATE", null, "N.º CUSTOMER", null]
+["253427", "15/10/2025", null, "30546", null]
+["PAYMENT TERMS\nTransferencia anticipada", null, "AGENT\n4", null, "TRANSPORT\nGEFCO"]
+
+--- Table 2 ---
+Rows: 6
+Columns: 13
+
+First 5 rows:
+["REFERENCE", null, "DESCRIPTION", null, null, null, null, "Quantity", "Price\nUnits", null, null, "Dcnt.", "TOTAL"]
+["IGRI1CAS\nIGRI1MCO\nIGRI1CB\nIGRI1CPB\nIGRI1CU\nIGRI1CIR\nIGRI1NCH", null, "RICE CREAM 1 KG. SALTED CARAMEL (IO\nGENIX)\nCaducidad 30/09/2027, Lote 255207 Und. 64\nNº Cod. Imp.: 11029030 - 1,000 Kg / 64,000 Kg\nRICE CREAM 1 KG. MARIE COOKIES (IO GENIX)\nCaducidad 30/07/2027, Lote 253513 Und. 24\nNº Cod. Imp.: 11029030 - 1,000 Kg / 24,000 Kg\nRICE CREAM 1 KG. WHITE CHOCOLATE (IO\nGENIX)\nCaducidad 30/09/2027, Lote 255379 Und. 16\nNº Cod. Imp.: 11029030 - 1,000 Kg / 16,000 Kg\nRICE CREAM 1 KG. CHOCO PEANUT BUTTER\n(IO GENIX)\nCaducidad 30/09/2027, Lote 255093 Und. 8\nNº Cod. Imp.: 11029030 - 1,000 Kg / 8,000 Kg\nRICE CREAM 1 KG. CUSTARD (IO GENIX)\nCaducidad 30/08/2027, Lote 253291 Und. 8\nNº Cod. Imp.: 11029030 - 1,000 Kg / 8,000 Kg\nRICE CREAM 1 KG. CINNAMON ROLL(IO GENIX)\nCaducidad 30/06/2027, Lote 253140 Und. 22\nCaducidad 30/09/2027, Lote 255205 Und. 10\nNº Cod. Imp.: 11029030 - 1,000 Kg / 32,000 Kg\nRICE CREAM 1 KG. NUTCHOC (IO GENIX)\nCaducidad 30/09/2027, Lote 255137 Und. 104\nNº Cod. Imp.: 11029030 - 1,000 Kg / 104,000 Kg", null, null, null, null, "64\n24\n16\n8\n8\n32\n104", "5,77\n5,77\n5,77\n5,77\n5,77\n5,77\n5,77", null, null, "", "369,28\n138,48\n92,32\n46,16\n46,16\n184,64\n600,08"]
+["IMPORTANT NOTE! No claims will be accepted after 24 hours from receipt of the order\nSupplier R.P.P. Number. (RD 1055/2022): ENV2/2023/000015314 Identifiant unique: FR328077_01YWLI", null, null, null, null, null, null, null, null, null, null, null, null]
+["GROSS\nAMOUNT", "TAXABLE\nSHIPPING", null, "DISCOUNT", null, "TAXABLE\nAMOUNT", "VAT", null, null, "ADDITIONAL VAT", null, null, "TOTAL\nAMOUNT"]
+[null, null, null, "%", "AMOUNT", null, "%", "AMOUNT", null, "%", "AMOUNT", null, null]
+
+================================================================================
+PAGE 8
+================================================================================
+
+Found 2 tables on this page
+
+--- Table 1 ---
+Rows: 3
+Columns: 5
+
+First 5 rows:
+["FACTURA", "DATE", null, "N.º CUSTOMER", null]
+["253427", "15/10/2025", null, "30546", null]
+["PAYMENT TERMS\nTransferencia anticipada", null, "AGENT\n4", null, "TRANSPORT\nGEFCO"]
+
+--- Table 2 ---
+Rows: 6
+Columns: 13
+
+First 5 rows:
+["REFERENCE", null, "DESCRIPTION", null, null, null, null, "Quantity", "Price\nUnits", null, null, "Dcnt.", "TOTAL"]
+["IGRI1ROC\nIGRI1STR\nIGRI1PRA\nIGRI1CRCO\nIGRI1BC\nIGRI1CHKR\nIGPV1CH\nIGMABI60", null, "RICE CREAM 1 KG. ROCHELLO (IO GENIX)\nCaducidad 30/09/2027, Lote 255265 Und. 80\nNº Cod. Imp.: 11029030 - 1,000 Kg / 80,000 Kg\nRICE CREAM 1 KG. STRACCIATELLA (IO GENIX)\nCaducidad 30/09/2027, Lote 254961 Und. 48\nNº Cod. Imp.: 11029030 - 1,000 Kg / 48,000 Kg\nRICE CREAM 1 KG. PRALINE (IO GENIX)\nCaducidad 30/09/2027, Lote 255189 Und. 80\nNº Cod. Imp.: 11029030 - 1,000 Kg / 80,000 Kg\nRICE CREAM 1 KG. CREMA RICA COOKIES (IO\nGENIX)\nCaducidad 30/10/2027, Lote 255716 Und. 32\nNº Cod. Imp.: 11029030 - 1,000 Kg / 32,000 Kg\nRICE CREAM 1 KG. BLACK COOKIES (IO GENIX)\nCaducidad 30/08/2027, Lote 254381 Und. 64\nNº Cod. Imp.: 11029030 - 1,000 Kg / 64,000 Kg\nRICE CREAM 1 KG.CHOCO KRACK(IO GENIX)\nCaducidad 30/07/2027, Lote 254543 Und. 88\nNº Cod. Imp.: 11029030 - 1,000 Kg / 88,000 Kg\nVEGAN PROTEIN 1 KG. CHOCOLATE (IO GENIX)\nCaducidad 30/09/2027, Lote 255191 Und. 22\nNº Cod. Imp.: 21061080 - 1,000 Kg / 22,000 Kg\nMAGNESIUM BISGLYCINATE ALBION 60\nCAPSULES (IO GENIX)", null, null, null, null, "80\n48\n80\n32\n64\n88\n22\n24", "5,77\n5,77\n5,77\n5,77\n5,77\n5,77\n14,85\n8,95", null, null, "100%", "461,60\n276,96\n461,60\n184,64\n369,28\n507,76\n326,70"]
+["IMPORTANT NOTE! No claims will be accepted after 24 hours from receipt of the order\nSupplier R.P.P. Number. (RD 1055/2022): ENV2/2023/000015314 Identifiant unique: FR328077_01YWLI", null, null, null, null, null, null, null, null, null, null, null, null]
+["GROSS\nAMOUNT", "TAXABLE\nSHIPPING", null, "DISCOUNT", null, "TAXABLE\nAMOUNT", "VAT", null, null, "ADDITIONAL VAT", null, null, "TOTAL\nAMOUNT"]
+[null, null, null, "%", "AMOUNT", null, "%", "AMOUNT", null, "%", "AMOUNT", null, null]
+
+================================================================================
+PAGE 9
+================================================================================
+
+Found 2 tables on this page
+
+--- Table 1 ---
+Rows: 3
+Columns: 5
+
+First 5 rows:
+["FACTURA", "DATE", null, "N.º CUSTOMER", null]
+["253427", "15/10/2025", null, "30546", null]
+["PAYMENT TERMS\nTransferencia anticipada", null, "AGENT\n4", null, "TRANSPORT\nGEFCO"]
+
+--- Table 2 ---
+Rows: 6
+Columns: 13
+
+First 5 rows:
+["REFERENCE", null, "DESCRIPTION", null, null, null, null, "Quantity", "Price\nUnits", null, null, "Dcnt.", "TOTAL"]
+["IGDE60\nIGVDK60\nIGZMAB660\nIGMU60\nIGPOCI90\nVARIOS EXENTO", null, "Caducidad 30/07/2028, Lote 254699 Und. 24\nPROHORMONALES\nDIGESTIVE ENZYMES 60 TABLETS (IO GENIX)\nCaducidad 30/09/2028, Lote 255640 Und. 10\nVIT D3 + K2 60 TABLETS (IO GENIX)\nCaducidad 30/06/2028, Lote 253541 Und. 10\nZMA B6 60 CAPSULES (IO GENIX)\nCaducidad 30/09/2028, Lote 255008 Und. 70\nMULTIVIT 60 TABLETS (IO GENIX)\nCaducidad 30/09/2028, Lote 254128 Und. 45\nPOTASSIUM CITRATE 90 TABLETS (IO GENIX)\nCaducidad 30/07/2028, Lote 254514 Und. 32\nRICE CREAM 1 KG BLACK COOKIES-IOGENIX", null, null, null, null, "10\n10\n70\n45\n32\n8", "11,95\n9,95\n13,95\n10,95\n12,45\n5,7700", null, null, "100%\n100%\n100%\n100%\n100%\n100%", ""]
+["IMPORTANT NOTE! No claims will be accepted after 24 hours from receipt of the order\nSupplier R.P.P. Number. (RD 1055/2022): ENV2/2023/000015314 Identifiant unique: FR328077_01YWLI", null, null, null, null, null, null, null, null, null, null, null, null]
+["GROSS\nAMOUNT", "TAXABLE\nSHIPPING", null, "DISCOUNT", null, "TAXABLE\nAMOUNT", "VAT", null, null, "ADDITIONAL VAT", null, null, "TOTAL\nAMOUNT"]
+[null, null, null, "%", "AMOUNT", null, "%", "AMOUNT", null, "%", "AMOUNT", null, null]

@@ -1,0 +1,95 @@
+{
+    "vendor": {
+        "name": "LABZ Nutrition",
+        "currency": "EUR",
+        "language": "fr"
+    },
+    "header": {
+        "fields": [
+            {
+                "name": "invoice_number",
+                "regex": "Numéro de facture:\\s*#(\\d+)",
+                "group": 1
+            },
+            {
+                "name": "invoice_date",
+                "regex": "Date de la commande:\\s*(\\d{4}-\\d{2}-\\d{2})",
+                "group": 1,
+                "type": "date"
+            }
+        ]
+    },
+    "table": {
+        "strategy": "text_regex_multiline",
+        "start_marker": "Articles\\s+Quantité",
+        "end_marker": "Total\\s+€",
+        "row_pattern": "SKU:\\s+(\\d+)\\s+(\\d+)\\s+€([\\d\\s.]+)\\s+€([\\d\\s.]+).*?%\\s+€([\\d\\s.]+)\\s+€([\\d\\s.]+)",
+        "row_pattern_alt": "(\\d+)\\s+€([\\d\\s.]+)\\s+€([\\d\\s.]+).*?%\\s+€([\\d\\s.]+)\\s+€([\\d\\s.]+)\\s+SKU:\\s+(\\d+)",
+        "columns": [
+            {
+                "name": "sku",
+                "regex_group": 1,
+                "type": "string"
+            },
+            {
+                "name": "quantity",
+                "regex_group": 2,
+                "type": "number"
+            },
+            {
+                "name": "unit_price",
+                "regex_group": 3,
+                "type": "number"
+            },
+            {
+                "name": "total",
+                "regex_group": 6,
+                "type": "number"
+            }
+        ],
+        "columns_alt": [
+            {
+                "name": "quantity",
+                "regex_group": 1,
+                "type": "number"
+            },
+            {
+                "name": "unit_price",
+                "regex_group": 2,
+                "type": "number"
+            },
+            {
+                "name": "total",
+                "regex_group": 5,
+                "type": "number"
+            },
+            {
+                "name": "sku",
+                "regex_group": 6,
+                "type": "string"
+            }
+        ]
+    },
+    "footer": {
+        "fields": [
+            {
+                "name": "subtotal",
+                "regex": "Total\\s*€([\\d\\s,.]+)",
+                "group": 1,
+                "type": "number"
+            },
+            {
+                "name": "total",
+                "regex": "Somme finale\\s*€([\\d\\s,.]+)",
+                "group": 1,
+                "type": "number"
+            },
+            {
+                "name": "shipping_fee",
+                "regex": "livraison\\s*€([\\d\\s,.]+)",
+                "group": 1,
+                "type": "number"
+            }
+        ]
+    }
+}

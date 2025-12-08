@@ -1,0 +1,71 @@
+{
+    "vendor": {
+        "name": "Novoma",
+        "currency": "EUR",
+        "language": "fr"
+    },
+    "header": {
+        "fields": [
+            {
+                "name": "invoice_number",
+                "regex": "FAC/\\d{4}/(\\d+)",
+                "group": 1
+            },
+            {
+                "name": "invoice_date",
+                "regex": "(\\d{2}/\\d{2}/\\d{4})",
+                "group": 1,
+                "type": "date"
+            }
+        ]
+    },
+    "table": {
+        "strategy": "text_regex",
+        "start_marker": "Description Quantité",
+        "end_marker": "Condition de paiement",
+        "row_pattern": "^\\[(.+?)\\]\\s+(.+?)\\s+([\\d,]+)\\s+Unités\\s+([\\d,]+)\\s+TVA\\s+[\\d,]+%\\s+([\\d,\\s]+)\\s+€",
+        "columns": [
+            {
+                "name": "sku",
+                "regex_group": 1,
+                "type": "string"
+            },
+            {
+                "name": "description",
+                "regex_group": 2,
+                "type": "string"
+            },
+            {
+                "name": "quantity",
+                "regex_group": 3,
+                "type": "number"
+            },
+            {
+                "name": "unit_price",
+                "regex_group": 4,
+                "type": "number"
+            },
+            {
+                "name": "total",
+                "regex_group": 5,
+                "type": "number"
+            }
+        ]
+    },
+    "footer": {
+        "fields": [
+            {
+                "name": "subtotal",
+                "regex": "Montant hors taxes\\s*([\\d\\s,]+)\\s*€",
+                "group": 1,
+                "type": "number"
+            },
+            {
+                "name": "total",
+                "regex": "Total\\s*([\\d\\s,]+)\\s*€",
+                "group": 1,
+                "type": "number"
+            }
+        ]
+    }
+}

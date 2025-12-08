@@ -1,0 +1,218 @@
+🚀 Starting TypeScript Integration Test...
+📂 Test Directory: /Users/ilya/Desktop/work/fitness/Renta/ShopifyFWNAutomation/python/test_invoices
+ℹ️  Loaded 125 expected totals.
+
+Vendor: Addict
+🔍 PDF PARSING START - File: /Users/ilya/Desktop/work/fitness/Renta/ShopifyFWNAutomation/python/test_invoices/Addict/Facture No 12065_1745586980578.pdf, Supplier: "Addict"
+DEBUG: usePythonParser=false
+🔍 Supplier: Addict, isOstrovit: false, isOstrovit2: false
+DEBUG SELECT PARSER: normalizedName='addict'
+DEBUG SELECT PARSER: Selected AddictParser
+DEBUG ADDICT LINE: ASN EUROPE FACTURE  N°  12065 TOTAUX
+DEBUG ADDICT LINE: 3 RUE DU GOLF TOTAL HT 14 906,34 €
+DEBUG ADDICT LINE: 33701 MERIGNAC CEDEX FAIT LE : 25/04/25
+DEBUG ADDICT LINE: CODE CLIENT :
+DEBUG ADDICT LINE: 05 56 64 72 12 TOTAL TVA 20,0 % 72,00 €
+DEBUG ADDICT LINE: INFO@ADDICTSPORTNUTRITION.COM SIRET DU SIÈGE :  89775691200019
+DEBUG ADDICT LINE: N° TVA INTRACOMMUNAUTAIRE TOTAL TVA 5,5 % :  800,05 €
+DEBUG ADDICT LINE: RÉF ACHETEUR :
+DEBUG ADDICT LINE: TOTAL TTC 15 778,39 €
+DEBUG ADDICT LINE: N° BON DE COMMANDE :
+DEBUG ADDICT LINE: ADRESSÉ À :
+DEBUG ADDICT LINE: DATE D'ÉCHÉANCE :  25/04/25
+DEBUG ADDICT LINE: MODE DE PAIEMENT :  VIREMENT SUR LE COMPTE IBAN : FR76 3000 4018 7000 0100 3188 102 (BIC : BNPAFRPPXXX) FITNESS WORLD NUTRITION
+DEBUG ADDICT LINE: 9 RUE DES COLONNES
+DEBUG ADDICT LINE: 75002 PARIS
+DEBUG ADDICT LINE: OBJET :
+DEBUG ADDICT LINE: CODE LIBELLÉ Q. PU REMISE PRIX HT % TVA
+✅ Addict Header found at Y=16.5: Code Libellé Q. PU Remise Prix HT % TVA
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW FAIL: SKU=S, Qty=null, Unit=null, Total=null
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW FAIL: SKU=Facture, Qty=null, Unit=null, Total=0
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+The invoice name test: Facture No 12065_1745586980578.pdf, total expected: 14906.34, total output: 0.00
+Status: Failed
+🔍 PDF PARSING START - File: /Users/ilya/Desktop/work/fitness/Renta/ShopifyFWNAutomation/python/test_invoices/Addict/Facture No 12191_1750170897462.pdf, Supplier: "Addict"
+DEBUG: usePythonParser=false
+🔍 Supplier: Addict, isOstrovit: false, isOstrovit2: false
+DEBUG SELECT PARSER: normalizedName='addict'
+DEBUG SELECT PARSER: Selected AddictParser
+DEBUG ADDICT LINE: ASN EUROPE FACTURE  N°  12191 TOTAUX
+DEBUG ADDICT LINE: 3 RUE DU GOLF TOTAL HT 12 379,55 €
+DEBUG ADDICT LINE: 33701 MERIGNAC CEDEX FAIT LE : 17/06/25
+DEBUG ADDICT LINE: CODE CLIENT :
+DEBUG ADDICT LINE: 05 56 64 72 12 TOTAL TVA 20,0 % 48,00 €
+DEBUG ADDICT LINE: INFO@ADDICTSPORTNUTRITION.COM SIRET DU SIÈGE :  89775691200019
+DEBUG ADDICT LINE: N° TVA INTRACOMMUNAUTAIRE TOTAL TVA 5,5 % :  667,68 €
+DEBUG ADDICT LINE: RÉF ACHETEUR :
+DEBUG ADDICT LINE: TOTAL TTC 13 095,23 €
+DEBUG ADDICT LINE: N° BON DE COMMANDE :
+DEBUG ADDICT LINE: ADRESSÉ À :
+DEBUG ADDICT LINE: DATE D'ÉCHÉANCE :  17/06/25
+DEBUG ADDICT LINE: MODE DE PAIEMENT :  VIREMENT SUR LE COMPTE IBAN : FR76 3000 4018 7000 0100 3188 102 (BIC : BNPAFRPPXXX) FITNESS WORLD NUTRITION
+DEBUG ADDICT LINE: 9 RUE DES COLONNES
+DEBUG ADDICT LINE: 75002 PARIS
+DEBUG ADDICT LINE: OBJET :
+DEBUG ADDICT LINE: CODE LIBELLÉ Q. PU REMISE PRIX HT % TVA
+✅ Addict Header found at Y=16.5: Code Libellé Q. PU Remise Prix HT % TVA
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW FAIL: SKU=S, Qty=null, Unit=null, Total=null
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW FAIL: SKU=Facture, Qty=null, Unit=null, Total=0
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+The invoice name test: Facture No 12191_1750170897462.pdf, total expected: 12379.55, total output: 0.00
+Status: Failed
+🔍 PDF PARSING START - File: /Users/ilya/Desktop/work/fitness/Renta/ShopifyFWNAutomation/python/test_invoices/Addict/Facture No 12279_1753446100339.pdf, Supplier: "Addict"
+DEBUG: usePythonParser=false
+🔍 Supplier: Addict, isOstrovit: false, isOstrovit2: false
+DEBUG SELECT PARSER: normalizedName='addict'
+DEBUG SELECT PARSER: Selected AddictParser
+DEBUG ADDICT LINE: DATE D'ÉCHÉANCE :  25/07/25
+DEBUG ADDICT LINE: ASN EUROPE FACTURE  N°  12279
+DEBUG ADDICT LINE: MODE DE PAIEMENT :  VIREMENT SUR LE COMPTE IBAN : FR76 3000 4018 7000 0100 3188 102 (BIC : BNPAFRPPXXX) 3 RUE DU GOLF
+DEBUG ADDICT LINE: 33701 MERIGNAC CEDEX FAIT LE : 25/07/25
+DEBUG ADDICT LINE: CODE CLIENT :
+DEBUG ADDICT LINE: 05 56 64 72 12
+DEBUG ADDICT LINE: INFO@ADDICTSPORTNUTRITION.COM SIRET DU SIÈGE :  89775691200019
+DEBUG ADDICT LINE: N° TVA INTRACOMMUNAUTAIRE :
+DEBUG ADDICT LINE: RÉF ACHETEUR :
+DEBUG ADDICT LINE: N° BON DE COMMANDE :
+DEBUG ADDICT LINE: ADRESSÉ À :
+DEBUG ADDICT LINE: FITNESS WORLD NUTRITION
+DEBUG ADDICT LINE: 9 RUE DES COLONNES
+DEBUG ADDICT LINE: 75002 PARIS
+DEBUG ADDICT LINE: OBJET :
+DEBUG ADDICT LINE: CODE LIBELLÉ Q. PU REMISE PRIX HT % TVA
+✅ Addict Header found at Y=16.5: Code Libellé Q. PU Remise Prix HT % TVA
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW FAIL: SKU=S, Qty=null, Unit=null, Total=null
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+The invoice name test: Facture No 12279_1753446100339.pdf, total expected: 5499.71, total output: 0.00
+Status: Failed
+🔍 PDF PARSING START - File: /Users/ilya/Desktop/work/fitness/Renta/ShopifyFWNAutomation/python/test_invoices/Addict/Factures-12355-du-01-09-2025-FITNESS_WORLD_NUTRITION.pdf, Supplier: "Addict"
+DEBUG: usePythonParser=false
+🔍 Supplier: Addict, isOstrovit: false, isOstrovit2: false
+DEBUG SELECT PARSER: normalizedName='addict'
+DEBUG SELECT PARSER: Selected AddictParser
+DEBUG ADDICT LINE: DATE D'ÉCHÉANCE :  01/09/25
+DEBUG ADDICT LINE: ASN EUROPE FACTURE  N°  12355
+DEBUG ADDICT LINE: MODE DE PAIEMENT :  VIREMENT SUR LE COMPTE IBAN : FR76 3000 4018 7000 0100 3188 102 (BIC : BNPAFRPPXXX) 3 RUE DU GOLF
+DEBUG ADDICT LINE: 33701 MERIGNAC CEDEX FAIT LE : 01/09/25
+DEBUG ADDICT LINE: CODE CLIENT :
+DEBUG ADDICT LINE: 05 56 64 72 12
+DEBUG ADDICT LINE: INFO@ADDICTSPORTNUTRITION.COM SIRET DU SIÈGE :  89775691200019
+DEBUG ADDICT LINE: N° TVA INTRACOMMUNAUTAIRE :
+DEBUG ADDICT LINE: RÉF ACHETEUR :
+DEBUG ADDICT LINE: N° BON DE COMMANDE :
+DEBUG ADDICT LINE: ADRESSÉ À :
+DEBUG ADDICT LINE: FITNESS WORLD NUTRITION
+DEBUG ADDICT LINE: 9 RUE DES COLONNES
+DEBUG ADDICT LINE: 75002 PARIS
+DEBUG ADDICT LINE: OBJET :
+DEBUG ADDICT LINE: CODE LIBELLÉ Q. PU REMISE PRIX HT % TVA
+✅ Addict Header found at Y=16.5: Code Libellé Q. PU Remise Prix HT % TVA
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW FAIL: SKU=S, Qty=null, Unit=null, Total=null
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+The invoice name test: Factures-12355-du-01-09-2025-FITNESS_WORLD_NUTRITION.pdf, total expected: 5304.49, total output: 0.00
+Status: Failed
+🔍 PDF PARSING START - File: /Users/ilya/Desktop/work/fitness/Renta/ShopifyFWNAutomation/python/test_invoices/Addict/Factures-12471-du-09-10-2025-FITNESS_WORLD_NUTRITION.pdf, Supplier: "Addict"
+DEBUG: usePythonParser=false
+🔍 Supplier: Addict, isOstrovit: false, isOstrovit2: false
+DEBUG SELECT PARSER: normalizedName='addict'
+DEBUG SELECT PARSER: Selected AddictParser
+DEBUG ADDICT LINE: ASN EUROPE FACTURE  N°  12471 TOTAUX
+DEBUG ADDICT LINE: 3 RUE DU GOLF TOTAL HT 6 123,38 €
+DEBUG ADDICT LINE: 33701 MERIGNAC CEDEX FAIT LE : 09/10/25
+DEBUG ADDICT LINE: CODE CLIENT :
+DEBUG ADDICT LINE: 05 56 64 72 12 TOTAL TVA 20,0 % 24,00 €
+DEBUG ADDICT LINE: INFO@ADDICTSPORTNUTRITION.COM SIRET DU SIÈGE :  89775691200019
+DEBUG ADDICT LINE: N° TVA INTRACOMMUNAUTAIRE TOTAL TVA 5,5 % :  330,19 €
+DEBUG ADDICT LINE: RÉF ACHETEUR :
+DEBUG ADDICT LINE: TOTAL TTC 6 477,57 €
+DEBUG ADDICT LINE: N° BON DE COMMANDE :
+DEBUG ADDICT LINE: ADRESSÉ À :
+DEBUG ADDICT LINE: DATE D'ÉCHÉANCE :  09/10/25
+DEBUG ADDICT LINE: MODE DE PAIEMENT :  VIREMENT SUR LE COMPTE IBAN : FR76 3000 4018 7000 0100 3188 102 (BIC : BNPAFRPPXXX) FITNESS WORLD NUTRITION
+DEBUG ADDICT LINE: 9 RUE DES COLONNES
+DEBUG ADDICT LINE: 75002 PARIS
+DEBUG ADDICT LINE: OBJET :
+DEBUG ADDICT LINE: CODE LIBELLÉ Q. PU REMISE PRIX HT % TVA
+✅ Addict Header found at Y=16.5: Code Libellé Q. PU Remise Prix HT % TVA
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW FAIL: SKU=S, Qty=null, Unit=null, Total=null
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW FAIL: SKU=Facture, Qty=null, Unit=null, Total=0
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+DEBUG ADDICT ROW: No SKU found near 1.706. Candidates: []
+The invoice name test: Factures-12471-du-09-10-2025-FITNESS_WORLD_NUTRITION.pdf, total expected: 6123.38, total output: 0.00
+Status: Failed
+
+============================================================
+📊 DETAILED REPORT BY VENDOR
+============================================================
+
+🔹 Addict (Total: 5 | ✅ 0 | ⚠️ 0 | ❌ 5)
+   ❌ Facture No 12065_1745586980578.pdf: Expected: 14906.34, Got: 0.00
+   ❌ Facture No 12191_1750170897462.pdf: Expected: 12379.55, Got: 0.00
+   ❌ Facture No 12279_1753446100339.pdf: Expected: 5499.71, Got: 0.00
+   ❌ Factures-12355-du-01-09-2025-FITNESS_WORLD_NUTRITION.pdf: Expected: 5304.49, Got: 0.00
+   ❌ Factures-12471-du-09-10-2025-FITNESS_WORLD_NUTRITION.pdf: Expected: 6123.38, Got: 0.00
+
+============================================================
+📈 FINAL SUMMARY
+============================================================
+Total Invoices Tested: 5
+Passed (Perfect):      0
+Passed (Warnings):     0
+Failed:                5
+============================================================

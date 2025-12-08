@@ -1,0 +1,29 @@
+# serializer version: 1
+# name: TestParsers.test_buchteiner_parser
+  dict({
+    'customer': dict({
+      'name': 'Fitness World Nutrition',
+    }),
+    'metadata': dict({
+      'invoice_date': '2024-10-30',
+      'invoice_number': '240018',
+    }),
+    'order_items': list([
+      dict({
+        'description': 'PillMaster XL Pillenbox, mit 10 Fächern, mit 1-farb. Druck, schwarz PillMaster XL pillbox, with 10 fixed separations, with 1 colour screen print, black Print: Fitness World Nutrition / printing-colour: white',
+        'quantity': '990',
+        'reference': '1331S',
+        'total': '787.05',
+        'unit_price': '0.795',
+      }),
+    ]),
+    'totals': dict({
+      'shipping_fee': '356.00',
+      'subtotal': '1143.05',
+      'total': '1143.05',
+    }),
+    'vendor': dict({
+      'name': 'Buchteiner',
+    }),
+  })
+# ---

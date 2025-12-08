@@ -1,0 +1,76 @@
+{
+    "vendor": {
+        "name": "Essential Supp",
+        "currency": "EUR",
+        "language": "fr"
+    },
+    "header": {
+        "fields": [
+            {
+                "name": "invoice_number",
+                "regex": "(?:Facture|Invoice)\\s+(?:N°|No\\.?)\\s*:?\\s*(\\w+\\d+-\\d+)",
+                "group": 1
+            },
+            {
+                "name": "invoice_date",
+                "regex": "Date\\s*:?\\s*(\\d{1,2}/\\d{1,2}/\\d{2,4})",
+                "group": 1,
+                "type": "date"
+            }
+        ]
+    },
+    "table": {
+        "strategy": "pdfplumber_table",
+        "header_keywords": [
+            "désignation",
+            "tva",
+            "p.u. ht",
+            "qté",
+            "total ht"
+        ],
+        "columns": [
+            {
+                "name": "description",
+                "index": 0,
+                "type": "string"
+            },
+            {
+                "name": "unit_price",
+                "index": 2,
+                "type": "number"
+            },
+            {
+                "name": "quantity",
+                "index": 3,
+                "type": "number"
+            },
+            {
+                "name": "total",
+                "index": 5,
+                "type": "number"
+            }
+        ]
+    },
+    "footer": {
+        "fields": [
+            {
+                "name": "subtotal",
+                "regex": "Total\\s+HT.*?([\\d\\s,]+)",
+                "group": 1,
+                "type": "number"
+            },
+            {
+                "name": "tax",
+                "regex": "Total\\s+TVA.*?([\\d\\s,]+)",
+                "group": 1,
+                "type": "number"
+            },
+            {
+                "name": "total",
+                "regex": "Total\\s+TTC.*?([\\d\\s,]+)",
+                "group": 1,
+                "type": "number"
+            }
+        ]
+    }
+}

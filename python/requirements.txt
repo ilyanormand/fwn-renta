@@ -1,0 +1,22 @@
+# Python requirements for PDF table extraction
+# Install with: pip install -r requirements.txt
+
+# Core dependencies
+camelot-py
+pdfminer.six
+pdfplumber
+tabula-py
+pandas
+numpy
+pymupdf  # PyMuPDF for better text extraction (used by Powerbody parser)
+
+# OpenCV для camelot - headless версия (без GUI, быстрее компилируется)
+# Все CV функции для парсинга таблиц работают полностью!
+opencv-python-headless
+
+# Ghostscript для некоторых операций camelot
+ghostscript
+
+# Testing
+pytest
+syrupy

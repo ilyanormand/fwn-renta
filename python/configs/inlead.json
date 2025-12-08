@@ -1,0 +1,84 @@
+{
+    "vendor": {
+        "name": "Inlead Nutrition GmbH & Co.KG",
+        "currency": "EUR",
+        "language": "de"
+    },
+    "header": {
+        "fields": [
+            {
+                "name": "usi_id",
+                "regex": "Ihre USI-IdNr\\.: (\\w+)",
+                "group": 1,
+                "type": "string"
+            },
+            {
+                "name": "payment_terms",
+                "regex": "Das Zahlungsziel beträgt (\\d+) Tage ab Rechnungsdatum",
+                "group": 1,
+                "type": "string"
+            },
+            {
+                "name": "name",
+                "regex": "Fitness World Nutrition",
+                "group": 0,
+                "type": "string",
+                "target": "customer"
+            }
+        ]
+    },
+    "table": {
+        "strategy": "text_regex",
+        "start_marker": "Pos.\\s+Menge\\s+Art.-Nr",
+        "end_marker": "Gesamt Netto",
+        "row_pattern": "^(\\d+)\\s+([\\d,]+)\\s+(\\S*)\\s*(.+?)\\s+(\\d+,\\d+\\s*%)\\s+([\\d,]+\\s+€)\\s+(?:([\\d,]+\\s+%)\\s+)?([\\d,]+\\s+€)",
+        "columns": [
+            {
+                "name": "position",
+                "regex_group": 1,
+                "type": "string"
+            },
+            {
+                "name": "quantity",
+                "regex_group": 2,
+                "type": "number"
+            },
+            {
+                "name": "sku",
+                "regex_group": 3,
+                "type": "string"
+            },
+            {
+                "name": "description",
+                "regex_group": 4,
+                "type": "string"
+            },
+            {
+                "name": "unit_price",
+                "regex_group": 6,
+                "type": "number"
+            },
+            {
+                "name": "total",
+                "regex_group": 8,
+                "type": "number"
+            }
+        ]
+    },
+    "footer": {
+        "fields": [
+            {
+                "name": "subtotal",
+                "regex": "Gesamt Netto \\(0,00 %\\)\\s+([\\d.,]+ €)",
+                "group": 1,
+                "type": "number"
+            },
+            {
+                "name": "total",
+                "regex": "Rechnungsbetrag\\s+([\\d.,]+ €)",
+                "group": 1,
+                "type": "number"
+            }
+        ]
+    }
+}

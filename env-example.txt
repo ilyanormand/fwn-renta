@@ -1,0 +1,36 @@
+# Пример .env файла для Google Sheets
+# Скопируйте содержимое в файл .env в корне проекта
+
+# Database Configuration (Required for Prisma)
+DATABASE_URL="file:./dev.sqlite"
+
+# Google Sheets OAuth2 Configuration (для веб-приложений)
+GOOGLE_OAUTH_CONFIG='{"web":{"client_id":"456652326774-dulvmto2trdsb12cdpojddp8mn8ogqj7.apps.googleusercontent.com","client_secret":"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","project_id":"shopify-fwn-app","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs"}}'
+GOOGLE_OAUTH_REDIRECT_URI=http://localhost:3000/auth/google/callback
+
+# ID вашей Google Sheets таблицы (замените на реальный)
+GOOGLE_SHEETS_SPREADSHEET_ID=your_spreadsheet_id_here
+
+# Альтернативно: простой API ключ (для чтения публичных таблиц)
+# GOOGLE_SHEETS_API_KEY=your_api_key_here
+
+# Альтернативно: Service Account (для полного доступа без пользователя)
+# GOOGLE_SHEETS_TYPE=service_account
+# GOOGLE_SHEETS_PROJECT_ID=your_project_id
+# GOOGLE_SHEETS_PRIVATE_KEY_ID=your_private_key_id
+# GOOGLE_SHEETS_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nyour_private_key_here\n-----END PRIVATE KEY-----\n"
+# GOOGLE_SHEETS_CLIENT_EMAIL=your_service_account@your_project.iam.gserviceaccount.com
+# GOOGLE_SHEETS_CLIENT_ID=your_client_id
+# GOOGLE_SHEETS_AUTH_URI=https://accounts.google.com/o/oauth2/auth
+# GOOGLE_SHEETS_TOKEN_URI=https://oauth2.googleapis.com/token
+# GOOGLE_SHEETS_AUTH_PROVIDER_CERT_URL=https://www.googleapis.com/oauth2/v1/certs
+# GOOGLE_SHEETS_CLIENT_CERT_URL=https://www.googleapis.com/robot/v1/metadata/x509/your_service_account%40your_project.iam.gserviceaccount.com
+
+# Опциональные настройки
+GOOGLE_SHEETS_ENABLE_SYNC=true
+GOOGLE_SHEETS_AUTO_CREATE_REPORTS=true
+
+# Другие переменные проекта (если есть)
+# RESEND_API_KEY=your_resend_key
+# NOTIFY_TO=your_email@example.com
+# NOTIFY_FROM=noreply@yourdomain.com

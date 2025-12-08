@@ -1,0 +1,72 @@
+{
+  "vendor": {
+    "name": "Nutrimeo",
+    "currency": "EUR",
+    "language": "fr"
+  },
+  "header": {
+    "fields": [
+      {
+        "name": "invoice_number",
+        "regex": "Num\\.\\s+Facture\\s+([\\w-]+)",
+        "group": 1
+      },
+      {
+        "name": "invoice_date",
+        "regex": "Date\\s+Facture\\s+(\\d{1,2}\\s+\\w+\\.?\\s+\\d{4})",
+        "group": 1,
+        "type": "date"
+      }
+    ]
+  },
+  "table": {
+    "strategy": "text_regex",
+    "start_marker": "Réf\\.\\s+Produit\\s+Quantité",
+    "end_marker": "Total\\s+HT",
+    "row_pattern": "^(\\d+)\\s+(.+?)\\s+(\\d+)\\s+([\\d,]+)\\s+€\\s+([\\d.]+%)\\s+([\\d,]+)\\s+€\\s+([\\d,]+)\\s+€",
+    "columns": [
+      {
+        "name": "sku",
+        "regex_group": 1,
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "regex_group": 2,
+        "type": "string"
+      },
+      {
+        "name": "quantity",
+        "regex_group": 3,
+        "type": "number"
+      },
+      {
+        "name": "unit_price",
+        "regex_group": 4,
+        "type": "number"
+      }
+    ]
+  },
+  "footer": {
+    "fields": [
+      {
+        "name": "subtotal",
+        "regex": "Total\\s+([\\d,.]+)\\s*€\\s+[\\d,.]+\\s*€",
+        "group": 1,
+        "type": "number"
+      },
+      {
+        "name": "shipping_fee",
+        "regex": "Frais\\s+de\\s+port\\s+HT\\s*([\\d,.]+)\\s*€",
+        "group": 1,
+        "type": "number"
+      },
+      {
+        "name": "total",
+        "regex": "Total\\s+de\\s+la\\s+commande\\s*([\\d,.]+)\\s*€",
+        "group": 1,
+        "type": "number"
+      }
+    ]
+  }
+}
