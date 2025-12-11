@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import type { LoaderFunctionArgs, ActionFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { useLoaderData, useRevalidator, useActionData, Form } from "@remix-run/react";
+import {
+  useLoaderData,
+  useRevalidator,
+  useActionData,
+  Form,
+} from "@remix-run/react";
 import {
   Page,
   Layout,
@@ -18,50 +23,59 @@ import {
   ProgressBar,
 } from "@shopify/polaris";
 import { TitleBar } from "@shopify/app-bridge-react";
-import { MenuHorizontalIcon, RefreshIcon, PlayIcon, PauseCircleIcon } from "@shopify/polaris-icons";
+import {
+  MenuHorizontalIcon,
+  RefreshIcon,
+  PlayIcon,
+  PauseCircleIcon,
+} from "@shopify/polaris-icons";
 import { authenticate } from "../shopify.server";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   await authenticate.admin(request);
-  
+
   try {
-    const { getJobStats, getJobsByStatus } = await import("../services/jobQueue.server");
-    const { backgroundWorker } = await import("../services/backgroundWorker.server");
-    
+    const { getJobStats, getJobsByStatus } = await import(
+      "../services/jobQueue.server"
+    );
+    const { backgroundWorker } = await import(
+      "../services/backgroundWorker.server"
+    );
+
     const [stats, pendingJobs, processingJobs, failedJobs] = await Promise.all([
       getJobStats(),
       getJobsByStatus("PENDING", 10),
       getJobsByStatus("PROCESSING", 10),
       getJobsByStatus("FAILED", 10),
     ]);
-    
-    return json({ 
-      stats, 
-      pendingJobs, 
-      processingJobs, 
+
+    return json({
+      stats,
+      pendingJobs,
+      processingJobs,
       failedJobs,
       workerStatus: backgroundWorker.getStatus(),
       error: null,
     });
   } catch (error) {
-    console.error('Error loading job data:', error);
-    return json({ 
-      stats: null, 
-      pendingJobs: [], 
-      processingJobs: [], 
+    console.error("Error loading job data:", error);
+    return json({
+      stats: null,
+      pendingJobs: [],
+      processingJobs: [],
       failedJobs: [],
       workerStatus: { isRunning: false, pollInterval: 5000 },
-      error: "Failed to load job data" 
+      error: "Failed to load job data",
     });
   }
 };
 
 export const action = async ({ request }: ActionFunctionArgs) => {
   await authenticate.admin(request);
-  
+
   const formData = await request.formData();
   const action = formData.get("action") as string;
-  
+
   try {
     if (action === "retry") {
       const jobId = formData.get("jobId") as string;
@@ -69,19 +83,23 @@ export const action = async ({ request }: ActionFunctionArgs) => {
       await retryFailedJob(jobId);
       return json({ success: true });
     }
-    
+
     if (action === "startWorker") {
-      const { backgroundWorker } = await import("../services/backgroundWorker.server");
+      const { backgroundWorker } = await import(
+        "../services/backgroundWorker.server"
+      );
       backgroundWorker.start();
       return json({ success: true });
     }
-    
+
     if (action === "stopWorker") {
-      const { backgroundWorker } = await import("../services/backgroundWorker.server");
+      const { backgroundWorker } = await import(
+        "../services/backgroundWorker.server"
+      );
       backgroundWorker.stop();
       return json({ success: true });
     }
-    
+
     return json({ success: false, error: "Invalid action" });
   } catch (error) {
     return json({ success: false, error: "Action failed" });
@@ -89,7 +107,14 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 };
 
 export default function Jobs() {
-  const { stats, pendingJobs, processingJobs, failedJobs, workerStatus, error } = useLoaderData<typeof loader>();
+  const {
+    stats,
+    pendingJobs,
+    processingJobs,
+    failedJobs,
+    workerStatus,
+    error,
+  } = useLoaderData<typeof loader>();
   const actionData = useActionData<typeof action>();
   const revalidator = useRevalidator();
   const [activePopover, setActivePopover] = useState<string | null>(null);
@@ -141,13 +166,13 @@ export default function Jobs() {
   };
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit'
+    return new Date(dateString).toLocaleString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
     });
   };
 
@@ -160,7 +185,9 @@ export default function Jobs() {
             <Button
               variant="tertiary"
               icon={MenuHorizontalIcon}
-              onClick={() => setActivePopover(activePopover === job.id ? null : job.id)}
+              onClick={() =>
+                setActivePopover(activePopover === job.id ? null : job.id)
+              }
               accessibilityLabel="More actions"
             />
           }
@@ -169,10 +196,10 @@ export default function Jobs() {
           <ActionList
             items={[
               {
-                content: 'Retry Job',
+                content: "Retry Job",
                 onAction: () => {
-                  const form = document.createElement('form');
-                  form.method = 'post';
+                  const form = document.createElement("form");
+                  form.method = "post";
                   form.innerHTML = `
                     <input type="hidden" name="action" value="retry" />
                     <input type="hidden" name="jobId" value="${job.id}" />
@@ -183,8 +210,8 @@ export default function Jobs() {
                 },
               },
               {
-                content: 'View Details',
-                onAction: () => console.log('View job details:', job.id),
+                content: "View Details",
+                onAction: () => console.log("View job details:", job.id),
               },
             ]}
           />
@@ -200,20 +227,20 @@ export default function Jobs() {
   };
 
   const createJobTableRows = (jobs: any[]) => {
-    return jobs.map(job => [
+    return jobs.map((job) => [
       <Text variant="bodyMd" as="span">
         <code>{job.id.substring(0, 8)}...</code>
       </Text>,
       getStatusBadge(job.status),
       <Text variant="bodyMd" as="span">
-        {job.type.replace(/_/g, ' ')}
+        {job.type.replace(/_/g, " ")}
       </Text>,
       <Text variant="bodyMd" as="span">
         {job.attempts}/{job.maxAttempts}
       </Text>,
       formatDate(job.createdAt),
-      job.startedAt ? formatDate(job.startedAt) : '-',
-      job.completedAt ? formatDate(job.completedAt) : '-',
+      job.startedAt ? formatDate(job.startedAt) : "-",
+      job.completedAt ? formatDate(job.completedAt) : "-",
       renderJobActions(job),
     ]);
   };
@@ -224,9 +251,7 @@ export default function Jobs() {
         <TitleBar title="Background Jobs" />
         <Layout>
           <Layout.Section>
-            <Banner tone="critical">
-              {error}
-            </Banner>
+            <Banner tone="critical">{error}</Banner>
           </Layout.Section>
         </Layout>
       </Page>
@@ -275,21 +300,24 @@ export default function Jobs() {
                   </Button>
                 </InlineStack>
               </InlineStack>
-              
+
               <InlineStack gap="400">
                 <div>
                   <Text variant="bodyMd" as="p">
-                    <strong>Status:</strong> {workerStatus.isRunning ? "Running" : "Stopped"}
+                    <strong>Status:</strong>{" "}
+                    {workerStatus.isRunning ? "Running" : "Stopped"}
                   </Text>
                   <Text variant="bodyMd" as="p">
-                    <strong>Poll Interval:</strong> {workerStatus.pollInterval / 1000}s
+                    <strong>Poll Interval:</strong>{" "}
+                    {workerStatus.pollInterval / 1000}s
                   </Text>
                 </div>
-                
+
                 {workerStatus.isRunning && (
                   <div style={{ flex: 1 }}>
                     <Text variant="bodyMd" as="p">
-                      <strong>Active:</strong> Processing jobs every {workerStatus.pollInterval / 1000} seconds
+                      <strong>Active:</strong> Processing jobs every{" "}
+                      {workerStatus.pollInterval / 1000} seconds
                     </Text>
                     <ProgressBar progress={100} size="small" />
                   </div>
@@ -307,34 +335,42 @@ export default function Jobs() {
                 <Text variant="headingMd" as="h2">
                   Job Statistics
                 </Text>
-                
+
                 <InlineStack gap="400" wrap={false}>
                   <div style={{ flex: 1 }}>
                     <Text variant="headingLg" as="h3" tone="success">
                       {stats.completed}
                     </Text>
-                    <Text variant="bodyMd" as="p">Completed</Text>
+                    <Text variant="bodyMd" as="p">
+                      Completed
+                    </Text>
                   </div>
-                  
+
                   <div style={{ flex: 1 }}>
                     <Text variant="headingLg" as="h3" tone="success">
                       {stats.pending}
                     </Text>
-                    <Text variant="bodyMd" as="p">Pending</Text>
+                    <Text variant="bodyMd" as="p">
+                      Pending
+                    </Text>
                   </div>
-                  
+
                   <div style={{ flex: 1 }}>
                     <Text variant="headingLg" as="h3" tone="success">
                       {stats.processing}
                     </Text>
-                    <Text variant="bodyMd" as="p">Processing</Text>
+                    <Text variant="bodyMd" as="p">
+                      Processing
+                    </Text>
                   </div>
-                  
+
                   <div style={{ flex: 1 }}>
                     <Text variant="headingLg" as="h3" tone="critical">
                       {stats.failed}
                     </Text>
-                    <Text variant="bodyMd" as="p">Failed</Text>
+                    <Text variant="bodyMd" as="p">
+                      Failed
+                    </Text>
                   </div>
                 </InlineStack>
               </BlockStack>
@@ -349,11 +385,29 @@ export default function Jobs() {
               <Text variant="headingMd" as="h2">
                 Pending Jobs ({pendingJobs.length})
               </Text>
-              
+
               {pendingJobs.length > 0 ? (
                 <DataTable
-                  columnContentTypes={["text", "text", "text", "text", "text", "text", "text", "text"]}
-                  headings={["Job ID", "Status", "Type", "Attempts", "Created", "Started", "Completed", "Actions"]}
+                  columnContentTypes={[
+                    "text",
+                    "text",
+                    "text",
+                    "text",
+                    "text",
+                    "text",
+                    "text",
+                    "text",
+                  ]}
+                  headings={[
+                    "Job ID",
+                    "Status",
+                    "Type",
+                    "Attempts",
+                    "Created",
+                    "Started",
+                    "Completed",
+                    "Actions",
+                  ]}
                   rows={createJobTableRows(pendingJobs)}
                 />
               ) : (
@@ -372,11 +426,29 @@ export default function Jobs() {
               <Text variant="headingMd" as="h2">
                 Processing Jobs ({processingJobs.length})
               </Text>
-              
+
               {processingJobs.length > 0 ? (
                 <DataTable
-                  columnContentTypes={["text", "text", "text", "text", "text", "text", "text", "text"]}
-                  headings={["Job ID", "Status", "Type", "Attempts", "Created", "Started", "Completed", "Actions"]}
+                  columnContentTypes={[
+                    "text",
+                    "text",
+                    "text",
+                    "text",
+                    "text",
+                    "text",
+                    "text",
+                    "text",
+                  ]}
+                  headings={[
+                    "Job ID",
+                    "Status",
+                    "Type",
+                    "Attempts",
+                    "Created",
+                    "Started",
+                    "Completed",
+                    "Actions",
+                  ]}
                   rows={createJobTableRows(processingJobs)}
                 />
               ) : (
@@ -395,11 +467,29 @@ export default function Jobs() {
               <Text variant="headingMd" as="h2">
                 Failed Jobs ({failedJobs.length})
               </Text>
-              
+
               {failedJobs.length > 0 ? (
                 <DataTable
-                  columnContentTypes={["text", "text", "text", "text", "text", "text", "text", "text"]}
-                  headings={["Job ID", "Status", "Type", "Attempts", "Created", "Started", "Completed", "Actions"]}
+                  columnContentTypes={[
+                    "text",
+                    "text",
+                    "text",
+                    "text",
+                    "text",
+                    "text",
+                    "text",
+                    "text",
+                  ]}
+                  headings={[
+                    "Job ID",
+                    "Status",
+                    "Type",
+                    "Attempts",
+                    "Created",
+                    "Started",
+                    "Completed",
+                    "Actions",
+                  ]}
                   rows={createJobTableRows(failedJobs)}
                 />
               ) : (

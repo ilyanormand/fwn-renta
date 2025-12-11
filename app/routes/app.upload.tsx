@@ -32,6 +32,7 @@ import {
   createSupplier,
 } from "../utils/invoice.server";
 import { createJob } from "../services/jobQueue.server";
+import { Logger } from "app/utils/logger";
 
 // Define proper types for Shopify Polaris Select component
 interface SelectOption {
@@ -90,9 +91,13 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     const uploadResult = await savePdfFile(file, invoiceId);
 
     if (!uploadResult.success) {
+      await Logger.uploadLogger(
+        `Failed to upload file: ${uploadResult.error} for invoice ${invoiceId}` ||
+          "Failed to upload file"
+      );
       return json(
         { error: uploadResult.error || "Failed to upload file" },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
@@ -111,6 +116,10 @@ export const action = async ({ request }: ActionFunctionArgs) => {
       pdfFileSize: uploadResult.fileSize,
       items: [], // Will be populated after PDF parsing
     });
+    await Logger.uploadLogger(
+      "Invoice created successfully: " + invoice.id ||
+        "Invoice created but invoice id not found"
+    );
     console.log("Invoice created successfully:", {
       invoiceId: invoice.id,
       supplier: invoice.supplier.name,
@@ -129,15 +138,27 @@ export const action = async ({ request }: ActionFunctionArgs) => {
         },
         maxAttempts: 3,
       });
-
+      await Logger.uploadLogger(
+        "Job created for invoice " + invoice.id || "Job created"
+      );
       console.log(`PDF processing job queued for invoice ${invoice.id}`);
     } catch (jobError) {
+      await Logger.uploadLogger(
+        "Failed to queue PDF processing job for invoice " +
+          invoice.id +
+          " : " +
+          jobError || "Failed to queue PDF processing job"
+      );
       console.error("Failed to queue PDF processing job:", jobError);
       // Note: Invoice will remain in PROCESSING status
       // The background worker will pick it up later
     }
 
     // Return success with invoice ID for client-side navigation
+    await Logger.uploadLogger(
+      "Invoice uploaded successfully: " + invoice.id ||
+        "Invoice uploaded but invoice id not found"
+    );
     return json({
       success: true,
       invoiceId: invoice.id,
@@ -145,9 +166,12 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     });
   } catch (error) {
     console.error("Upload error:", error);
+    await Logger.uploadLogger(
+      "Upload error: " + error || "Upload error but error not found"
+    );
     return json(
       { error: "Failed to process upload. Please try again." },
-      { status: 500 },
+      { status: 500 }
     );
   }
 };
@@ -179,7 +203,7 @@ export default function Upload() {
   const handleDropZoneDrop = (
     droppedFiles: File[],
     acceptedFiles: File[],
-    rejectedFiles: File[],
+    rejectedFiles: File[]
   ) => {
     setSelectedFile(acceptedFiles[0]);
     setRejectedFiles(rejectedFiles);

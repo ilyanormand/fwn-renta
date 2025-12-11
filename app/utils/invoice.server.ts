@@ -1,5 +1,6 @@
 import db from "../db.server";
 import type { InvoiceStatus, LogType } from "@prisma/client";
+import { Logger } from "./logger";
 
 export interface CreateInvoiceData {
   supplierId: string;
@@ -55,7 +56,7 @@ export async function createInvoice(data: CreateInvoiceData) {
       pdfFileSize: data.pdfFileSize,
       pdfUploadedAt: data.pdfFileName ? new Date() : null,
       items: {
-        create: data.items.map(item => ({
+        create: data.items.map((item) => ({
           sku: item.sku,
           description: item.description,
           quantity: item.quantity,
@@ -73,7 +74,12 @@ export async function createInvoice(data: CreateInvoiceData) {
   });
 
   // Create initial log entry
-  await createLogEntry(invoice.id, "UPLOAD", "SUCCESS", "Invoice uploaded successfully");
+  await createLogEntry(
+    invoice.id,
+    "UPLOAD",
+    "SUCCESS",
+    "Invoice uploaded successfully"
+  );
 
   return invoice;
 }
@@ -114,7 +120,7 @@ export async function updateInvoice(id: string, data: UpdateInvoiceData) {
       ...(data.status && { status: data.status }),
       ...(data.items && {
         items: {
-          create: data.items.map(item => ({
+          create: data.items.map((item) => ({
             sku: item.sku,
             description: item.description,
             quantity: item.quantity,
@@ -133,7 +139,12 @@ export async function updateInvoice(id: string, data: UpdateInvoiceData) {
   });
 
   // Create log entry for update
-  await createLogEntry(id, "VALIDATION", "SUCCESS", "Invoice updated successfully");
+  await createLogEntry(
+    id,
+    "VALIDATION",
+    "SUCCESS",
+    "Invoice updated successfully"
+  );
 
   return invoice;
 }

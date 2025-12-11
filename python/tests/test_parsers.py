@@ -10,9 +10,9 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from invoice_extractor_buchteiner import BuchteinerParser
 
 # Define paths to test PDFs
-# Assuming PDFs are in the root directory relative to the python script
+# PDFs are now in the samples directory
 PROJECT_ROOT = Path(__file__).parent.parent.parent
-BUCHTEINER_PDF = PROJECT_ROOT / "Buchteiner.pdf"
+BUCHTEINER_PDF = PROJECT_ROOT / "samples" / "Buchteiner.pdf"
 
 class TestParsers:
     def test_buchteiner_parser(self, snapshot):

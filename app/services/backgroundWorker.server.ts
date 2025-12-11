@@ -1,6 +1,7 @@
 import { processInvoicePdf } from "./invoiceProcessing.server";
 import { getNextJob, startJob, completeJob, failJob } from "./jobQueue.server";
 import { createLogEntry } from "../utils/invoice.server";
+import { Logger } from "app/utils/logger";
 
 // Background worker for processing jobs
 export class BackgroundWorker {
@@ -68,7 +69,7 @@ export class BackgroundWorker {
     while ((job = await getNextJob("PDF_PROCESSING"))) {
       try {
         console.log(
-          `📄 Processing PDF job ${job.id} for invoice ${job.data.invoiceId}`,
+          `📄 Processing PDF job ${job.id} for invoice ${job.data.invoiceId}`
         );
         console.log(`📄 Job data:`, job.data);
 
@@ -104,7 +105,7 @@ export class BackgroundWorker {
               job.data.invoiceId,
               "PROCESSING",
               "ERROR",
-              `PDF processing failed: ${errorMessage}`,
+              `PDF processing failed: ${errorMessage}`
             );
           } catch (logError) {
             console.error(`❌ Failed to create log entry:`, logError);
@@ -120,7 +121,7 @@ export class BackgroundWorker {
     while ((job = await getNextJob("CMP_CALCULATION"))) {
       try {
         console.log(
-          `🧮 Processing CMP calculation job ${job.id} for product ${job.data.productId}`,
+          `🧮 Processing CMP calculation job ${job.id} for product ${job.data.productId}`
         );
 
         await startJob(job.id);
@@ -195,7 +196,7 @@ export class BackgroundWorker {
         });
 
         console.log(
-          `✅ Google Sheets export job ${job.id} completed successfully`,
+          `✅ Google Sheets export job ${job.id} completed successfully`
         );
       } catch (error) {
         console.error(`❌ Google Sheets export job ${job.id} failed:`, error);

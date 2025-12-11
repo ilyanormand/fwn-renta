@@ -1,5 +1,6 @@
 import db from "../db.server";
 import type { JobStatus, JobType } from "@prisma/client";
+import { Logger } from "app/utils/logger";
 
 export interface JobData {
   [key: string]: any;
@@ -39,7 +40,6 @@ export async function createJob(options: CreateJobOptions): Promise<Job> {
       maxAttempts: options.maxAttempts || 3,
     },
   });
-
   return {
     ...job,
     data: JSON.parse(job.data),
@@ -90,7 +90,7 @@ export async function startJob(jobId: string): Promise<void> {
 // Mark job as completed
 export async function completeJob(
   jobId: string,
-  result: JobResult,
+  result: JobResult
 ): Promise<void> {
   await db.job.update({
     where: { id: jobId },
@@ -133,7 +133,7 @@ export async function getJobById(jobId: string): Promise<Job | null> {
 // Get jobs by status
 export async function getJobsByStatus(
   status: JobStatus,
-  limit = 50,
+  limit = 50
 ): Promise<Job[]> {
   const jobs = await db.job.findMany({
     where: { status },
