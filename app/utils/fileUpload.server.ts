@@ -1,7 +1,6 @@
-import { writeFile, mkdir, readFile, stat } from "fs/promises";
+import { writeFile, mkdir, readFile, stat, unlink } from "fs/promises";
 import { join, extname } from "path";
 import { existsSync } from "fs";
-import { createReadStream } from "fs";
 import { PATHS, PUBLIC_PATHS } from "./storage.server";
 
 const UPLOAD_DIR = PATHS.PDFS; // Now uses /data/pdfs in production
@@ -23,7 +22,10 @@ export async function ensureUploadDirectory(): Promise<void> {
   }
 }
 
-export function validatePdfFile(file: File): { valid: boolean; error?: string } {
+export function validatePdfFile(file: File): {
+  valid: boolean;
+  error?: string;
+} {
   // Check file type
   if (!file.type.includes("pdf") && !file.name.toLowerCase().endsWith(".pdf")) {
     return { valid: false, error: "Only PDF files are allowed" };
@@ -31,7 +33,10 @@ export function validatePdfFile(file: File): { valid: boolean; error?: string } 
 
   // Check file size
   if (file.size > MAX_FILE_SIZE) {
-    return { valid: false, error: `File size must be less than ${MAX_FILE_SIZE / (1024 * 1024)}MB` };
+    return {
+      valid: false,
+      error: `File size must be less than ${MAX_FILE_SIZE / (1024 * 1024)}MB`,
+    };
   }
 
   // Check file extension
@@ -43,7 +48,10 @@ export function validatePdfFile(file: File): { valid: boolean; error?: string } 
   return { valid: true };
 }
 
-export async function savePdfFile(file: File, invoiceId: string): Promise<UploadResult> {
+export async function savePdfFile(
+  file: File,
+  invoiceId: string
+): Promise<UploadResult> {
   try {
     // Validate file
     const validation = validatePdfFile(file);
@@ -52,15 +60,15 @@ export async function savePdfFile(file: File, invoiceId: string): Promise<Upload
     }
 
     await ensureUploadDirectory();
-    
+
     const buffer = Buffer.from(await file.arrayBuffer());
     const timestamp = Date.now();
     const sanitizedFileName = file.name.replace(/[^a-zA-Z0-9.-]/g, "_");
     const fileName = `${invoiceId}_${timestamp}_${sanitizedFileName}`;
     const filePath = join(UPLOAD_DIR, fileName);
-    
+
     await writeFile(filePath, buffer);
-    
+
     return {
       success: true,
       fileName,
@@ -70,15 +78,11 @@ export async function savePdfFile(file: File, invoiceId: string): Promise<Upload
     };
   } catch (error) {
     console.error("Error saving PDF file:", error);
-    return { 
-      success: false, 
-      error: error instanceof Error ? error.message : "Failed to save file" 
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "Failed to save file",
     };
   }
-}
-
-export function getPdfFilePath(invoiceId: string, fileName: string): string {
-  return join(UPLOAD_DIR, fileName);
 }
 
 export function getStoredPdfPath(fileName: string): string {
@@ -93,8 +97,12 @@ export async function getPdfFile(fileName: string): Promise<{
 }> {
   try {
     const filePath = getStoredPdfPath(fileName);
-    console.log("🔍 getPdfFile:", { fileName, filePath, uploadDir: UPLOAD_DIR });
-    
+    console.log("🔍 getPdfFile:", {
+      fileName,
+      filePath,
+      uploadDir: UPLOAD_DIR,
+    });
+
     if (!existsSync(filePath)) {
       console.error("❌ File does not exist at path:", filePath);
       return { success: false, error: "File not found" };
@@ -103,7 +111,7 @@ export async function getPdfFile(fileName: string): Promise<{
     console.log("✅ File exists, reading...");
     const buffer = await readFile(filePath);
     const stats = await stat(filePath);
-    
+
     console.log("✅ File read successfully, size:", stats.size);
     return {
       success: true,
@@ -112,9 +120,9 @@ export async function getPdfFile(fileName: string): Promise<{
     };
   } catch (error) {
     console.error("❌ Error reading PDF file:", error);
-    return { 
-      success: false, 
-      error: error instanceof Error ? error.message : "Failed to read file" 
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "Failed to read file",
     };
   }
 }
@@ -123,7 +131,26 @@ export function getPdfUrl(fileName: string): string {
   return `${PUBLIC_PATHS.PDFS}/${encodeURIComponent(fileName)}`;
 }
 
-export function createPdfStream(fileName: string) {
-  const filePath = getStoredPdfPath(fileName);
-  return createReadStream(filePath);
+export async function deletePdfFile(fileName: string): Promise<{
+  success: boolean;
+  error?: string;
+}> {
+  try {
+    const filePath = getStoredPdfPath(fileName);
+
+    if (!existsSync(filePath)) {
+      console.log(`⚠️ PDF file not found: ${filePath}`);
+      return { success: true };
+    }
+
+    await unlink(filePath);
+    console.log(`✅ PDF file deleted: ${filePath}`);
+    return { success: true };
+  } catch (error) {
+    console.error(`❌ Error deleting PDF file:`, error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "Failed to delete file",
+    };
+  }
 }

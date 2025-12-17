@@ -1,6 +1,10 @@
 import db from "../db.server";
 import type { InvoiceStatus, LogType } from "@prisma/client";
-import { Logger } from "./logger";
+import { getPdfUrl } from "./fileUpload.server";
+import type {
+  InvoiceItem,
+  TransformedInvoice,
+} from "../routes/app.review.$invoiceId/types";
 
 export interface CreateInvoiceData {
   supplierId: string;
@@ -163,6 +167,87 @@ export async function getAllInvoices() {
   });
 }
 
+export async function getAllSuppliers() {
+  return await db.supplier.findMany({
+    orderBy: { name: "asc" },
+  });
+}
+
+// Helper function to mark invoice as error
+// If update fails, we log the error but don't throw - invoice will remain in PROCESSING
+// This is acceptable as it can be manually fixed or retried later
+export async function markInvoiceAsError(invoiceId: string): Promise<void> {
+  try {
+    await updateInvoice(invoiceId, { status: "ERROR" });
+  } catch (error) {
+    console.error(`Failed to mark invoice ${invoiceId} as ERROR:`, error);
+  }
+}
+
+// Transform database invoice data for the UI
+export async function transformInvoiceForUI(
+  invoice: any
+): Promise<TransformedInvoice> {
+  const pdfUrl = invoice.pdfFileName ? getPdfUrl(invoice.pdfFileName) : null;
+
+  console.log("📄 PDF URL generated:", {
+    pdfFileName: invoice.pdfFileName,
+    pdfUrl: pdfUrl,
+    status: invoice.status,
+  });
+
+  // Calculate gross total of items to distribute discount
+  const itemsGrossTotal = invoice.items.reduce(
+    (sum: number, item: any) => sum + (item.total || 0),
+    0
+  );
+  const discount = invoice.discount || 0;
+
+  return {
+    id: invoice.id,
+    supplier: invoice.supplier.name,
+    supplierId: invoice.supplierId,
+    invoiceDate: invoice.invoiceDate.toISOString().split("T")[0],
+    invoiceNumber: `INV-${invoice.id.slice(-8).toUpperCase()}`,
+    currency: invoice.currency,
+    shippingFee: invoice.shippingFee,
+    discount: discount,
+    items: invoice.items.map((item: any): InvoiceItem => {
+      // Apply discount proportionally if it exists and is non-zero
+      // Discount is usually negative in invoice.discount
+      let adjustedUnitPrice = item.unitPrice;
+      let adjustedTotal = item.total;
+
+      if (discount !== 0 && itemsGrossTotal !== 0) {
+        // Calculate proportion of this item's total to the gross total
+        const ratio = item.total / itemsGrossTotal;
+        // Distribute discount amount (add because discount is negative)
+        const itemDiscountShare = discount * ratio;
+
+        adjustedTotal = item.total + itemDiscountShare;
+        if (item.quantity > 0) {
+          adjustedUnitPrice = adjustedTotal / item.quantity;
+        }
+      }
+
+      return {
+        id: item.id,
+        sku: item.sku,
+        name: item.description || item.product?.name || item.sku,
+        quantity: item.quantity,
+        unitPrice: adjustedUnitPrice,
+        total: adjustedTotal,
+      };
+    }),
+    filename: invoice.pdfFileName || "invoice.pdf",
+    pdfUrl: pdfUrl,
+    pdfDownloadUrl: pdfUrl,
+    pdfFilePath: invoice.pdfFilePath || null,
+    status: invoice.status,
+    createdAt: invoice.createdAt.toISOString(),
+  };
+}
+
 export async function createLogEntry(
   invoiceId: string,
   type: LogType,
@@ -179,32 +264,41 @@ export async function createLogEntry(
   });
 }
 
-export async function getAllSuppliers() {
-  return await db.supplier.findMany({
-    orderBy: { name: "asc" },
-  });
-}
+export async function deleteInvoiceById(invoiceId: string) {
+  const invoice = await getInvoiceById(invoiceId);
 
-export async function getSupplierByName(name: string) {
-  return await db.supplier.findFirst({
-    where: { name },
+  if (!invoice) {
+    return { success: false, status: "error", message: `Invoice not found` };
+  }
+  if (invoice.pdfFileName) {
+    const { deletePdfFile } = await import("./fileUpload.server");
+    const deleteResult = await deletePdfFile(invoice.pdfFileName);
+    if (!deleteResult.success) {
+      return {
+        success: false,
+        status: "error",
+        message: `Failed to delete PDF file`,
+      };
+    }
+  }
+  const { getJobByInvoiceId, deleteJobById } = await import("./job.server");
+  const job = await getJobByInvoiceId(invoiceId, "PDF_PROCESSING");
+  if (job) {
+    await deleteJobById(job.id);
+  }
+  await db.invoiceItem.deleteMany({
+    where: { invoiceId },
   });
-}
+  await db.logEntry.deleteMany({
+    where: { invoiceId },
+  });
+  await db.invoice.delete({
+    where: { id: invoiceId },
+  });
 
-export async function createSupplier(name: string) {
-  return await db.supplier.create({
-    data: { name },
-  });
-}
-
-export async function getAllProducts() {
-  return await db.product.findMany({
-    orderBy: { name: "asc" },
-  });
-}
-
-export async function getProductBySku(sku: string) {
-  return await db.product.findFirst({
-    where: { skuFwn: sku },
-  });
+  return {
+    success: true,
+    status: "success",
+    message: `Invoice deleted successfully`,
+  };
 }

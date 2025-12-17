@@ -1,2 +1,28 @@
 node_modules
 .env
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+dev.sqlite
+prisma/dev.sqlite
+.local-storage
+python/venv
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Logs
+logs/
+*.log
+
+# PDF documents (temporary)
+*.pdf
+
+# IDE
+.vscode/
+.idea/
