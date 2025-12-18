@@ -27,6 +27,7 @@ describe("Edge Cases", () => {
     });
   });
 
+  //MUST TO BE FIXED
   describe("second test", () => {
     it("oldCmp = null", async () => {
       // 1. Подготовка (Arrange)
@@ -51,6 +52,7 @@ describe("Edge Cases", () => {
       console.log("📊 CMP для ICE-PEACH:", result.calculatedCmp["ICE-PEACH"]);
     });
   });
+  //MUST TO BE FIXED
 
   describe("third test", () => {
     it("Muiltiple items with shipping fee test", async () => {

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import { useFetcher, Form } from "@remix-run/react";
 import {
   Page,
@@ -67,7 +68,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
           title: `${color} Snowboard`,
         },
       },
-    },
+    }
   );
   const responseJson = await response.json();
 
@@ -91,7 +92,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
         productId: product.id,
         variants: [{ id: variantId, price: "100.00" }],
       },
-    },
+    }
   );
 
   const variantResponseJson = await variantResponse.json();

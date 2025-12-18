@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useActionData, useNavigation, useLoaderData } from "@remix-run/react";
-import { Page, Layout } from "@shopify/polaris";
+import { Page, Layout, Button } from "@shopify/polaris";
 import { TitleBar } from "@shopify/app-bridge-react";
 import { loader } from "./loader.server";
 import { action } from "./action.server";
@@ -50,7 +50,6 @@ export default function Upload() {
             isSubmitting={isSubmitting}
           />
         </Layout.Section>
-
         <Layout.Section variant="oneThird">
           <UploadInstructionsCard />
         </Layout.Section>
@@ -58,4 +57,3 @@ export default function Upload() {
     </Page>
   );
 }
-

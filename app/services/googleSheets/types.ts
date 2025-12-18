@@ -49,4 +49,17 @@ export interface IGoogleSheetsService {
     updatedCells?: number;
     requiresOAuth?: boolean;
   }>;
+
+  batchUpdate(
+    spreadsheetId: string,
+    updates: Array<{
+      range: string;
+      values: Array<Array<string | number | boolean>>;
+    }>
+  ): Promise<{
+    success: boolean;
+    message: string;
+    updatedCells?: number;
+    requiresOAuth?: boolean;
+  }>;
 }

@@ -1,10 +1,14 @@
 import MiddlewareTest from "./middlewareCmpCalculate";
-import { calculateCMP, getInventoryBySku } from "./utilsCmp";
+import {
+  calculateCMP,
+  getInventoryBySku,
+  getInventoryBySkuBatch,
+} from "./utilsCmp";
 
 export type InvoiceItem = {
   invoice_sku: string;
   qty: number;
-  unit_price: number; // unit_price already includes shipping cost after calculatePriceUnitWithShipping
+  unit_price: number; // unit_price already includes shipping cost after calculatePriceUnitWithShipping in this function
 };
 
 export type ProcessingResult = {
@@ -16,11 +20,187 @@ export type ProcessingResult = {
   calculatedCmp: Record<string, number>; // { "ICE-LEMON": 4.28, "ICE-PEACH": 5.1 }
 };
 
+interface ItemRowData {
+  item: InvoiceItem;
+  foundRow: any[];
+  rowIndex: number;
+  skuFwn: string;
+  oldCmp: number | null;
+  currentKValue: number | null;
+}
 // [
 //   { invoice_sku: "ICE-LEMON", qty: 100, unit_price: 3.2 },
 //   { invoice_sku: "ICE-PEACH", qty: 50, unit_price: 3.5 },
 // ];
+
 export async function updateCmpInSheets(
+  invoiceItems: InvoiceItem[],
+  sheetsService: any,
+  totalShippingFee: number = 0,
+  admin?: any
+): Promise<ProcessingResult> {
+  const result: ProcessingResult = {
+    processed: 0,
+    updated: 0,
+    skipped: 0,
+    notFound: [],
+    errors: [],
+    calculatedCmp: {},
+  };
+  //ID of the spreadsheet
+  const spreadsheetId = await MiddlewareTest.getSheetsId();
+  const range = "Sheet1!B2:L";
+  const sheetData = await sheetsService.readData(spreadsheetId, range);
+  if (!sheetData || !sheetData.values) {
+    console.error("No data from Google Sheets");
+    result.errors.push("No data from Google Sheets");
+    return result;
+  }
+
+  if (totalShippingFee > 0) {
+    invoiceItems = MiddlewareTest.calculatePriceUnitWithShipping(
+      invoiceItems,
+      totalShippingFee
+    );
+  }
+
+  // Step 1: Prepare all data - find rows and collect SKUs
+  // Use index as key to handle duplicate SKUs with different prices
+  const itemRowDataMap = new Map<number, ItemRowData>();
+  const skuFwnList: string[] = [];
+
+  for (let index = 0; index < invoiceItems.length; index++) {
+    const item = invoiceItems[index];
+    result.processed++;
+    const normalizedInvoiceSku = MiddlewareTest.normalizeSku(item.invoice_sku);
+
+    // Find the line with all the data
+    // Search in column E (row[3]) which contains Invoice SKUs
+    // foundRow = ["FWN-001", "Ice Lemon", "Brand A", "ICE-LEMON, ICE-LEM", "10.5", "4.28", ...]
+    const foundRow = sheetData.values.find((row: any[]) => {
+      const invoiceSkusCell = String(row[3] || "").trim();
+      const skusInCell = invoiceSkusCell
+        .split(/[,;\/|]/)
+        .map((sku) => MiddlewareTest.normalizeSku(sku));
+
+      return skusInCell.includes(normalizedInvoiceSku);
+    });
+
+    if (!foundRow) {
+      console.log(`SKU ${normalizedInvoiceSku} not found in sheets`);
+      result.notFound.push(item.invoice_sku);
+      result.skipped++;
+      continue;
+    }
+
+    const skuFwn = String(foundRow[0] || "").trim();
+    const oldCmp = foundRow[5] ? Number(foundRow[5]) : null;
+    const currentKValue = foundRow[9] ? Number(foundRow[9]) : null;
+    const rowIndex = sheetData.values.indexOf(foundRow) + 2; // +2 because we start from B2
+
+    // Use index as key to preserve duplicate SKUs with different prices
+    itemRowDataMap.set(index, {
+      item,
+      foundRow,
+      rowIndex,
+      skuFwn,
+      oldCmp,
+      currentKValue,
+    });
+
+    if (!skuFwnList.includes(skuFwn)) {
+      skuFwnList.push(skuFwn);
+    }
+  }
+
+  // Step 2: Batch fetch all inventory quantities from Shopify (one request instead of N)
+  let inventoryMap: Record<string, number> = {};
+  if (admin && skuFwnList.length > 0) {
+    try {
+      inventoryMap = await getInventoryBySkuBatch(admin, skuFwnList);
+    } catch (error) {
+      const errorMsg = error instanceof Error ? error.message : "Unknown error";
+      console.error(`❌ Error batch fetching inventory:`, errorMsg);
+      result.errors.push(`Batch inventory fetch failed: ${errorMsg}`);
+    }
+  }
+
+  // Step 3: Prepare all updates for Google Sheets
+  const batchUpdates: Array<{
+    range: string;
+    values: Array<Array<string | number | boolean>>;
+  }> = [];
+
+  for (const [index, rowData] of itemRowDataMap.entries()) {
+    try {
+      const oldStockSku = inventoryMap[rowData.skuFwn] ?? 0;
+      const newCmp = calculateCMP(
+        oldStockSku,
+        rowData.oldCmp,
+        rowData.item.qty,
+        rowData.item.unit_price
+      );
+
+      // Use invoice_sku as key for calculatedCmp (may have duplicates with different prices)
+      result.calculatedCmp[rowData.item.invoice_sku] = newCmp;
+
+      const rangeToUpdate = `Sheet1!G${rowData.rowIndex}:L${rowData.rowIndex}`;
+      batchUpdates.push({
+        range: rangeToUpdate,
+        values: [
+          [
+            newCmp, // G - (new CMP)
+            oldStockSku, // H - (quantite ancien)
+            rowData.item.qty, // I - (nouveau quantit)
+            rowData.currentKValue || "", // J - (unit price)
+            rowData.item.unit_price, // K - (new unit price)
+            totalShippingFee, // L - (total shipping fee)
+          ],
+        ],
+      });
+
+      console.log(
+        `✅ Prepared update for row ${rowData.rowIndex} (${rowData.skuFwn}): CMP ${rowData.oldCmp} → ${newCmp}`
+      );
+    } catch (error) {
+      const errorMsg = error instanceof Error ? error.message : "Unknown error";
+      result.errors.push(`${rowData.item.invoice_sku}: ${errorMsg}`);
+      console.error(
+        `❌ Error preparing update for ${rowData.item.invoice_sku}:`,
+        errorMsg
+      );
+    }
+  }
+
+  // Step 4: Batch update Google Sheets (one request instead of N)
+  if (batchUpdates.length > 0) {
+    try {
+      const updateResult = await sheetsService.batchUpdate(
+        spreadsheetId,
+        batchUpdates
+      );
+
+      if (updateResult.success) {
+        result.updated = batchUpdates.length;
+        console.log(
+          `✅ Successfully batch updated ${batchUpdates.length} rows in Google Sheets`
+        );
+      } else {
+        result.errors.push(`Batch update failed: ${updateResult.message}`);
+        console.error(`❌ Batch update failed:`, updateResult.message);
+      }
+    } catch (error) {
+      const errorMsg = error instanceof Error ? error.message : "Unknown error";
+      result.errors.push(`Batch update error: ${errorMsg}`);
+      console.error(`❌ Error during batch update:`, errorMsg);
+    }
+  }
+
+  return result;
+}
+
+//Old function
+export async function updateCmpInSheets2(
   invoiceItems: InvoiceItem[],
   sheetsService: any,
   totalShippingFee: number = 0,

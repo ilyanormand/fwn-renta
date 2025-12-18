@@ -122,20 +122,27 @@ export const action = async ({ request, params }: ActionFunctionArgs) => {
 
       await updateInvoice(invoiceId, { status: "SUCCESS" });
 
-      console.log("-----> Starting Google Sheets CMP processing");
-      const sheetsResult = await processInvoiceWithGoogleSheets(
+      processInvoiceWithGoogleSheets(
         invoice,
         admin,
         editedItems,
         editedShippingFee
-      );
-      console.log("-----> Google Sheets result:", sheetsResult);
+      )
+        .then((sheetsResult) => {
+          console.log(
+            "-----> Google Sheets result (background):",
+            sheetsResult
+          );
+        })
+        .catch((error) => {
+          console.error(
+            "-----> Google Sheets processing error (background):",
+            error
+          );
+        });
 
-      if (sheetsResult.success) {
-        successMessage += ` and Google Sheets CMP updated (${sheetsResult.message})`;
-      } else {
-        successMessage += `. Note: ${sheetsResult.message}`;
-      }
+      // Don't wait for CMP processing - redirect immediately
+      successMessage += " (Google Sheets CMP update in progress)";
     } catch (e: any) {
       console.error("Failed to process confirmation:", e?.message || e);
       throw e;
