@@ -8,7 +8,7 @@ import {
 export type InvoiceItem = {
   invoice_sku: string;
   qty: number;
-  unit_price: number; // unit_price already includes shipping cost after calculatePriceUnitWithShipping in this function
+  unit_price: number;
 };
 
 export type ProcessingResult = {
@@ -37,7 +37,12 @@ export async function updateCmpInSheets(
   invoiceItems: InvoiceItem[],
   sheetsService: any,
   totalShippingFee: number = 0,
-  admin?: any
+  admin?: any,
+  progressCallback?: (
+    current: number,
+    total: number,
+    sku?: string
+  ) => Promise<void>
 ): Promise<ProcessingResult> {
   const result: ProcessingResult = {
     processed: 0,
@@ -120,17 +125,16 @@ export async function updateCmpInSheets(
       inventoryMap = await getInventoryBySkuBatch(admin, skuFwnList);
     } catch (error) {
       const errorMsg = error instanceof Error ? error.message : "Unknown error";
-      console.error(`❌ Error batch fetching inventory:`, errorMsg);
       result.errors.push(`Batch inventory fetch failed: ${errorMsg}`);
     }
   }
 
-  // Step 3: Prepare all updates for Google Sheets
   const batchUpdates: Array<{
     range: string;
     values: Array<Array<string | number | boolean>>;
   }> = [];
 
+  let processedCount = 0;
   for (const [index, rowData] of itemRowDataMap.entries()) {
     try {
       const oldStockSku = inventoryMap[rowData.skuFwn] ?? 0;
@@ -141,7 +145,6 @@ export async function updateCmpInSheets(
         rowData.item.unit_price
       );
 
-      // Use invoice_sku as key for calculatedCmp (may have duplicates with different prices)
       result.calculatedCmp[rowData.item.invoice_sku] = newCmp;
 
       const rangeToUpdate = `Sheet1!G${rowData.rowIndex}:L${rowData.rowIndex}`;
@@ -162,6 +165,16 @@ export async function updateCmpInSheets(
       console.log(
         `✅ Prepared update for row ${rowData.rowIndex} (${rowData.skuFwn}): CMP ${rowData.oldCmp} → ${newCmp}`
       );
+
+      // Update progress if callback provided
+      processedCount++;
+      if (progressCallback) {
+        await progressCallback(
+          processedCount,
+          itemRowDataMap.size,
+          rowData.skuFwn
+        );
+      }
     } catch (error) {
       const errorMsg = error instanceof Error ? error.message : "Unknown error";
       result.errors.push(`${rowData.item.invoice_sku}: ${errorMsg}`);
@@ -172,7 +185,6 @@ export async function updateCmpInSheets(
     }
   }
 
-  // Step 4: Batch update Google Sheets (one request instead of N)
   if (batchUpdates.length > 0) {
     try {
       const updateResult = await sheetsService.batchUpdate(
@@ -182,17 +194,12 @@ export async function updateCmpInSheets(
 
       if (updateResult.success) {
         result.updated = batchUpdates.length;
-        console.log(
-          `✅ Successfully batch updated ${batchUpdates.length} rows in Google Sheets`
-        );
       } else {
         result.errors.push(`Batch update failed: ${updateResult.message}`);
-        console.error(`❌ Batch update failed:`, updateResult.message);
       }
     } catch (error) {
       const errorMsg = error instanceof Error ? error.message : "Unknown error";
       result.errors.push(`Batch update error: ${errorMsg}`);
-      console.error(`❌ Error during batch update:`, errorMsg);
     }
   }
 
@@ -235,12 +242,9 @@ export async function updateCmpInSheets2(
       totalShippingFee
     );
   }
-  // Handle each item from the invoice
   for (const item of invoiceItems) {
     result.processed++;
     const normalizedInvoiceSku = MiddlewareTest.normalizeSku(item.invoice_sku);
-    // Find the line with all the data
-    // Search in column E (row[3]) which contains Invoice SKUs
     const foundRow = sheetData.values.find((row: any[]) => {
       const invoiceSkusCell = String(row[3] || "").trim();
       const skusInCell = invoiceSkusCell
@@ -257,12 +261,9 @@ export async function updateCmpInSheets2(
     }
 
     try {
-      // Now we have the whole line with the data
       const skuFwn = String(foundRow[0] || "").trim();
       const oldCmp = foundRow[5] ? Number(foundRow[5]) : null;
       const oldStockSku = await getInventoryBySku(admin, skuFwn);
-
-      // Read current value from column K (For make old unit price)
       const currentKValue = foundRow[9] ? Number(foundRow[9]) : null;
 
       const newCmp = calculateCMP(
@@ -273,7 +274,7 @@ export async function updateCmpInSheets2(
       );
 
       result.calculatedCmp[item.invoice_sku] = newCmp;
-      const rowIndex = sheetData.values.indexOf(foundRow) + 2; // +2 because we start from B2
+      const rowIndex = sheetData.values.indexOf(foundRow) + 2;
 
       const rangeToUpdate = `Sheet1!G${rowIndex}:L${rowIndex}`;
       await sheetsService.updateData(spreadsheetId, rangeToUpdate, [
@@ -288,13 +289,9 @@ export async function updateCmpInSheets2(
       ]);
 
       result.updated++;
-      console.log(
-        `✅ Updated row ${rowIndex} for ${skuFwn}: CMP ${oldCmp} → ${newCmp}`
-      );
     } catch (error) {
       const errorMsg = error instanceof Error ? error.message : "Unknown error";
       result.errors.push(`${item.invoice_sku}: ${errorMsg}`);
-      console.error(`❌ Error updating ${item.invoice_sku}:`, errorMsg);
     }
   }
 

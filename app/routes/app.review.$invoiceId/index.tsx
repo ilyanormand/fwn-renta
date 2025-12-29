@@ -12,10 +12,7 @@ import { TitleBar } from "@shopify/app-bridge-react";
 import { authenticate } from "../../shopify.server";
 import { getInvoiceById, getAllSuppliers } from "../../utils/invoice.server";
 import { transformInvoiceForUI } from "../../utils/invoice.server";
-import {
-  loadGoogleSheetsSettings,
-  processInvoiceWithGoogleSheets,
-} from "./googleSheets.server";
+import { loadGoogleSheetsSettings } from "../../services/worker/middlewareCmp";
 import { ProcessingState } from "./components/ProcessingState";
 import { InvoiceInfoCard } from "./components/InvoiceInfoCard";
 import { InvoiceItemsTable } from "./components/InvoiceItemsTable";
@@ -24,6 +21,7 @@ import { InvoiceActionsCard } from "./components/InvoiceActionsCard";
 import { InvoiceSidebar } from "./components/InvoiceSidebar";
 import { MessageBanner } from "./components/MessageBanner";
 import { useInvoiceEditor } from "./hooks/useInvoiceEditor";
+import { createJob } from "app/utils/job.server";
 
 export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   await authenticate.admin(request);
@@ -64,7 +62,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
 };
 
 export const action = async ({ request, params }: ActionFunctionArgs) => {
-  const { admin, redirect } = await authenticate.admin(request);
+  const { admin, redirect, session } = await authenticate.admin(request);
 
   const formData = await request.formData();
   const action = formData.get("_action") as string;
@@ -73,12 +71,8 @@ export const action = async ({ request, params }: ActionFunctionArgs) => {
   if (action === "confirm") {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    let successMessage = "Invoice imported successfully";
-
     try {
-      const { getInvoiceById, updateInvoice } = await import(
-        "../../utils/invoice.server"
-      );
+      const { getInvoiceById } = await import("../../utils/invoice.server");
       const invoiceId = params.invoiceId!;
 
       const invoice = await getInvoiceById(invoiceId);
@@ -120,37 +114,27 @@ export const action = async ({ request, params }: ActionFunctionArgs) => {
         }
       }
 
-      await updateInvoice(invoiceId, { status: "SUCCESS" });
+      // Get shop domain from session for worker to retrieve admin token
+      const shopDomain = session?.shop || null;
 
-      processInvoiceWithGoogleSheets(
-        invoice,
-        admin,
-        editedItems,
-        editedShippingFee
-      )
-        .then((sheetsResult) => {
-          console.log(
-            "-----> Google Sheets result (background):",
-            sheetsResult
-          );
-        })
-        .catch((error) => {
-          console.error(
-            "-----> Google Sheets processing error (background):",
-            error
-          );
-        });
+      await createJob({
+        type: "CMP_CALCULATION",
+        data: {
+          invoiceId: invoiceId,
+          shopDomain: shopDomain,
+          editedItems: editedItems,
+          editedShippingFee: editedShippingFee,
+        },
+        maxAttempts: 3,
+      });
 
-      // Don't wait for CMP processing - redirect immediately
-      successMessage += " (Google Sheets CMP update in progress)";
+      console.log("-----> CMP calculation job created in queue");
     } catch (e: any) {
       console.error("Failed to process confirmation:", e?.message || e);
       throw e;
     }
 
-    return redirect(
-      `/app/history?success=${encodeURIComponent(successMessage)}`
-    );
+    return redirect(`/app/history?success=CMP calculation queued`);
   }
 
   if (action === "reject") {
@@ -239,10 +223,10 @@ export default function InvoiceReview() {
   });
 
   const isSubmitting = navigation.state === "submitting";
-  const isProcessing = extractedData.status === "PROCESSING";
+  const isProcessing = extractedData.status?.toUpperCase() === "PROCESSING";
 
   useEffect(() => {
-    if (extractedData.status === "PROCESSING") {
+    if (extractedData.status?.toUpperCase() === "PROCESSING") {
       const interval = setInterval(() => {
         revalidator.revalidate();
       }, 3000);

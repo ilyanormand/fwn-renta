@@ -91,11 +91,40 @@ export async function completeJob(
   jobId: string,
   result: JobResult
 ): Promise<void> {
+  // Get existing job to preserve progress data
+  const existingJob = await db.job.findUnique({
+    where: { id: jobId },
+    select: { result: true },
+  });
+
+  // Merge existing result (which may contain progress) with new result
+  let mergedResult = result;
+  if (existingJob?.result) {
+    try {
+      const existingResult = JSON.parse(existingJob.result);
+      // Preserve progress data if it exists
+      if (existingResult.progress !== undefined) {
+        mergedResult = {
+          ...existingResult,
+          ...result,
+          progress: existingResult.progress, // Keep existing progress
+          stage: existingResult.stage || result.stage,
+          message: existingResult.message || result.message,
+        };
+      } else {
+        mergedResult = { ...existingResult, ...result };
+      }
+    } catch {
+      // If parsing fails, just use new result
+      mergedResult = result;
+    }
+  }
+
   await db.job.update({
     where: { id: jobId },
     data: {
       status: "COMPLETED",
-      result: JSON.stringify(result),
+      result: JSON.stringify(mergedResult),
       completedAt: new Date(),
     },
   });
@@ -287,6 +316,30 @@ export async function getJobByInvoiceId(
   }
 
   return null;
+}
+
+// Update job progress (stores progress data in result field)
+export async function updateJobProgress(
+  jobId: string,
+  progress: number, // 0-100
+  progressData: {
+    stage: string;
+    current?: number;
+    total?: number;
+    message?: string;
+    sku?: string;
+  }
+): Promise<void> {
+  await db.job.update({
+    where: { id: jobId },
+    data: {
+      result: JSON.stringify({
+        progress,
+        ...progressData,
+        updatedAt: new Date().toISOString(),
+      }),
+    },
+  });
 }
 
 // Reset job to PENDING status for reprocessing

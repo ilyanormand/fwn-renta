@@ -3,7 +3,7 @@ export async function getInventoryBySku(
   sku: string
 ): Promise<number> {
   try {
-    const response = await admin.graphql(
+    const json = await admin.graphql(
       `#graphql
         query getProductVariantBySku($query: String!) {
           productVariants(first: 1, query: $query) {
@@ -17,13 +17,9 @@ export async function getInventoryBySku(
           }
         }`,
       {
-        variables: {
-          query: `sku:${sku}`,
-        },
+        query: `sku:${sku}`,
       }
     );
-
-    const json = await response.json();
 
     if (json.data?.productVariants?.edges?.length > 0) {
       const variant = json.data.productVariants.edges[0].node;
@@ -85,8 +81,7 @@ export async function getInventoryBySkuBatch(
           ${aliases}
         }`;
 
-      const response = await admin.graphql(query);
-      const json = await response.json();
+      const json = await admin.graphql(query);
 
       // Extract results from each alias
       chunk.forEach((sku, index) => {

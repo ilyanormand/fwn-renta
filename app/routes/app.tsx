@@ -6,11 +6,35 @@ import { NavMenu } from "@shopify/app-bridge-react";
 import polarisStyles from "@shopify/polaris/build/esm/styles.css?url";
 
 import { authenticate } from "../shopify.server";
+import db from "../db.server";
 
 export const links = () => [{ rel: "stylesheet", href: polarisStyles }];
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
-  await authenticate.admin(request);
+  const { session } = await authenticate.admin(request);
+
+  // Save offline session token to Shop table for background jobs
+  if (session && !session.isOnline) {
+    try {
+      await db.shop.upsert({
+        where: { shop: session.shop },
+        update: {
+          adminAccessToken: session.accessToken,
+          scopes: session.scope || "",
+        },
+        create: {
+          id: session.id,
+          shop: session.shop,
+          adminAccessToken: session.accessToken || "",
+          scopes: session.scope || "",
+          installedAt: new Date(),
+        },
+      });
+    } catch (error) {
+      // Log error but don't fail the request
+      console.error("Failed to save shop token:", error);
+    }
+  }
 
   return { apiKey: process.env.SHOPIFY_API_KEY || "" };
 };

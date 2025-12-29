@@ -100,9 +100,7 @@ export function InvoiceProcessingCard({
 
             {!hasSpreadsheetId && (
               <Banner tone="warning">
-                <p>
-                  Please configure Spreadsheet ID in the settings above.
-                </p>
+                <p>Please configure Spreadsheet ID in the settings above.</p>
               </Banner>
             )}
           </BlockStack>
@@ -111,4 +109,3 @@ export function InvoiceProcessingCard({
     </Card>
   );
 }
-

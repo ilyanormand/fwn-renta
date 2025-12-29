@@ -6,7 +6,7 @@ import { createMockShopifyAdminBatch } from "../mocks/mockOldQuantity";
 describe("Happy Path", () => {
   describe("CMP calculation test with batching", () => {
     it("Should calculate CMP correctly with batch processing (10 items)", async () => {
-      // Тестовые данные: 10 разных товаров
+      // Test data
       const invoiceItems = [
         { invoice_sku: "ICE-LEMON", qty: 100, unit_price: 3.2 },
         { invoice_sku: "ICE-PEACH", qty: 50, unit_price: 3.5 },
@@ -41,32 +41,35 @@ describe("Happy Path", () => {
         mockShopifyAdmin
       );
 
-      // Check CMP calculation correctness for multiple items
-      // Formula: (oldStock * oldCmp + newStock * newPrice) / (oldStock + newStock)
+      // if (oldStock === 0 || oldCmp === null) return newPrice
+      // else: CMP = (oldStock * oldCmp + newStock * newPrice) / (oldStock + newStock)
 
-      // ICE-LEMON: (230 * 2.1 + 100 * 3.2) / (230 + 100) = 803 / 330 = 2.43
+      // ICE-LEMON: oldStock=230, oldCmp=2.1, newStock=100, newPrice=3.2
+      // CMP = (230 * 2.1 + 100 * 3.2) / (230 + 100) = (483 + 320) / 330 = 803 / 330 = 2.433
       expect(result.calculatedCmp["ICE-LEMON"]).toBeCloseTo(2.43, 2);
 
-      // ICE-PEACH: (190 * 1.9 + 50 * 3.5) / (190 + 50) = 536 / 240 = 2.23
+      // ICE-PEACH: oldStock=190, oldCmp=1.9, newStock=50, newPrice=3.5
+      // CMP = (190 * 1.9 + 50 * 3.5) / (190 + 50) = (361 + 175) / 240 = 536 / 240 = 2.233
       expect(result.calculatedCmp["ICE-PEACH"]).toBeCloseTo(2.23, 2);
 
-      // ICE-ORANGE: (150 * 2.3 + 75 * 2.8) / (150 + 75) = 555 / 225 = 2.47
+      // ICE-ORANGE: oldStock=150, oldCmp=2.3, newStock=75, newPrice=2.8
+      // CMP = (150 * 2.3 + 75 * 2.8) / (150 + 75) = (345 + 210) / 225 = 555 / 225 = 2.467
       expect(result.calculatedCmp["ICE-ORANGE"]).toBeCloseTo(2.47, 2);
 
-      // ICE-APPLE: (180 * 3.5 + 120 * 4.1) / (180 + 120) = 1122 / 300 = 3.74
+      // ICE-APPLE: oldStock=180, oldCmp=3.5, newStock=120, newPrice=4.1
+      // CMP = (180 * 3.5 + 120 * 4.1) / (180 + 120) = (630 + 492) / 300 = 1122 / 300 = 3.74
       expect(result.calculatedCmp["ICE-APPLE"]).toBeCloseTo(3.74, 2);
 
-      // ICE-BERRY: (220 * 3.2 + 80 * 3.9) / (220 + 80) = 1016 / 300 = 3.39
+      // ICE-BERRY: oldStock=220, oldCmp=3.2, newStock=80, newPrice=3.9
+      // CMP = (220 * 3.2 + 80 * 3.9) / (220 + 80) = (704 + 312) / 300 = 1016 / 300 = 3.387
       expect(result.calculatedCmp["ICE-BERRY"]).toBeCloseTo(3.39, 2);
 
       expect(result.updated).toBe(10);
       expect(result.processed).toBe(10);
       expect(result.skipped).toBe(0);
 
-      console.log("📊 Обработано товаров:", result.processed);
-      console.log("📊 Обновлено строк:", result.updated);
-      console.log("📊 CMP для ICE-LEMON:", result.calculatedCmp["ICE-LEMON"]);
-      console.log("📊 CMP для ICE-PEACH:", result.calculatedCmp["ICE-PEACH"]);
+      console.log("📊 CMP ICE-LEMON:", result.calculatedCmp["ICE-LEMON"]);
+      console.log("📊 CMP ICE-PEACH:", result.calculatedCmp["ICE-PEACH"]);
     });
   });
 });

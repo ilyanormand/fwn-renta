@@ -1,11 +1,12 @@
 import { processInvoicePdf } from "./invoiceProcessing.server";
+import { calculateCmp } from "./cmpCalculate.server";
 import {
   getNextJob,
   startJob,
   completeJob,
   failJob,
+  getJobById,
 } from "../../utils/job.server";
-import { createLogEntry } from "../../utils/invoice.server";
 import { MAX_CONCURRENT_JOBS } from "../../utils/storage.server";
 
 // Background worker for processing jobs
@@ -41,7 +42,7 @@ export class BackgroundWorker {
       this.intervalId = undefined;
     }
   }
-
+  // Process PDF processing jobs
   private tryProcessJob(): void {
     if (this.currentConcurrentJobs >= this.maxConcurrentJobs) {
       return;
@@ -49,8 +50,12 @@ export class BackgroundWorker {
     this.processSingleJob().catch((error) => {
       console.error("Error processing job:", error);
     });
+    // Process CMP jobs (parallel, but respects same limit)
+    this.processSingleCmpJob().catch((error) => {
+      console.error("Error processing CMP calculation job:", error);
+    });
   }
-
+  // Process of parsing and processing the invoice PDF
   private async processSingleJob(): Promise<void> {
     const job = await getNextJob("PDF_PROCESSING");
     if (!job) {
@@ -76,92 +81,49 @@ export class BackgroundWorker {
     }
   }
 
-  // Process CMP calculation jobs
-  private async processCmpJobs(): Promise<void> {
-    let job;
-    while ((job = await getNextJob("CMP_CALCULATION"))) {
-      try {
-        await startJob(job.id);
-
-        // TODO: Implement CMP calculation logic
-        // This will be implemented when we add the CMP calculation service
-
-        // For now, just mark as completed
-        await completeJob(job.id, {
-          productId: job.data.productId,
-          status: "success",
-          calculatedAt: new Date().toISOString(),
-          message: "CMP calculation not yet implemented",
-        });
-
+  // Process single CMP calculation job (similar to processSingleJob)
+  private async processSingleCmpJob(): Promise<void> {
+    const job = await getNextJob("CMP_CALCULATION");
+    if (!job) {
+      return;
+    }
+    this.currentConcurrentJobs++;
+    try {
+      await startJob(job.id);
+      await calculateCmp(job.data.invoiceId, job.id);
+      // completeJob is called inside calculateCmp, so we don't need to call it here
+      // Check job status before logging success (wait a bit for DB to update)
+      await new Promise((resolve) => setTimeout(resolve, 200));
+      const updatedJob = await getJobById(job.id);
+      if (updatedJob?.status === "COMPLETED") {
         console.log(`✅ CMP job ${job.id} completed successfully`);
-      } catch (error) {
-        console.error(`❌ CMP job ${job.id} failed:`, error);
-
-        const errorMessage =
-          error instanceof Error ? error.message : "Unknown error";
-        await failJob(job.id, errorMessage);
-      }
-    }
-  }
-
-  // Process Shopify sync jobs
-  private async processShopifyJobs(): Promise<void> {
-    let job;
-    while ((job = await getNextJob("SHOPIFY_SYNC"))) {
-      try {
-        console.log(`🛍️ Processing Shopify sync job ${job.id}`);
-
-        await startJob(job.id);
-
-        // TODO: Implement Shopify sync logic
-        // This will fetch sales data and update our database
-
-        await completeJob(job.id, {
-          status: "success",
-          syncedAt: new Date().toISOString(),
-          message: "Shopify sync not yet implemented",
-        });
-
-        console.log(`✅ Shopify sync job ${job.id} completed successfully`);
-      } catch (error) {
-        console.error(`❌ Shopify sync job ${job.id} failed:`, error);
-
-        const errorMessage =
-          error instanceof Error ? error.message : "Unknown error";
-        await failJob(job.id, errorMessage);
-      }
-    }
-  }
-
-  // Process Google Sheets export jobs
-  private async processGoogleSheetsJobs(): Promise<void> {
-    let job;
-    while ((job = await getNextJob("GOOGLE_SHEETS_EXPORT"))) {
-      try {
-        console.log(`📊 Processing Google Sheets export job ${job.id}`);
-
-        await startJob(job.id);
-
-        // TODO: Implement Google Sheets export logic
-        // This will export CMP data and sales data to Google Sheets
-
-        await completeJob(job.id, {
-          status: "success",
-          exportedAt: new Date().toISOString(),
-          message: "Google Sheets export not yet implemented",
-        });
-
-        console.log(
-          `✅ Google Sheets export job ${job.id} completed successfully`
+      } else if (updatedJob?.status === "FAILED") {
+        console.error(
+          `❌ CMP job ${job.id} failed: ${updatedJob.error || "Unknown error"}`
         );
-      } catch (error) {
-        console.error(`❌ Google Sheets export job ${job.id} failed:`, error);
-
-        const errorMessage =
-          error instanceof Error ? error.message : "Unknown error";
-        await failJob(job.id, errorMessage);
+        // Re-throw to ensure error is handled properly
+        throw new Error(updatedJob.error || "CMP calculation failed");
+      } else {
+        console.log(
+          `⚠️ CMP job ${job.id} finished with status: ${updatedJob?.status}`
+        );
       }
+    } catch (error) {
+      // failJob is called inside calculateCmp on error, but we catch here for safety
+      const errorMessage =
+        error instanceof Error ? error.message : "Unknown error";
+      // Only fail if not already failed in calculateCmp
+      try {
+        const currentJob = await getJobById(job.id);
+        if (currentJob?.status !== "FAILED") {
+          await failJob(job.id, errorMessage);
+        }
+      } catch (failError) {
+        // Job might already be failed, ignore
+        console.error(`❌ Error handling failed job ${job.id}:`, failError);
+      }
+    } finally {
+      this.currentConcurrentJobs--;
     }
   }
 

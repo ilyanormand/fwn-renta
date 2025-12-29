@@ -5,11 +5,9 @@ import {
   getGoogleSheetsService,
   createOAuth2ServiceFromConfig,
   createServiceAccountServiceFromConfig,
-} from "../../services/googleSheets";
-import {
-  updateCmpInSheets,
+  createInvoiceProcessor,
   type InvoiceItem,
-} from "../../services/googleSheets/cmpHandle/cmpCalculate";
+} from "../../services/googleSheets";
 import { loadSettings, saveSettings } from "./settings.server";
 import type { GoogleAPISettings, ActionResponse } from "./types";
 
@@ -426,13 +424,11 @@ export async function handleProcessInvoice(
   }
 
   try {
-    // Process the invoice using updateCmpInSheets
-    const result = await updateCmpInSheets(
-      invoiceItems,
-      sheetsService,
-      0, // shippingFee - можно добавить в formData если нужно
-      null // admin - Shopify admin API, можно передать если нужно
-    );
+    // Create invoice processor
+    const processor = createInvoiceProcessor(settings.spreadsheetId);
+
+    // Process the invoice
+    const result = await processor.processInvoice(invoiceItems, sheetsService);
 
     return {
       success: result.updated > 0,
@@ -442,8 +438,9 @@ export async function handleProcessInvoice(
         updated: result.updated,
         skipped: result.skipped,
         notFound: result.notFound,
-        calculatedCmp: result.calculatedCmp,
+        ambiguous: result.ambiguous,
         errors: result.errors,
+        report: result.report,
       },
       serviceType,
     };

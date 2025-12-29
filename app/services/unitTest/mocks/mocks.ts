@@ -1,7 +1,6 @@
 export function createMockSheetsServiceWithBatch() {
   return {
     readData: async (spreadsheetId: string, range: string) => {
-      console.log("🔍 Mock: reading data from", spreadsheetId);
       return {
         values: [
           [
@@ -144,7 +143,6 @@ export function createMockSheetsServiceWithBatch() {
       range: string,
       values: any[][]
     ) => {
-      console.log("✏️ Mock: updating data", { spreadsheetId, range, values });
       return {
         success: true,
         message: `Updated ${values.length} cells`,
@@ -160,10 +158,6 @@ export function createMockSheetsServiceWithBatch() {
         values: Array<Array<string | number | boolean>>;
       }>
     ) => {
-      console.log("✏️ Mock: batch updating data", {
-        spreadsheetId,
-        updatesCount: updates.length,
-      });
       const totalCells = updates.reduce(
         (sum, update) =>
           sum + update.values.reduce((rowSum, row) => rowSum + row.length, 0),

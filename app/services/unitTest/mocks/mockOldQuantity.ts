@@ -41,31 +41,29 @@ export function createMockShopifyAdminBatch(
           };
         });
 
+        // Return data directly (not wrapped in json() method)
         return {
-          json: async () => ({
-            data: responseData,
-          }),
+          data: responseData,
         };
       } else {
         // Fallback to old single SKU query format (for compatibility)
         const sku = options?.variables?.query?.replace("sku:", "");
         const skuQuantity = customQuantities?.[sku] ?? quantity;
+        // Return data directly (not wrapped in json() method)
         return {
-          json: async () => ({
-            data: {
-              productVariants: {
-                edges: [
-                  {
-                    node: {
-                      id: "gid://shopify/ProductVariant/123",
-                      sku: sku,
-                      inventoryQuantity: skuQuantity,
-                    },
+          data: {
+            productVariants: {
+              edges: [
+                {
+                  node: {
+                    id: "gid://shopify/ProductVariant/123",
+                    sku: sku,
+                    inventoryQuantity: skuQuantity,
                   },
-                ],
-              },
+                },
+              ],
             },
-          }),
+          },
         };
       }
     },

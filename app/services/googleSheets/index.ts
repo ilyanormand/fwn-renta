@@ -20,3 +20,11 @@ export {
   createServiceAccountServiceFromConfig,
   createOAuth2ServiceFromConfig,
 } from "./factories";
+
+// Invoice Processor
+export {
+  createInvoiceProcessor,
+  type InvoiceItem,
+  type InvoiceProcessor,
+  type InvoiceProcessingResult,
+} from "./invoiceProcessor";

@@ -23,6 +23,7 @@ import {
   Popover,
   ActionList,
   Banner,
+  ProgressBar,
 } from "@shopify/polaris";
 import { TitleBar } from "@shopify/app-bridge-react";
 import {
@@ -33,19 +34,53 @@ import {
 import { authenticate } from "../../shopify.server";
 import { getAllInvoices, getAllSuppliers } from "../../utils/invoice.server";
 import { getPdfUrl } from "../../utils/fileUpload.server";
+import { getJobByInvoiceId } from "../../utils/job.server";
 
 // Transform database invoice data for the UI
-function transformInvoicesForUI(invoices: any[]) {
-  return invoices.map((invoice) => ({
-    id: invoice.id,
-    supplier: invoice.supplier.name,
-    status: invoice.status.toLowerCase(),
-    filename: invoice.pdfFileName || "invoice.pdf",
-    createdAt: invoice.createdAt,
-    errorMessage:
-      invoice.logs?.find((log: any) => log.status === "ERROR")?.message || null,
-    pdfUrl: invoice.pdfFileName ? getPdfUrl(invoice.pdfFileName) : null,
-  }));
+async function transformInvoicesForUI(invoices: any[]) {
+  const transformed = await Promise.all(
+    invoices.map(async (invoice) => {
+      // Get CMP_CALCULATION job for this invoice
+      const cmpJob = await getJobByInvoiceId(invoice.id, "CMP_CALCULATION");
+      const progressData =
+        cmpJob?.result &&
+        typeof cmpJob.result === "object" &&
+        cmpJob.result.progress !== undefined
+          ? {
+              progress: Number(cmpJob.result.progress) || 0,
+              stage: String(cmpJob.result.stage || ""),
+              current:
+                cmpJob.result.current !== undefined
+                  ? Number(cmpJob.result.current)
+                  : undefined,
+              total:
+                cmpJob.result.total !== undefined
+                  ? Number(cmpJob.result.total)
+                  : undefined,
+              message: cmpJob.result.message
+                ? String(cmpJob.result.message)
+                : undefined,
+              sku: cmpJob.result.sku ? String(cmpJob.result.sku) : undefined,
+            }
+          : null;
+
+      return {
+        id: invoice.id,
+        supplier: invoice.supplier.name,
+        status: invoice.status.toLowerCase(),
+        filename: invoice.pdfFileName || "invoice.pdf",
+        createdAt: invoice.createdAt,
+        errorMessage:
+          invoice.logs?.find((log: any) => log.status === "ERROR")?.message ||
+          null,
+        pdfUrl: invoice.pdfFileName ? getPdfUrl(invoice.pdfFileName) : null,
+        cmpProgress: progressData,
+        cmpJobType: cmpJob?.type || null,
+        cmpJobStatus: cmpJob?.status || null,
+      };
+    })
+  );
+  return transformed;
 }
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
@@ -63,7 +98,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
       return json({ invoices: [], suppliers: [] });
     }
 
-    const invoices = transformInvoicesForUI(dbInvoices);
+    const invoices = await transformInvoicesForUI(dbInvoices);
     const suppliers = (dbSuppliers || [])
       .filter((supplier) => supplier && supplier.name)
       .map((supplier) => ({
@@ -118,7 +153,20 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   return json({ error: "Invalid action" }, { status: 400 });
 };
 
-function getStatusBadge(status: string, errorMessage?: string | null) {
+function getStatusBadge(
+  status: string,
+  errorMessage?: string | null,
+  cmpProgress?: {
+    progress: number;
+    stage: string;
+    current?: number;
+    total?: number;
+    message?: string;
+    sku?: string;
+  } | null,
+  cmpJobType?: string | null,
+  cmpJobStatus?: string | null
+) {
   switch (status) {
     case "success":
       return <Badge tone="success">✅ Success</Badge>;
@@ -129,8 +177,46 @@ function getStatusBadge(status: string, errorMessage?: string | null) {
         </Badge>
       );
     case "processing":
+      if (
+        cmpJobType === "CMP_CALCULATION" &&
+        cmpJobStatus === "PROCESSING" &&
+        cmpProgress
+      ) {
+        return (
+          <BlockStack gap="200">
+            <ProgressBar progress={cmpProgress.progress} size="small" />
+            {cmpProgress.message && (
+              <Text variant="bodySm" tone="subdued" as="p">
+                {cmpProgress.message}
+                {cmpProgress.current !== undefined &&
+                  cmpProgress.total !== undefined &&
+                  ` (${cmpProgress.current}/${cmpProgress.total})`}
+              </Text>
+            )}
+          </BlockStack>
+        );
+      }
       return <Badge tone="info">⏳ Processing...</Badge>;
     case "pending_review":
+      if (
+        cmpJobType === "CMP_CALCULATION" &&
+        cmpJobStatus === "PROCESSING" &&
+        cmpProgress
+      ) {
+        return (
+          <BlockStack gap="200">
+            <ProgressBar progress={cmpProgress.progress} size="small" />
+            {cmpProgress.message && (
+              <Text variant="bodySm" tone="subdued" as="p">
+                {cmpProgress.message}
+                {cmpProgress.current !== undefined &&
+                  cmpProgress.total !== undefined &&
+                  ` (${cmpProgress.current}/${cmpProgress.total})`}
+              </Text>
+            )}
+          </BlockStack>
+        );
+      }
       return <Badge tone="attention">📋 Pending Review</Badge>;
     case "cancelled":
       return <Badge tone="warning">🚫 Cancelled</Badge>;
@@ -178,6 +264,23 @@ export default function History() {
       setDismissedBanner(false);
     }
   }, [successMessage, errorMessage, deleteResult]);
+
+  // Auto-refresh if there's an active CMP_CALCULATION job in processing status
+  useEffect(() => {
+    const hasActiveCmpJob = invoices.some(
+      (invoice) =>
+        invoice.cmpJobType === "CMP_CALCULATION" &&
+        invoice.cmpJobStatus === "PROCESSING"
+    );
+
+    if (hasActiveCmpJob) {
+      const interval = setInterval(() => {
+        revalidator.revalidate();
+      }, 2000);
+
+      return () => clearInterval(interval);
+    }
+  }, [invoices, revalidator]);
 
   const supplierOptions = [
     { label: "All suppliers", value: "all" },
@@ -391,7 +494,13 @@ export default function History() {
   const tableRows = paginatedInvoices.map((invoice) => [
     formatDate(invoice.createdAt),
     invoice.supplier,
-    getStatusBadge(invoice.status, invoice.errorMessage),
+    getStatusBadge(
+      invoice.status,
+      invoice.errorMessage,
+      invoice.cmpProgress,
+      invoice.cmpJobType,
+      invoice.cmpJobStatus
+    ),
     renderActionMenu(invoice),
   ]);
 
