@@ -51,7 +51,7 @@
         "type": "number"
       }
     ],
-    "row_pattern_alt": "(PF\\S+)\\s+(.+?)\\s+(\\d+)\\s+[\\d.,]+\\s+[\\d%]+\\s+([\\d.,]+)\\s+([\\d.,]+)",
+    "row_pattern_alt": "(PF\\S+)\\s+(.+?)\\s+(\\d+)\\s+([\\d.,]+)\\s+(\\d+)%\\s+([\\d.,]+)",
     "columns_alt": [
       {
         "name": "sku",
@@ -69,13 +69,18 @@
         "type": "number"
       },
       {
-        "name": "unit_price",
+        "name": "original_price",
         "regex_group": 4,
         "type": "number"
       },
       {
-        "name": "total",
+        "name": "discount_percent",
         "regex_group": 5,
+        "type": "number"
+      },
+      {
+        "name": "unit_price",
+        "regex_group": 6,
         "type": "number"
       }
     ]

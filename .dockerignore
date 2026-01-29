@@ -1,0 +1,77 @@
+# Dependencies (will be installed in Docker)
+node_modules/
+python/venv/
+
+# Git
+.git/
+.gitignore
+
+# Build artifacts
+build/
+.cache/
+.remix/
+public/build/
+
+# Environment files
+.env*
+!.env.example
+google-api-settings.json
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+
+# Database files
+*.sqlite
+*.sqlite-journal
+*.db
+prisma/dev.db*
+
+# Logs & Debug
+*.log
+*_debug.txt
+*_debug.json
+debug_*.json
+debug_*.log
+
+# Test output
+test_output*.txt
+*_output.json
+legacy_output.json
+unified_output*.json
+
+# Shopify local
+.shopify/
+
+# Test PDFs (these can be large)
+# python/test_invoices/**/*.pdf
+# python/test_invoices/**/*.PDF
+
+# Temporary files
+*.tmp
+*.temp
+.turbo/
+
+# Documentation
+README.md
+*.md
+!app/**/*.md
+
+# CI/CD
+.github/

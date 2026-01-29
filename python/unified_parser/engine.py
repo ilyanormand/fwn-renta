@@ -3,6 +3,7 @@ import re
 import sys
 import os
 from typing import Dict, Any, List, Optional
+from decimal import Decimal, ROUND_HALF_UP
 import pdfplumber
 from .schemas import ParserConfig
 from .utils import parse_number, clean_text, extract_regex_match, normalize_date
@@ -792,20 +793,52 @@ class UnifiedInvoiceParser:
         """Calculate missing totals from line items."""
         # First, fix any invalid item totals
         for item in self.data.get('order_items', []):
+            # Special handling for items with original_price and discount_percent
+            # Calculate exact unit_price and total with full precision to avoid rounding errors
+            if item.get('original_price') and item.get('discount_percent'):
+                try:
+                    original_price = float(item['original_price'])
+                    discount_pct = float(item['discount_percent'])
+                    qty = float(item.get('quantity', 0))
+                    
+                    # Calculate exact discounted price with full precision
+                    exact_unit_price = Decimal(str(original_price)) * (Decimal('1') - Decimal(str(discount_pct)) / Decimal('100'))
+                    exact_total = exact_unit_price * Decimal(str(qty))
+                    
+                    # Store unit_price with 4 decimals for precision
+                    # Use ROUND_HALF_UP (standard rounding, not banker's rounding) to match PDF
+                    rounded_total = exact_total.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+                    item['unit_price'] = f"{float(exact_unit_price):.4f}"
+                    item['total'] = f"{float(rounded_total):.2f}"
+                    
+                    # Clean up the temporary fields
+                    del item['original_price']
+                    del item['discount_percent']
+                    continue
+                except (ValueError, TypeError, KeyError):
+                    pass
+            
+            # Standard fallback for missing/invalid totals
             try:
                 total_val = float(item.get('total', 0))
                 # If total is 0 or very small (likely due to line splitting), recalculate
                 if total_val < 0.01 and item.get('quantity') and item.get('unit_price'):
-                    qty = float(item['quantity'])
-                    price = float(item['unit_price'])
-                    item['total'] = f"{qty * price:.2f}"
+                    qty = Decimal(str(item['quantity']))
+                    price = Decimal(str(item['unit_price']))
+                    # Calculate with precision and use ROUND_HALF_UP to match PDF
+                    calculated_total = qty * price
+                    rounded_total = calculated_total.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+                    item['total'] = f"{float(rounded_total):.2f}"
             except (ValueError, TypeError):
                 # If total is invalid, try to calculate from qty and price
                 if item.get('quantity') and item.get('unit_price'):
                     try:
-                        qty = float(item['quantity'])
-                        price = float(item['unit_price'])
-                        item['total'] = f"{qty * price:.2f}"
+                        qty = Decimal(str(item['quantity']))
+                        price = Decimal(str(item['unit_price']))
+                        # Calculate with precision and use ROUND_HALF_UP to match PDF
+                        calculated_total = qty * price
+                        rounded_total = calculated_total.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+                        item['total'] = f"{float(rounded_total):.2f}"
                     except (ValueError, TypeError):
                         pass
         
