@@ -790,6 +790,26 @@ class UnifiedInvoiceParser:
 
     def _calculate_fallbacks(self):
         """Calculate missing totals from line items."""
+        # First, fix any invalid item totals
+        for item in self.data.get('order_items', []):
+            try:
+                total_val = float(item.get('total', 0))
+                # If total is 0 or very small (likely due to line splitting), recalculate
+                if total_val < 0.01 and item.get('quantity') and item.get('unit_price'):
+                    qty = float(item['quantity'])
+                    price = float(item['unit_price'])
+                    item['total'] = f"{qty * price:.2f}"
+            except (ValueError, TypeError):
+                # If total is invalid, try to calculate from qty and price
+                if item.get('quantity') and item.get('unit_price'):
+                    try:
+                        qty = float(item['quantity'])
+                        price = float(item['unit_price'])
+                        item['total'] = f"{qty * price:.2f}"
+                    except (ValueError, TypeError):
+                        pass
+        
+        # Then calculate subtotal if missing
         if not self.data['totals'].get('subtotal') and self.data['order_items']:
             subtotal = 0.0
             for item in self.data['order_items']:

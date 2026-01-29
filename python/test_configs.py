@@ -74,7 +74,7 @@ def main():
         # Find first PDF in directory
         pdf_path = pdf_dir
         if os.path.isdir(pdf_dir):
-            pdfs = [f for f in os.listdir(pdf_dir) if f.endswith('.pdf')]
+            pdfs = [f for f in os.listdir(pdf_dir) if f.lower().endswith('.pdf')]
             if pdfs:
                 pdf_path = os.path.join(pdf_dir, pdfs[0])
             else:

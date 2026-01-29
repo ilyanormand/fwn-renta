@@ -53,6 +53,7 @@ def main():
     files = [
         ("FRA 253427 SARL FITNESS 15.10.pdf", 28815.14),
         ("FRA 253683 SARL FITNESS WORLD 03.11.pdf", 18664.24),
+        ("FRA 26164 SARL FITNESS 19.01.pdf", 22164.64),
     ]
     
     for f, expected in files:
