@@ -25,6 +25,7 @@ import { TitleBar } from "@shopify/app-bridge-react";
 import { authenticate } from "../shopify.server";
 import { getGoogleSheetsService, createOAuth2ServiceFromConfig, createServiceAccountServiceFromConfig } from "../services/googleSheets.server";
 import { createInvoiceProcessor, type InvoiceItem } from "../services/invoiceProcessor.server";
+import { importCatalogFromSheets } from "../services/catalogImport.server";
 
 // Define types for better type safety
 interface GoogleAPISettings {
@@ -521,6 +522,64 @@ export const action = async ({ request }: ActionFunctionArgs) => {
         }
       }
 
+      case "import_catalog_from_sheets": {
+        console.log("-----> import_catalog_from_sheets");
+        const settings = await loadSettings();
+        const dryRun = formData.get("dryRun") === "true";
+
+        if (!settings.spreadsheetId) {
+          return json({ error: "Spreadsheet ID not configured" }, { status: 400 });
+        }
+
+        // Pick a sheets client. Read-only — API key is enough, OAuth2 and
+        // Service Account also work.
+        let sheetsService: any = null;
+        let serviceType = "";
+        if (settings.serviceAccountConfig) {
+          try {
+            sheetsService = createServiceAccountServiceFromConfig(settings.serviceAccountConfig);
+            serviceType = "Service Account";
+          } catch (e: any) {
+            console.log("-----> Service Account init failed:", e.message);
+          }
+        }
+        if (!sheetsService && settings.oauth2Config && settings.oauth2Tokens) {
+          try {
+            const tokens = JSON.parse(settings.oauth2Tokens);
+            sheetsService = createOAuth2ServiceFromConfig(settings.oauth2Config, tokens.access_token);
+            serviceType = "OAuth2";
+          } catch (e: any) {
+            console.log("-----> OAuth2 init failed:", e.message);
+          }
+        }
+        if (!sheetsService && settings.apiKey) {
+          sheetsService = getGoogleSheetsService(settings.apiKey);
+          serviceType = "API Key";
+        }
+        if (!sheetsService) {
+          return json(
+            { error: "No Google auth configured. Set an API key, Service Account, or authorize OAuth2 first." },
+            { status: 400 }
+          );
+        }
+
+        try {
+          const result = await importCatalogFromSheets(sheetsService, settings.spreadsheetId, {
+            apply: !dryRun,
+          });
+          return json({
+            success: true,
+            message: dryRun
+              ? `Dry run: parsed ${result.parsed} rows`
+              : `Imported: ${result.productsUpserted} products, ${result.supplierSkusCreated} new SKU mappings, ${result.cmpRecordsCreated} CMP records (${result.skipped} skipped)`,
+            data: result,
+            serviceType,
+          });
+        } catch (e: any) {
+          return json({ error: `Import failed: ${e.message}` }, { status: 500 });
+        }
+      }
+
       default:
         return json({ error: "Invalid action" }, { status: 400 });
     }
@@ -711,6 +770,70 @@ export default function GoogleSheetsAPI() {
                 {(!hasApiKey || !hasSpreadsheetId) && (
                   <Banner tone="warning">
                     <p>Please configure both API Key and Spreadsheet ID to test the connection.</p>
+                  </Banner>
+                )}
+              </BlockStack>
+            </Card>
+
+            {/* Import Catalog from Sheets */}
+            <Card>
+              <BlockStack gap="400">
+                <Text variant="headingMd" as="h2">
+                  Import Catalog from Sheets
+                </Text>
+                <Text as="p" tone="subdued">
+                  Reads the configured spreadsheet (range A2:L on Sheet1) and
+                  upserts Products and Supplier SKU mappings into the database,
+                  then appends a fresh CMP record per product. Safe to re-run —
+                  existing rows are updated, not duplicated.
+                </Text>
+
+                <InlineStack gap="300">
+                  <Form method="post">
+                    <input type="hidden" name="_action" value="import_catalog_from_sheets" />
+                    <input type="hidden" name="dryRun" value="true" />
+                    <Button
+                      submit
+                      loading={
+                        isSubmitting &&
+                        navigation.formData?.get("_action") === "import_catalog_from_sheets" &&
+                        navigation.formData?.get("dryRun") === "true"
+                      }
+                      disabled={
+                        (!hasApiKey && !hasOAuth2 && !hasServiceAccount) ||
+                        !hasSpreadsheetId ||
+                        isSubmitting
+                      }
+                    >
+                      Dry Run (Preview)
+                    </Button>
+                  </Form>
+
+                  <Form method="post">
+                    <input type="hidden" name="_action" value="import_catalog_from_sheets" />
+                    <input type="hidden" name="dryRun" value="false" />
+                    <Button
+                      submit
+                      primary
+                      loading={
+                        isSubmitting &&
+                        navigation.formData?.get("_action") === "import_catalog_from_sheets" &&
+                        navigation.formData?.get("dryRun") === "false"
+                      }
+                      disabled={
+                        (!hasApiKey && !hasOAuth2 && !hasServiceAccount) ||
+                        !hasSpreadsheetId ||
+                        isSubmitting
+                      }
+                    >
+                      Import Now
+                    </Button>
+                  </Form>
+                </InlineStack>
+
+                {((!hasApiKey && !hasOAuth2 && !hasServiceAccount) || !hasSpreadsheetId) && (
+                  <Banner tone="warning">
+                    <p>Configure a Spreadsheet ID and at least one auth method (API key, Service Account, or OAuth2) to import.</p>
                   </Banner>
                 )}
               </BlockStack>

@@ -2,7 +2,7 @@
 
 client_id = "e1635834a813b89b95822784db1ca869"
 name = "fwn-ilya-google"
-application_url = "https://shopifyfwnautomation.fly.dev"
+application_url = "https://renta.korolioff.com"
 embedded = true
 [build]
 automatically_update_urls_on_dev = true
@@ -16,9 +16,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://shopifyfwnautomation.fly.dev/auth/callback",
-  "https://shopifyfwnautomation.fly.dev/auth/shopify/callback",
-  "https://shopifyfwnautomation.fly.dev/api/auth/callback"
+  "https://renta.korolioff.com/auth/callback",
+  "https://renta.korolioff.com/auth/shopify/callback",
+  "https://renta.korolioff.com/api/auth/callback"
 ]
 
 [pos]

@@ -19,6 +19,19 @@ if (fs.existsSync('/data')) {
 // Apply database migrations
 await exec('npx prisma migrate deploy')
 
+// Apply the catalog seed (idempotent — every row uses ON CONFLICT DO NOTHING).
+// Safe to run on every boot.
+const SEED_PATH = './prisma/seeds/initial-catalog.sql'
+if (fs.existsSync(SEED_PATH)) {
+  console.log(`🌱 Applying ${SEED_PATH}`)
+  try {
+    await exec(`npx prisma db execute --file ${SEED_PATH} --schema ./prisma/schema.prisma`)
+    console.log('✅ Seed applied')
+  } catch (err) {
+    console.error('⚠️  Seed apply failed (continuing anyway):', err.message)
+  }
+}
+
 // Launch the application
 await exec(process.argv.slice(2).join(' '))
 

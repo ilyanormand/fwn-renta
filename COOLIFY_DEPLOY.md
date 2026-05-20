@@ -4,10 +4,17 @@ This app moved off Fly.io. SQLite was replaced with PostgreSQL; the
 `/data` volume now only stores uploaded invoice PDFs and the cached
 Google API settings file.
 
-The data-migration scripts run **from your local machine** against the
-remote Coolify Postgres — `prisma/dev.sqlite` is excluded from the
-Docker image (and should stay excluded), and `tsx` isn't shipped to
-production because it's a devDependency.
+The catalog is loaded into Postgres in two stages:
+
+1. **Suppliers, Products, SupplierSKU mappings** ship as a SQL seed
+   file (`prisma/seeds/initial-catalog.sql`) checked into the repo.
+   `dbsetup.js` applies it automatically on container boot. Idempotent.
+2. **Current CMP / product names from Google Sheets** is loaded via a
+   button in the in-app `/app/google-api` page after the first
+   successful deploy.
+
+No SSH tunnels, no temporary public Postgres ports — everything goes
+through normal git push + redeploy.
 
 ---
 
@@ -16,15 +23,17 @@ production because it's a devDependency.
 - `prisma/schema.prisma` → `provider = "postgresql"`
 - `prisma/migrations/20260520000000_init/` → fresh Postgres-flavoured
   init migration (one file, 185 lines)
+- `prisma/seeds/initial-catalog.sql` → 26 suppliers + 6 products +
+  6 SKU mappings exported from the pre-existing SQLite snapshot
+- `dbsetup.js` → applies the seed automatically after running
+  `prisma migrate deploy`
 - `app/utils/supplierMapping.server.ts` → `contains` got
   `mode: 'insensitive'` so brand lookup still works case-insensitively
   on Postgres
-- `dbsetup.js` → SQLite symlink logic removed; only creates `/data/pdfs`
-  and runs `prisma migrate deploy`
-- `scripts/migrate-sqlite-to-postgres.ts` → copies Supplier/Product/
-  SupplierSKU from local SQLite into Postgres
-- `scripts/refresh-from-sheets.ts` → seeds Product/SupplierSKU/CMP
-  from the Google Sheet
+- `app/services/catalogImport.server.ts` → new service that imports
+  catalog state from Google Sheets into the database
+- `app/routes/app.google-api.tsx` → new “Import Catalog from Sheets”
+  card with Dry Run / Import Now buttons
 
 Python venv is **already handled inside the Dockerfile** — it creates
 `/app/python/venv`, installs `python/requirements.txt` into it, and
@@ -40,17 +49,13 @@ Coolify UI → **+ New Resource → Database → PostgreSQL**.
 - Name: `fwn-postgres`
 - Version: **16**
 - Username: `fwn`
-- Password: let Coolify generate one (or set your own)
+- Password: let Coolify generate one
 - Database name: `fwn`
 
-After creation Coolify shows two connection strings on the DB page:
+Copy the **internal connection string** from the Coolify DB page —
+that's the value of `DATABASE_URL` in Step 4.
 
-- **Internal** (e.g. `postgres://fwn:…@fwn-postgres:5432/fwn`) — used by
-  the app container, this is what goes into `DATABASE_URL` on the app
-- **External** — disabled by default. We'll enable it temporarily in
-  Step 6 to load data from a local machine.
-
-Copy the **internal** URL now, you'll need it for Step 4.
+**Public access is not required at any point.** Keep it disabled.
 
 ## Step 2 — Create the application
 
@@ -61,10 +66,10 @@ deploy key).
 - Branch: `coolify-postgres`
 - Build pack: **Dockerfile** (auto-detected at repo root)
 - Port (internal): `3000`
-- Healthcheck path: `/healthcheck` (the route already exists at
+- Healthcheck path: `/healthcheck` (route already exists at
   `app/routes/healthcheck.tsx`)
-- Build command / start command: leave defaults — the Dockerfile's
-  `CMD ["node", "./dbsetup.js", "npm", "run", "start"]` handles both
+- Start command: leave default — the Dockerfile's
+  `CMD ["node", "./dbsetup.js", "npm", "run", "start"]` handles it
 
 ## Step 3 — Add the persistent volume
 
@@ -74,11 +79,8 @@ In the application's **Storage** tab → **+ Add**:
 | ---------- | ----------------------- |
 | `fwn-data` | `/data`                 |
 
-Source path: leave default (Coolify creates and tracks it).
-
 `dbsetup.js` creates `/data/pdfs` on first boot. The uploaded PDFs and
-`/data/google-api-settings.json` (created by the in-app Google API
-config UI) live here.
+`/data/google-api-settings.json` live there.
 
 ## Step 4 — Environment variables
 
@@ -89,7 +91,7 @@ filling in the marked values:
 NODE_ENV=production
 PORT=3000
 
-# From Step 1 — the *internal* connection string
+# Internal URL from Step 1
 DATABASE_URL=postgres://fwn:CHANGEME@fwn-postgres:5432/fwn
 
 # From Shopify Partners → your app → API credentials
@@ -104,8 +106,7 @@ SHOPIFY_APP_URL=https://APP_DOMAIN
 Optional — only if you use them:
 
 ```env
-# A Shopify store with a custom domain (rare; needed when the store
-# isn't on *.myshopify.com)
+# A store with a custom domain (rare; not for *.myshopify.com)
 SHOP_CUSTOM_DOMAIN=
 
 # Email notifications about PDF parsing results via Resend
@@ -118,13 +119,12 @@ NOTIFY_FROM=
 saved into `/data/google-api-settings.json`):
 
 - `GOOGLE_OAUTH_CONFIG`
-- `GOOGLE_OAUTH_REDIRECT_URI`
+- Google API key / Service Account / OAuth tokens
 
 ## Step 5 — Domain
 
 In **Domains** tab add your custom domain (e.g.
-`fwn.expertshopify.fr`). Coolify provisions a Let's Encrypt cert
-automatically.
+`fwn.expertshopify.fr`). Coolify provisions Let's Encrypt automatically.
 
 Then in Shopify Partners → your app:
 
@@ -134,8 +134,11 @@ Then in Shopify Partners → your app:
   - `https://APP_DOMAIN/auth/shopify/callback`
   - `https://APP_DOMAIN/api/auth/callback`
 
-Update `SHOPIFY_APP_URL` env var (Step 4) to the same domain if you
-hadn't already.
+In Google Cloud Console → OAuth Client → **Authorized redirect URIs**
+add:
+  - `https://APP_DOMAIN/app/google-api/callback`
+
+Update `SHOPIFY_APP_URL` env var (Step 4) to the same domain.
 
 ## Step 6 — First deploy
 
@@ -144,103 +147,60 @@ Python, Java, Ghostscript, Cairo headers; pip installs camelot +
 pdfplumber + tabula-py + opencv-headless + numpy + pandas + pymupdf;
 npm ci; prisma generate; remix vite build).
 
-When the container boots, `dbsetup.js` runs `prisma migrate deploy`
-against the empty Postgres. This applies
-`prisma/migrations/20260520000000_init/migration.sql` and creates all
-tables. Tables exist but are empty — that's expected.
+When the container starts, `dbsetup.js` will:
 
-Visit `https://APP_DOMAIN/healthcheck` — should return `OK` (status
-200). If it does, the app is up.
+1. Create `/data/pdfs` if missing
+2. Run `prisma migrate deploy` against the empty Postgres
+3. Apply `prisma/seeds/initial-catalog.sql` → 26 suppliers + 6 products
+   + 6 SKU mappings loaded
+4. Start the app
+
+Expected log lines:
+
+```
+✅ Created /data/pdfs
+... prisma migrate output ...
+🌱 Applying ./prisma/seeds/initial-catalog.sql
+✅ Seed applied
+Listening on port 3000
+```
+
+Visit `https://APP_DOMAIN/healthcheck` — should return `OK`.
 
 ---
 
-## Step 7 — Load data (from your local machine)
+## Step 7 — Configure Google in the app
 
-The migration scripts run locally because they need `tsx` (not in the
-production image) and the local `prisma/dev.sqlite` snapshot.
+Open `https://APP_DOMAIN/app/google-api` and fill in:
 
-### 7a. Temporarily expose the Postgres service
+- **Spreadsheet ID** — from your Google Sheets URL
+- **API Key** (or Service Account JSON, or run the OAuth2 flow) — any
+  one auth method is fine for read-only catalog import
 
-In Coolify → `fwn-postgres` → **Network / Public Access** → enable.
-Coolify will give you an external URL with a random high port, e.g.:
+Click **Save Settings** → **Test API Connection** — should report
+success.
 
-```
-postgres://fwn:PASSWORD@coolify.your-server.com:54321/fwn
-```
+## Step 8 — Import catalog from Sheets
 
-This is the URL you'll use **locally**. Don't put it in the app's env
-— the app uses the internal URL from Step 4.
+On the same page, scroll to the **Import Catalog from Sheets** card.
 
-### 7b. Run the scripts locally
+1. Click **Dry Run (Preview)** first. The result panel will show the
+   first 3 rows the importer parsed — verify product names and brands
+   look right.
+2. If correct, click **Import Now**. The action will upsert products
+   and supplier SKU mappings, then append a fresh CMPRecord per
+   product based on the current weighted-average cost from column G.
 
-From this repo on your laptop:
-
-```sh
-# Make sure node modules are installed locally
-npm ci
-
-# Generate Prisma client for Postgres (one time)
-DATABASE_URL="postgres://fwn:PASSWORD@coolify.your-server.com:54321/fwn" \
-  npx prisma generate
-
-# 1) Carry over Supplier + Product + SupplierSKU from the local SQLite
-DATABASE_URL="postgres://fwn:PASSWORD@coolify.your-server.com:54321/fwn" \
-  npx tsx scripts/migrate-sqlite-to-postgres.ts
-```
-
-Expected output:
-
-```
-📦 Source rows: 26 suppliers, 6 products, 6 SKUs
-✅ Migration complete
-   Supplier:    inserted 26, skipped 0
-   Product:     inserted 6, skipped 0
-   SupplierSKU: inserted 6, skipped 0
-```
-
-```sh
-# 2) Pull current state from Google Sheets — dry run first
-DATABASE_URL="postgres://fwn:PASSWORD@coolify.your-server.com:54321/fwn" \
-GOOGLE_SHEETS_SPREADSHEET_ID="<your sheet id>" \
-GOOGLE_SHEETS_API_KEY="<your API key>" \
-  npx tsx scripts/refresh-from-sheets.ts
-```
-
-The dry run prints the first 3 parsed rows so you can verify the
-column mapping (especially `name` from column C and `brand` from
-column F). If they look right, re-run with `--apply`:
-
-```sh
-DATABASE_URL="postgres://fwn:PASSWORD@coolify.your-server.com:54321/fwn" \
-GOOGLE_SHEETS_SPREADSHEET_ID="<your sheet id>" \
-GOOGLE_SHEETS_API_KEY="<your API key>" \
-  npx tsx scripts/refresh-from-sheets.ts --apply
-```
-
-### 7c. Close the public port
-
-In Coolify → `fwn-postgres` → **Network / Public Access** → disable.
-The app keeps working because it uses the internal hostname.
-
----
-
-## Step 8 — Configure Google integration in the app
-
-Open `https://APP_DOMAIN/app/google-api` and:
-
-- Paste the same `Spreadsheet ID` used in Step 7b
-- Paste either the API key, the Service Account JSON, or run the
-  OAuth2 flow — same fields you used to use on Fly
-
-This writes to `/data/google-api-settings.json` (inside the persistent
-volume), so it survives redeploys.
+Re-running is safe — products are upserted by `skuFwn`, SKU mappings
+by `(productId, sku)` natural key. Only CMPRecords append new rows so
+historical cost evolution is preserved.
 
 ## Step 9 — Reinstall the Shopify app in your store
 
-The old Shopify `Session` was bound to the Fly URL and was intentionally
-not migrated. Open your store admin and reinstall the app via Shopify
-Partners → **Test on development store**. A new `Session` row will be
-created in Postgres.
+The old Shopify `Session` was bound to the Fly URL and is not migrated.
+Open Shopify Partners → your app → **Test on development store** →
+select your store → **Install**. A fresh `Session` row gets created
+under the new domain.
 
 ---
 
@@ -250,16 +210,17 @@ After Step 9:
 
 - [ ] `https://APP_DOMAIN/healthcheck` → 200 OK
 - [ ] In Coolify Postgres terminal:
-  `SELECT count(*) FROM "Product";` returns a non-zero number
-- [ ] In Coolify Postgres terminal:
-  `SELECT count(*) FROM "CMPRecord";` returns a non-zero number (CMP
-  was seeded from Sheets)
+  `SELECT count(*) FROM "Supplier";` returns 26
+- [ ] `SELECT count(*) FROM "Product";` returns non-zero (after
+  Step 8 import)
+- [ ] `SELECT count(*) FROM "CMPRecord";` returns non-zero (after
+  Step 8 import)
 - [ ] Shopify admin shows the app installed and embedded UI loads
-- [ ] Upload a test PDF, parsing completes without
-  `ModuleNotFoundError`  (proves the Python venv is active in the
-  container)
-- [ ] The new PDF survives a container restart (proves `/data` volume
-  is mounted)
+- [ ] Upload a test PDF — it parses without
+  `ModuleNotFoundError: No module named 'camelot'` (proves the venv is
+  active in the container)
+- [ ] The uploaded PDF survives a container restart (proves `/data`
+  volume is mounted correctly)
 
 ---
 
@@ -267,39 +228,51 @@ After Step 9:
 
 **`prisma migrate deploy` fails on first boot**
 The internal DB URL is wrong or the Postgres service isn't up yet.
-Recheck `DATABASE_URL` in app env, redeploy. Coolify usually starts
-the DB before the app, but on a brand-new project the order can race.
+Recheck `DATABASE_URL` in app env, redeploy.
+
+**Seed apply step prints a warning but boot continues**
+`dbsetup.js` is tolerant — if `prisma db execute` fails for any reason
+(e.g. permissions), it logs the error and continues. Inspect the
+Coolify container logs to see the exact message. The `ON CONFLICT`
+clauses make the seed safe to retry on the next boot.
 
 **`ModuleNotFoundError: No module named 'camelot'` when parsing a PDF**
-The Python venv didn't end up first in `PATH`. The Dockerfile sets
-`ENV PATH="/app/python/venv/bin:$PATH"`, so this should be impossible
-in a fresh image — if you see it, something built without the
-Dockerfile (wrong build pack?). Verify the build is using Dockerfile,
-not Nixpacks.
+The Python venv didn't end up first in `PATH`. This shouldn't happen
+with the bundled Dockerfile. If you see it, verify Coolify is using
+the Dockerfile build pack (not Nixpacks).
 
 **PDFs vanish after redeploy**
 The `/data` volume isn't mounted. Re-check Storage tab in Coolify.
 
-**Local `npx tsx scripts/...` can't reach Postgres**
-Public access on the Postgres service is off. Re-enable in Step 7a,
-re-run, disable when done.
-
-**Refresh from Sheets imports the wrong column as product name**
-Open `scripts/refresh-from-sheets.ts` and adjust the `productName` /
-`supplierName` indexes (lines marked with `// C` and `// F`). The
-dry-run output tells you which column is which.
+**Import from Sheets reports the wrong column as product name**
+Edit `app/services/catalogImport.server.ts` and adjust the column
+indexes (lines marked `// B`, `// C`, `// E`, `// F`, etc.). The
+spreadsheet layout is documented at the top of that file.
 
 **Shopify session loops on login**
 `SHOPIFY_APP_URL` in env doesn't match the URL the user is on, or the
-Shopify Partners app entry still points at the Fly URL. Both must say
+Shopify Partners app entry still points at the old URL. Both must say
 `https://APP_DOMAIN` exactly.
 
 ---
 
-## Future: removing `prisma/dev.sqlite` from the repo
+## Maintenance — re-importing catalog later
 
-Once Coolify is live and verified, `prisma/dev.sqlite` can be deleted
-from the repo (it's the only reason `migrate-sqlite-to-postgres.ts`
-exists). The script can be deleted too. Keep them around for now —
-they're cheap and you might want to re-run the migration on a fresh
-test environment.
+Whenever you update the spreadsheet and want the database to catch up
+(new products, renamed brands, fresh CMP):
+
+1. Open `https://APP_DOMAIN/app/google-api`
+2. Click **Import Now** under "Import Catalog from Sheets"
+
+That's it. No CLI, no SSH, no script runs.
+
+## Future cleanup
+
+Once Coolify is verified and you trust the seed flow:
+
+- `prisma/dev.sqlite` and `scripts/dump-catalog-to-sql.ts` can be
+  removed from the repo — the seed file is the source of truth.
+- After the first successful boot, the seed apply on every subsequent
+  restart is a no-op (everything `ON CONFLICT DO NOTHING`'s), so
+  there's no urgency to remove `prisma/seeds/initial-catalog.sql`
+  either.
