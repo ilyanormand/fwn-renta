@@ -1,36 +1,25 @@
 #!/usr/bin/env node
 
 import { spawn } from 'node:child_process'
-import path from 'node:path'
 import fs from 'node:fs'
 
 const env = { ...process.env }
 
-// Create necessary directories on /data volume if it exists
+// Ensure PDF storage directory exists on the persistent volume.
+// Postgres lives in its own service, so we no longer touch DB files here.
 if (fs.existsSync('/data')) {
-  console.log('📁 Setting up /data volume directories...')
-  
-  // Create pdfs directory
   if (!fs.existsSync('/data/pdfs')) {
     fs.mkdirSync('/data/pdfs', { recursive: true })
     console.log('✅ Created /data/pdfs')
   }
-  
-  // Place Sqlite3 database on volume
-  const source = path.resolve('/dev.sqlite')
-  const target = '/data/' + path.basename(source)
-  if (!fs.existsSync(source)) {
-    fs.symlinkSync(target, source)
-    console.log('✅ Created database symlink')
-  }
 } else {
-  console.log('⚠️  /data volume not found, using local storage')
+  console.log('⚠️  /data volume not found, using local storage fallback')
 }
 
-// prepare database
+// Apply database migrations
 await exec('npx prisma migrate deploy')
 
-// launch application
+// Launch the application
 await exec(process.argv.slice(2).join(' '))
 
 function exec(command) {

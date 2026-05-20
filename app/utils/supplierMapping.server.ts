@@ -20,9 +20,10 @@ export async function findProductBySupplierSku(
     where: {
       sku: supplierSku,
       // Optionally filter by brand/supplier if provided
-      ...(supplierName && { 
+      ...(supplierName && {
         brand: {
-          contains: supplierName
+          contains: supplierName,
+          mode: 'insensitive'
         }
       })
     },
