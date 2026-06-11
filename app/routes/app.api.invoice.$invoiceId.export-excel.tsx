@@ -82,6 +82,8 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
     // Get sheets service
     let sheetsService;
     
+    // Excel export only READS the sheet (to build the SKU -> SKU FWN mapping),
+    // so any auth method works — including a plain API key for public sheets.
     if (settings.serviceAccountConfig) {
       const { createServiceAccountServiceFromConfig } = await import("../services/googleSheets.server");
       sheetsService = createServiceAccountServiceFromConfig(settings.serviceAccountConfig);
@@ -89,6 +91,9 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
       const { createOAuth2ServiceFromConfig } = await import("../services/googleSheets.server");
       const tokens = JSON.parse(settings.oauth2Tokens);
       sheetsService = createOAuth2ServiceFromConfig(settings.oauth2Config, tokens.access_token);
+    } else if (settings.apiKey) {
+      const { getGoogleSheetsService } = await import("../services/googleSheets.server");
+      sheetsService = getGoogleSheetsService(settings.apiKey);
     } else {
       return new Response("Google Sheets authentication not configured", { status: 500 });
     }
