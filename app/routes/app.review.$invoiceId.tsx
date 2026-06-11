@@ -437,6 +437,117 @@ export const action = async ({ request, params }: ActionFunctionArgs) => {
   return json({ error: "Invalid action" }, { status: 400 });
 };
 
+// Embedded Shopify apps can't load the authenticated /app/pdf route directly
+// in an <iframe src> — the raw browser request carries no Shopify session
+// token, so it 302s to /auth/login. App Bridge patches window.fetch to attach
+// the token for same-origin app requests, so we fetch the PDF as a blob and
+// render that instead. The same blob backs "Open in New Tab" / "Download".
+function PdfPreview({
+  url,
+  filename,
+}: {
+  url: string | null;
+  filename: string;
+}) {
+  const [blobUrl, setBlobUrl] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!url) {
+      setBlobUrl(null);
+      return;
+    }
+
+    let cancelled = false;
+    let objectUrl: string | null = null;
+    setLoading(true);
+    setError(null);
+
+    fetch(url)
+      .then(async (res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const blob = await res.blob();
+        if (cancelled) return;
+        objectUrl = URL.createObjectURL(blob);
+        setBlobUrl(objectUrl);
+      })
+      .catch((e) => {
+        if (!cancelled) setError(e?.message || "Failed to load PDF");
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
+    };
+  }, [url]);
+
+  return (
+    <>
+      <div
+        style={{
+          height: "400px",
+          border: "1px solid #c9cccf",
+          borderRadius: "4px",
+          overflow: "hidden",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {loading ? (
+          <Spinner accessibilityLabel="Loading PDF" size="large" />
+        ) : error ? (
+          <Box padding="400">
+            <Text as="p" tone="critical">
+              Failed to load PDF: {error}
+            </Text>
+          </Box>
+        ) : blobUrl ? (
+          <iframe
+            src={blobUrl}
+            style={{ width: "100%", height: "100%", border: "none" }}
+            title="PDF Preview"
+            key={blobUrl}
+          />
+        ) : (
+          <Text as="p" tone="subdued">
+            No PDF available
+          </Text>
+        )}
+      </div>
+
+      <InlineStack gap="200">
+        <Button
+          variant="plain"
+          disabled={!blobUrl}
+          onClick={() => {
+            if (blobUrl) window.open(blobUrl, "_blank");
+          }}
+        >
+          Open in New Tab
+        </Button>
+        <Button
+          variant="plain"
+          disabled={!blobUrl}
+          onClick={() => {
+            if (!blobUrl) return;
+            const link = document.createElement("a");
+            link.href = blobUrl;
+            link.download = filename;
+            link.click();
+          }}
+        >
+          Download Original
+        </Button>
+      </InlineStack>
+    </>
+  );
+}
+
 export default function InvoiceReview() {
   const { extractedData, suppliers, hasGoogleSheets, sheetsConfig } = useLoaderData<typeof loader>();
   const actionData = useActionData<typeof action>();
@@ -952,47 +1063,10 @@ export default function InvoiceReview() {
               </Text>
 
               {/* PDF Preview with real file */}
-              <div
-                style={{
-                  height: "400px",
-                  border: "1px solid #c9cccf",
-                  borderRadius: "4px",
-                  overflow: "hidden",
-                }}
-              >
-                <iframe
-                  src={extractedData.pdfUrl || ""}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    border: "none",
-                  }}
-                  title="PDF Preview"
-                  key={extractedData.pdfUrl || ""}
-                  loading="lazy"
-                />
-              </div>
-
-              <InlineStack gap="200">
-                <Button
-                  variant="plain"
-                  url={extractedData.pdfDownloadUrl || ""}
-                  target="_blank"
-                >
-                  Open in New Tab
-                </Button>
-                <Button
-                  variant="plain"
-                  onClick={() => {
-                    const link = document.createElement("a");
-                    link.href = extractedData.pdfDownloadUrl || "";
-                    link.download = extractedData.filename;
-                    link.click();
-                  }}
-                >
-                  Download Original
-                </Button>
-              </InlineStack>
+              <PdfPreview
+                url={extractedData.pdfUrl}
+                filename={extractedData.filename}
+              />
             </BlockStack>
           </Card>
 
